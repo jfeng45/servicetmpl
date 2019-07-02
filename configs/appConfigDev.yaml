@@ -1,0 +1,31 @@
+mySQLConfig: &mySqlConfig
+    code: mysql
+    driverName: mysql
+    dataSourceName: "root:@tcp(localhost:4333)/service_config?charset=utf8"
+    dbName:
+couchdbConfig: &couchdbConfig
+    code: couch
+    driverName: couch
+    dataSourceName: http://admin:admin@localhost:5984
+    dbName: animals
+cacheGrpcConfig: &cacheConfig
+    code: cache
+    grpcName: cache
+    target: localhost:5051
+zapConfig: &zapConfig
+    code: zap
+    level: debug
+    enableCaller: true
+logrusConfig: &logrusConfig
+    code: logrus
+    level: info
+    enableCaller: false
+logConfig: *zapConfig
+useCaseConfig:
+    registration:
+        code: registration
+        userConfig: *mySqlConfig
+    listUser:
+        code: listUser
+        userConfig: *mySqlConfig
+        cacheConfig: *cacheConfig

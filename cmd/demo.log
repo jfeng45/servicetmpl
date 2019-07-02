@@ -1,0 +1,2305 @@
+1.5617052774274104e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617052774284081e+09	info	zap/zap.go:48	
+	1.5617052774328992e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5617052774333982e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5617052774343975e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561705277437391e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617052774393883e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617052774403882e+09	debug	databasefactory/mysqlFactory.go:14	mySqlFactory
+	1.5617052777553005e+09	debug	databasefactory/mysqlFactory.go:27	udm{0xc0000b4300}
+	1.5617052777572966e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5617052777587988e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5617052777617881e+09	debug	userdata/userDataService.go:111	find user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.561705277762287e+09	info	cmd/main.go:101	user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617052777632854e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.561705277763785e+09	debug	appcontainer/listUserFactory.go:32	found RetrieveListUser: key=listUser
+	1.5617052790648677e+09	error	listuser/listUser.go:22	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:22
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:129
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:35
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5617052790658634e+09	info	cmd/main.go:133	find user:<nil>
+	1.5617053257973793e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617053257983775e+09	info	zap/zap.go:48	
+	1.561705325799875e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5617053258013737e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5617053258018708e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=couch
+	1.561705325802869e+09	debug	registry/registry.go:7	getFromRegistry: key=couch
+	1.5617053258038685e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=couch need to craeted a new one
+
+	1.5617053258048654e+09	debug	databasefactory/couchdbFactory.go:16	couchdbFactory
+	1.561705326430702e+09	debug	databasefactory/couchdbFactory.go:33	udc:{0xc000140510}
+	1.5617053264341958e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5617053264346952e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5617053278750165e+09	error	listuser/listUser.go:22	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:22
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:129
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:23
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:13
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5617053278854973e+09	error	couchdb/couchdb.go:30	err:Conflict: Document update conflict.
+
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.createView
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/couchdb.go:30
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.(*UserDataCouchdb).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/couchdb.go:38
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:29
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:129
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:23
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:13
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5617053278864949e+09	debug	couchdb/couchdb.go:32	rev:
+	1.5617053279034638e+09	debug	couchdb/couchdb.go:51	view:{Id:10 Name:Tony Department:IT Created:2018-02-17 15:04:05 -0300 -0300}
+	1.5617053279034638e+09	info	cmd/main.go:133	find user:&{10 Tony IT 2018-02-17 15:04:05 -0300 -0300}
+	1.5617633418287714e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561763341830268e+09	info	zap/zap.go:48	
+	1.5617633418367555e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5617633418372548e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5617633418417678e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5617633418427444e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617633418447483e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617633418457386e+09	debug	databasefactory/mysqlFactory.go:14	mySqlFactory
+	1.5617633421786199e+09	debug	databasefactory/mysqlFactory.go:27	udm{0xc0000b4300}
+	1.5617633421786199e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.561763342181616e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5617633421881027e+09	debug	userdata/userDataService.go:111	find user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617633421886015e+09	info	cmd/main.go:101	user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617633421930954e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5617633421950896e+09	debug	appcontainer/listUserFactory.go:32	found RetrieveListUser: key=listUser
+	1.5617633434939046e+09	error	listuser/listUser.go:22	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:22
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:129
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:35
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5617633435048838e+09	info	cmd/main.go:133	find user:<nil>
+	1.5617867857379708e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617867857394686e+09	info	zap/zap.go:48	
+	1.5617867857409658e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5617867857419639e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5617867857429643e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5617867857434607e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617867857439632e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.561786785744958e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617867860618691e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00015c010}
+	1.5617867860618691e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5617867860648668e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.561786786069355e+09	debug	userdata/userDataService.go:115	find user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617867860698543e+09	info	cmd/main.go:101	user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617874337690349e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617874337715302e+09	info	zap/zap.go:48	
+	1.5617874337745247e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5617874337745247e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5617874337755227e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5617874337760217e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617874337770205e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617874337780192e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617874340944297e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000142010}
+	1.5617874340949314e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5617874340984476e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5617874341019173e+09	debug	userdata/userDataService.go:115	find user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617874341024153e+09	info	cmd/main.go:101	user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.561789133230798e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617891332322958e+09	info	zap/zap.go:48	
+	1.561789133234293e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.561789133234293e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5617891332352908e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5617891332357893e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617891332367887e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617891332372878e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617891335546987e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000006020}
+	1.5617891335551953e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5617891335576906e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5617891335621824e+09	debug	mysql/userDataService.go:115	find user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617891335621824e+09	info	cmd/main.go:101	user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617891941799028e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617891941809006e+09	info	zap/zap.go:48	
+	1.5617891941864116e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5617891941868925e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5617891941873882e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5617891941883876e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617891941923795e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617891941943753e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617891945067973e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000006020}
+	1.5617891945072935e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5617891945092928e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5617891945137818e+09	debug	mysql/userDataMysql.go:115	find user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617891945137818e+09	info	cmd/main.go:101	user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617892551435206e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617892551465144e+09	info	zap/zap.go:48	
+	1.5617892551500268e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5617892551505044e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5617892551510034e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561789255152004e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561789255152504e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.561789255157991e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617892554714093e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc0000901c0}
+	1.5617892554714093e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5617892554739058e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5617892554788952e+09	debug	mysql/userDataMysql.go:115	find user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617892554793932e+09	info	cmd/main.go:101	user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617894972899966e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617894972924917e+09	info	zap/zap.go:48	
+	1.5617894972949872e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.561789497295986e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5617894972969835e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5617894972984807e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617894972984807e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617894972995024e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.561789497619384e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000158010}
+	1.561789497619384e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5617894976208825e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5617894976243753e+09	debug	mysql/userDataMysql.go:115	find user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617894976248744e+09	info	cmd/main.go:103	user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617897377953732e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617897377958724e+09	info	zap/zap.go:48	
+	1.5617897377988677e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5617897377988677e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5617897377998667e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561789737800366e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561789737801364e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617897378018613e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.561789738113347e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc0000901b8}
+	1.5617897381138463e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5617897381163418e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5617897381223333e+09	debug	mysql/userDataMysql.go:115	find user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617897381228302e+09	info	cmd/main.go:103	user list:[{2 Aditi Marketing 2019-06-01 00:00:00 +0000 UTC} {3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5617902225810056e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617902225825083e+09	info	zap/zap.go:48	
+	1.5617902225845e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5617902225849981e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5617902225854971e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5617902225864952e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617902225869944e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617902225874934e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617902229009106e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00016a008}
+	1.561790222917879e+09	debug	mysql/userDataMysql.go:132	update: rows affected: 1
+	1.56179040423363e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617904042346287e+09	info	zap/zap.go:48	
+	1.5617904042381434e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5617904042381434e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5617904042391198e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5617904042396219e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617904042401206e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.561790404241116e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617904045540342e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000170008}
+	1.5617904045565324e+09	debug	mysql/userDataMysql.go:132	update: rows affected: 0
+	1.56179040455703e+09	info	cmd/main.go:138	ModifyAndUnregister succeed
+	1.5617910114244852e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617910114259822e+09	info	zap/zap.go:48	
+	1.561791011427979e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.561791011427979e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5617910114289765e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561791011429479e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617910114304755e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617910114314759e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617910117443922e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000174008}
+	1.5617910117468858e+09	debug	mysql/userDataMysql.go:132	update: rows affected: 0
+	1.561791011747385e+09	info	cmd/main.go:138	ModifyAndUnregister succeed
+	1.5617911868810482e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617911868825467e+09	info	zap/zap.go:48	
+	1.5617911868850434e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5617911868860385e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5617911868870363e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561791186887536e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617911868885336e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617911868895323e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617911872083607e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000158010}
+	1.5617911872093542e+09	debug	transaction/transaction.go:63	transaction begin
+	1.5617911872173407e+09	debug	transaction/transaction.go:102	transaction end
+	1.5617911875301979e+09	debug	mysql/userDataMysql.go:132	update: rows affected: 0
+	1.5617911875316942e+09	debug	transaction/transaction.go:120	error returned from txFuc():: rows affected is 0
+	1.5617911875376909e+09	debug	transaction/transaction.go:112	found error and rollback:: rows affected is 0
+	1.5617911875421746e+09	info	cmd/main.go:157	ModifyAndUnregisterWithTx succeed
+	1.5617933497642062e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617933497657e+09	info	zap/zap.go:48	
+	1.5617933497692149e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5617933497692149e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5617933497701936e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561793349770691e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.56179334977119e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617933497721877e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617933500866034e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000158010}
+	1.5617933500925932e+09	debug	mysql/userDataMysql.go:131	update: rows affected: 1
+	1.5617933500930936e+09	info	cmd/main.go:140	ModifyAndUnregister succeed
+	1.5617934181499083e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617934181519063e+09	info	zap/zap.go:48	
+	1.5617934181548994e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5617934181553996e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5617934181563964e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5617934181568983e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561793418157896e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617934181583953e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617934184718099e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc0000901b0}
+	1.5617934184728112e+09	debug	mysql/userDataMysql.go:131	update: rows affected: 0
+	1.5617934184743054e+09	info	cmd/main.go:140	ModifyAndUnregister succeed
+	1.5617935615406063e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617935615421023e+09	info	zap/zap.go:48	
+	1.5617935615475929e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5617935615475929e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5617935615485902e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5617935615495882e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617935615505862e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617935615555794e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.561793561867996e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000158010}
+	1.561793561869993e+09	debug	mysql/userDataMysql.go:131	update: rows affected: 0
+	1.5617935618719893e+09	info	cmd/main.go:140	ModifyAndUnregister succeed
+	1.5617936964321299e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617936964326284e+09	info	zap/zap.go:48	
+	1.561793696436124e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5617936964366236e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5617936964371204e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5617936964376192e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617936964386177e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617936964396155e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617936967530332e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000006018}
+	1.5617936967565277e+09	debug	mysql/userDataMysql.go:131	update: rows affected: 1
+	1.5617936967580237e+09	debug	mysql/userDataMysql.go:23	in remove 
+	1.56179369676102e+09	debug	mysql/userDataMysql.go:42	remove:row affected 1
+	1.56179369676152e+09	info	cmd/main.go:140	ModifyAndUnregister succeed
+	1.561799436841232e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617994368427308e+09	info	zap/zap.go:48	
+	1.5617994368457258e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5617994368462238e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5617994368477209e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5617994368487198e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617994368497167e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617994368537092e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617994371671264e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc0000901b8}
+	1.5617994371676257e+09	debug	transaction/transaction.go:63	transaction begin
+	1.5617994371701212e+09	debug	transaction/transaction.go:102	transaction end
+	1.5617994371900837e+09	debug	mysql/userDataMysql.go:131	update: rows affected: 0
+	1.5617994371910849e+09	debug	transaction/transaction.go:120	error returned from txFuc():: rows affected is 0
+	1.561799437198069e+09	debug	transaction/transaction.go:112	found error and rollback:: rows affected is 0
+	1.561799437199067e+09	info	cmd/main.go:158	ModifyAndUnregisterWithTx succeed
+	1.561799717205051e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617997172060487e+09	info	zap/zap.go:48	
+	1.561799717211041e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5617997172115383e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5617997172120397e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561799717213037e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561799717213537e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.561799717214535e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617997175334647e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000176008}
+	1.5617997175334647e+09	debug	transaction/transaction.go:63	transaction begin
+	1.5617997175369594e+09	debug	transaction/transaction.go:102	transaction end
+	1.5617997175379572e+09	debug	mysql/userDataMysql.go:131	update: rows affected: 0
+	1.5617997175384552e+09	debug	transaction/transaction.go:120	error returned from txFuc():: rows affected is 0
+	1.561799717539454e+09	debug	transaction/transaction.go:112	found error and rollback:rows affected is 0
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).Update
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:136
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:51
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:74
+github.com/jfeng45/servicetmpl/dataservice/transaction.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/transaction/transaction.go:119
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:225
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:72
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:154
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:41
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:53
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:74
+github.com/jfeng45/servicetmpl/dataservice/transaction.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/transaction/transaction.go:119
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:225
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:72
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:154
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:41
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+	1.5617997175439453e+09	info	cmd/main.go:158	ModifyAndUnregisterWithTx succeed
+	1.5617997919832523e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617997919847593e+09	info	zap/zap.go:48	
+	1.5617997919862435e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5617997919877405e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5617997919887455e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5617997919892552e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617997919902382e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.561799791991254e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.561799792305961e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00015a010}
+	1.5617997923069532e+09	debug	transaction/transaction.go:63	transaction begin
+	1.561799792314947e+09	debug	transaction/transaction.go:102	transaction end
+	1.561799792322932e+09	debug	mysql/userDataMysql.go:131	update: rows affected: 0
+	1.5617997923279154e+09	debug	transaction/transaction.go:120	error returned from txFuc():: rows affected is 0
+	1.5617997923304112e+09	debug	transaction/transaction.go:112	found error and rollback:%!(EXTRA *errors.withStack=: rows affected is 0)
+	1.561799792331409e+09	info	cmd/main.go:158	ModifyAndUnregisterWithTx succeed
+	1.5617999476134288e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617999476139264e+09	info	zap/zap.go:48	
+	1.5617999476164227e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5617999476164227e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.56179994761742e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5617999476189177e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617999476199157e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617999476239083e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617999479370167e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000142010}
+	1.5617999479370167e+09	debug	transaction/transaction.go:63	transaction begin
+	1.5617999479400156e+09	debug	transaction/transaction.go:102	transaction end
+	1.5617999479435103e+09	debug	mysql/userDataMysql.go:131	update: rows affected: 0
+	1.561799947944004e+09	debug	transaction/transaction.go:120	error returned from txFuc():: rows affected is 0
+	1.5617999479445033e+09	debug	transaction/transaction.go:112	found error and rollback:%!(EXTRA *errors.withStack=: rows affected is 0)
+	1.5617999479455028e+09	error	cmd/main.go:156	ModifyAndUnregisterWithTx failed:rows affected is 0
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).Update
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:136
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:51
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:74
+github.com/jfeng45/servicetmpl/dataservice/transaction.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/transaction/transaction.go:119
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:225
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:72
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:154
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:41
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:53
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:74
+github.com/jfeng45/servicetmpl/dataservice/transaction.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/transaction/transaction.go:119
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:225
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:72
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:154
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:41
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:156
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:41
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5617999870759075e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5617999870764067e+09	info	zap/zap.go:48	
+	1.5617999870799212e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5617999870799212e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5617999870799212e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5617999870799212e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5617999870804014e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5617999870804014e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5617999873948176e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000006018}
+	1.5617999873958073e+09	debug	transaction/transaction.go:63	transaction begin
+	1.5617999873973188e+09	debug	transaction/transaction.go:102	transaction end
+	1.561799987400299e+09	debug	mysql/userDataMysql.go:131	update: rows affected: 1
+	1.56179998740131e+09	debug	transaction/transaction.go:120	error returned from txFuc():: : Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'delete1 from userinfo where uid=?' at line 1
+	1.5617999874092886e+09	debug	transaction/transaction.go:112	found error and rollback:%!(EXTRA *errors.withStack=: : Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'delete1 from userinfo where uid=?' at line 1)
+	1.561799987426753e+09	error	cmd/main.go:156	ModifyAndUnregisterWithTx failed:Error 1064: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'delete1 from userinfo where uid=?' at line 1
+
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).Remove
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:28
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:55
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:74
+github.com/jfeng45/servicetmpl/dataservice/transaction.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/transaction/transaction.go:119
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:225
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:72
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:154
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:41
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:57
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:74
+github.com/jfeng45/servicetmpl/dataservice/transaction.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/transaction/transaction.go:119
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:225
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:72
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:154
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:41
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:156
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:41
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5618001400090828e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5618001400095842e+09	info	zap/zap.go:48	
+	1.561800140013078e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5618001400135767e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5618001400145757e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5618001400150735e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5618001400160794e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5618001400165865e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.561800140329061e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00015a010}
+	1.5618001403295603e+09	debug	transaction/transaction.go:63	transaction begin
+	1.5618001403330543e+09	debug	mysql/userDataMysql.go:131	update: rows affected: 1
+	1.561800140334551e+09	debug	mysql/userDataMysql.go:42	remove:row affected 1
+	1.5618001403350492e+09	debug	transaction/transaction.go:113	commit:
+	1.561800140337045e+09	info	cmd/main.go:158	ModifyAndUnregisterWithTx succeed
+	1.5618528403311734e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5618528403321729e+09	info	zap/zap.go:48	
+	1.56185284033417e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.56185284033417e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.56185284033417e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.56185284033417e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.56185284033417e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.56185284033417e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5618528406529891e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000006018}
+	1.5618528406529891e+09	debug	transaction/transaction.go:58	transaction begin
+	1.5618528406620028e+09	debug	mysql/userDataMysql.go:126	update: rows affected: 0
+	1.5618528406620028e+09	debug	transaction/transaction.go:102	found error and rollback:%!(EXTRA *errors.withStack=: rows affected is 0)
+	1.5618528406620028e+09	error	cmd/main.go:156	ModifyAndUnregisterWithTx failed:rows affected is 0
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).Update
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:131
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:47
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:70
+github.com/jfeng45/servicetmpl/dataservice/transaction.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/transaction/transaction.go:109
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:158
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:68
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:154
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:41
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:49
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:70
+github.com/jfeng45/servicetmpl/dataservice/transaction.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/transaction/transaction.go:109
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:158
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:68
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:154
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:41
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:156
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:41
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5618546018484719e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5618546018494716e+09	info	zap/zap.go:48	
+	1.56185460185247e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.56185460185247e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.561854601853469e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5618546018544688e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5618546018554695e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5618546018564672e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5618546021682925e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00015c010}
+	1.5618546021782835e+09	debug	mysql/userDataMysql.go:151	user inserted:&{1 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5618546021792843e+09	info	cmd/main.go:73	new user registered:&{1 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5618546471614797e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5618546471624703e+09	info	zap/zap.go:48	
+	1.5618546471644704e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5618546471644704e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5618546471654713e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5618546471654713e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5618546471664703e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5618546471674674e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5618546474782903e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00016a008}
+	1.5618546474792886e+09	error	cmd/main.go:72	user registration failed:duplicate user for Richard
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).RegisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:20
+main.testRegisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:70
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:36
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testRegisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:72
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:36
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5618546837304873e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561854683731489e+09	info	zap/zap.go:48	
+	1.5618546837344844e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5618546837344844e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.561854683735484e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561854683736483e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561854683736483e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5618546837374825e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5618546840493052e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00015a010}
+	1.5618550590657074e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5618550590667052e+09	info	zap/zap.go:48	
+	1.5618550590697033e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5618550590697033e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5618550590707023e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5618550590707023e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561855059071702e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5618550590727038e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5618550593835227e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc0000901b8}
+	1.5618550593845224e+09	debug	mysql/userDataMysql.go:37	remove:row affected 0
+	1.561855059386521e+09	fatal	cmd/main.go:55	testUnregister failed:UnregisterUser failed. No such user Peter
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).UnregisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:47
+main.testUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:53
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:38
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:55
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:38
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5618551454183843e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5618551454193838e+09	info	zap/zap.go:48	
+	1.561855145422383e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.561855145422383e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5618551454234025e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561855145424384e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561855145425402e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5618551454263804e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5618551457422006e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000160008}
+	1.5618551457442005e+09	debug	mysql/userDataMysql.go:37	remove:row affected 0
+	1.5618551457502034e+09	fatal	cmd/main.go:55	testUnregister failed:UnregisterUser failed. No such user Richard
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).UnregisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:47
+main.testUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:53
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:38
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:55
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:38
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5618557751776333e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561855775178632e+09	info	zap/zap.go:48	
+	1.5618557751806307e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5618557751816325e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5618557751826296e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561855775183629e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561855775183629e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5618557751846285e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.56185577549645e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00015a010}
+	1.5618557755004473e+09	debug	mysql/userDataMysql.go:151	user inserted:&{2 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5618557755004473e+09	info	cmd/main.go:74	new user registered:&{2 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5618557903899038e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561855790391902e+09	info	zap/zap.go:48	
+	1.561855790392902e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5618557903939013e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5618557903939013e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5618557903949003e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5618557903959002e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5618557903959002e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5618557907087207e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc0000901c0}
+	1.5618557907097201e+09	debug	mysql/userDataMysql.go:36	remove:row affected 0
+	1.5618557907117188e+09	fatal	cmd/main.go:55	testUnregister failed:UnregisterUser failed. No such user Richard
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).UnregisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:47
+main.testUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:53
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:38
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:55
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:38
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5618560127618673e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5618560127628644e+09	info	zap/zap.go:48	
+	1.561856012764863e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.561856012765862e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.561856012765862e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5618560127668622e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5618560127678607e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5618560127678607e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.561856013081685e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000006020}
+	1.561856013083681e+09	debug	mysql/userDataMysql.go:36	remove:row affected 1
+	1.5618560130846794e+09	info	cmd/main.go:57	testUnregister successully
+	1.5618645260494215e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5618645260504215e+09	info	zap/zap.go:48	
+	1.561864526053418e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.561864526053418e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5618645260544178e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561864526055417e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561864526056417e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5618645260574164e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5618645263692389e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000160010}
+	1.5618645263702357e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5618645263722346e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5618645263832316e+09	debug	mysql/userDataMysql.go:110	find user list:[]
+	1.5618645263832316e+09	info	cmd/main.go:105	user list:[]
+	1.561864526384228e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5618645263862312e+09	debug	appcontainer/listUserFactory.go:32	found RetrieveListUser: key=listUser
+	1.5618645277074893e+09	error	listuser/listUser.go:22	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:22
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:169
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:35
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5618645277084677e+09	info	cmd/main.go:173	find user:<nil>
+	1.5618645831266696e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5618645831276712e+09	info	zap/zap.go:48	
+	1.561864583129672e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5618645831306689e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5618645831316657e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5618645831326683e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5618645831326683e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5618645831336672e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5618645834454858e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00015a010}
+	1.5618645834494867e+09	debug	mysql/userDataMysql.go:154	user inserted:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5618645834494867e+09	info	cmd/main.go:74	new user registered:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.561864622540053e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561864622541074e+09	info	zap/zap.go:48	
+	1.56186462254405e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.56186462254405e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.561864622545051e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561864622545051e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5618646225460513e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5618646225470512e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5618646228588698e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00015a010}
+	1.5618646228588698e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5618646228608694e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5618646228658657e+09	debug	mysql/userDataMysql.go:110	find user list:[{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5618646228658657e+09	info	cmd/main.go:105	user list:[{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5618646228658657e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5618646228668652e+09	debug	appcontainer/listUserFactory.go:32	found RetrieveListUser: key=listUser
+	1.5618646241701384e+09	error	listuser/listUser.go:22	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:22
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:169
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:35
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5618646241731157e+09	debug	mysql/userDataMysql.go:62	find user:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5618646241761374e+09	info	cmd/main.go:173	find user:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.561938985404738e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561938985405739e+09	info	zap/zap.go:48	
+	1.5619389854077363e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5619389854077363e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5619389854087353e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561938985409737e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561938985409737e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619389854157312e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619389857295542e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000170008}
+	1.561938985730551e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.561938985732552e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.561938985737547e+09	debug	mysql/userDataMysql.go:109	find user list:[{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.561938985737547e+09	info	cmd/main.go:105	user list:[{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.561938985738546e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.561938985738546e+09	debug	appcontainer/listUserFactory.go:32	found RetrieveListUser: key=listUser
+	1.561938987200709e+09	error	listuser/listUser.go:22	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:22
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:169
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:35
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5619389872117038e+09	debug	mysql/userDataMysql.go:61	find user:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5619389872117038e+09	info	cmd/main.go:173	find user:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5619399269774532e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561939926978452e+09	info	zap/zap.go:48	
+	1.5619399269804494e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5619399269814503e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5619399269824483e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561939926983449e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561939926983449e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619399269844472e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.561939927298269e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000164008}
+	1.561939927298269e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5619399273002682e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5619399273072624e+09	debug	mysql/userDataMysql.go:109	find user list:[{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5619399273072624e+09	info	cmd/main.go:105	user list:[{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5619399273082619e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5619399273112621e+09	debug	appcontainer/listUserFactory.go:32	found RetrieveListUser: key=listUser
+	1.5619399288004057e+09	error	listuser/listUser.go:22	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:22
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:169
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:35
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5619399288014052e+09	debug	mysql/userDataMysql.go:61	find user:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5619399288084006e+09	info	cmd/main.go:173	find user:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5619401060634632e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619401060654607e+09	info	zap/zap.go:48	
+	1.5619401060674603e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5619401060684607e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5619401060684607e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619401060694597e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619401060704591e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.561940106071458e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.561940106383279e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00015a010}
+	1.561940106383279e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5619401063852818e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5619401063912745e+09	debug	mysql/userDataMysql.go:109	find user list:[{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5619401063912745e+09	info	cmd/main.go:105	user list:[{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.561940106392274e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.561940106393276e+09	debug	appcontainer/listUserFactory.go:32	found RetrieveListUser: key=listUser
+	1.5619401078004668e+09	error	listuser/listUser.go:22	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:22
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:169
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:35
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.561940107801465e+09	debug	mysql/userDataMysql.go:61	find user:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5619401078074644e+09	info	cmd/main.go:173	find user:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5619401837089088e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619401837089088e+09	info	zap/zap.go:48	
+	1.5619401837099082e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5619401837099082e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5619401837099082e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619401837109084e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619401837109084e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619401837109084e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619401840217292e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00015a010}
+	1.5619401840227287e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5619401840227287e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5619401840247276e+09	debug	mysql/userDataMysql.go:109	find user list:[{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5619401840247276e+09	info	cmd/main.go:105	user list:[{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}]
+	1.5619401840257275e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5619401840257275e+09	debug	appcontainer/listUserFactory.go:32	found RetrieveListUser: key=listUser
+	1.5619401853289807e+09	error	listuser/listUser.go:22	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:22
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:169
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:35
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5619401853299806e+09	debug	mysql/userDataMysql.go:61	find user:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5619401853329785e+09	info	cmd/main.go:173	find user:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5619432171557255e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619432171577234e+09	info	zap/zap.go:48	
+	1.5619432171587238e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5619432171597266e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5619432171607246e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561943217161724e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619432171627235e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619432171637235e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.561943217479539e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000170008}
+	1.561943217480538e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5619432174825368e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5619432189147186e+09	error	listuser/listUser.go:22	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:22
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:169
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:35
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5619432189237127e+09	debug	mysql/userDataMysql.go:68	rows to User:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5619432189247096e+09	info	cmd/main.go:173	find user:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5619432370952833e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561943237097282e+09	info	zap/zap.go:48	
+	1.561943237100284e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.561943237100284e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.5619432371012805e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.56194323710228e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619432371032798e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619432371042786e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619432374160986e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00016a008}
+	1.5619432374171023e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.5619432374190974e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5619432387263684e+09	error	listuser/listUser.go:22	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:22
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:169
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:35
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5619432387273493e+09	info	cmd/main.go:173	find user:<nil>
+	1.561951287002405e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561951287004402e+09	info	zap/zap.go:48	
+	1.5619512870074008e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619512870074008e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619512870083983e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619512870094016e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561951287010397e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619512870113983e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619512873242164e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000166008}
+	1.561951287334214e+09	debug	mysql/userDataMysql.go:68	rows to User:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.561951287334214e+09	error	cmd/main.go:72	user registration failed:duplicate user for Richard
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).RegisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:20
+main.testRegisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:70
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:36
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testRegisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:72
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:36
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.56195152009565e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619515200986483e+09	info	zap/zap.go:48	
+	1.5619515201006472e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619515201006472e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619515201016462e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561951520102646e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619515201036448e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619515201046443e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619515204214625e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00015c008}
+	1.5619515204264622e+09	debug	mysql/userDataMysql.go:145	user inserted:&{4 Tony IT 2018-12-09 00:00:00 +0000 UTC}
+	1.5619515204264622e+09	info	cmd/main.go:75	new user registered:&{4 Tony IT 2018-12-09 00:00:00 +0000 UTC}
+	1.5619516271042492e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619516271052496e+09	info	zap/zap.go:48	
+	1.561951627106247e+09	debug	registry/registry.go:7	getFromRegistry: key=listUser
+	1.5619516271072466e+09	debug	appcontainer/listUserFactory.go:36	doesn't find key=listUser need to created a new one
+
+	1.561951627108245e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619516271092472e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619516271102455e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619516271112428e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619516274240632e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000006020}
+	1.5619516274240632e+09	debug	registry/registry.go:7	getFromRegistry: key=cache
+	1.561951627428063e+09	debug	appcontainer/cacheFactory.go:34	doesn't find key=%v need to created a new one
+cache
+	1.5619516274320586e+09	debug	mysql/userDataMysql.go:68	rows to User:&{3 Richard finance 2018-12-09 00:00:00 +0000 UTC}
+	1.5619516274330585e+09	debug	mysql/userDataMysql.go:68	rows to User:&{4 Tony IT 2018-12-09 00:00:00 +0000 UTC}
+	1.56195162743406e+09	debug	mysql/userDataMysql.go:103	find user list:[{3 Richard finance 2018-12-09 00:00:00 +0000 UTC} {4 Tony IT 2018-12-09 00:00:00 +0000 UTC}]
+	1.5619516274350657e+09	info	cmd/main.go:106	user list:[{3 Richard finance 2018-12-09 00:00:00 +0000 UTC} {4 Tony IT 2018-12-09 00:00:00 +0000 UTC}]
+	1.5619661017238162e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619661017248154e+09	info	zap/zap.go:48	
+	1.5619661017278137e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.561966101728814e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619661017298152e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619661017308145e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619661017318132e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619661017318132e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619661020516303e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc0000901b0}
+	1.5619661020516303e+09	error	cmd/main.go:75	user registration failed:created: cannot be blank; username: cannot be blank.
+
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).RegisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:17
+main.testRegisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:73
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:36
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testRegisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:75
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:36
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5619661636452851e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561966163646286e+09	info	zap/zap.go:48	
+	1.5619661636503017e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619661636503017e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619661636512833e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619661636522827e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.56196616365328e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.56196616365328e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619661639661016e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc0000901b8}
+	1.5619661639661016e+09	error	cmd/main.go:75	user registration failed:created: cannot be blank; username: cannot be blank.
+user validation failed
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).RegisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:17
+main.testRegisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:73
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:36
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testRegisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:75
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:36
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5619710125041304e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561971012505129e+09	info	zap/zap.go:48	
+	1.5619710125081267e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619710125081267e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619710125101256e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561971012511125e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561971012511125e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619710125121243e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619710128279436e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000158010}
+	1.5619710128419359e+09	debug	mysql/userDataMysql.go:68	rows to User:&{4 Tony IT 2018-12-09 00:00:00 +0000 UTC}
+	1.561971012843936e+09	error	cmd/main.go:76	user registration failed:duplicate user for Tony
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).RegisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:24
+main.testRegisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:74
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:36
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testRegisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:76
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:36
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.561971046264757e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619710462657583e+09	info	zap/zap.go:48	
+	1.5619710462677557e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619710462687547e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619710462687547e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561971046269757e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561971046270756e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619710462717547e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619710465835738e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000006018}
+	1.5619710465885713e+09	debug	mysql/userDataMysql.go:145	user inserted:&{5 Anshu IT 2018-12-09 00:00:00 +0000 UTC}
+	1.5619710465885713e+09	info	cmd/main.go:79	new user registered:&{5 Anshu IT 2018-12-09 00:00:00 +0000 UTC}
+	1.561971135847354e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619711358483555e+09	info	zap/zap.go:48	
+	1.561971135850353e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619711358513508e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.561971135852351e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.56197113585335e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619711358543491e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.561971135855349e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619711361661696e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000006018}
+	1.561971136167171e+09	info	cmd/main.go:96	Modify user failed:uid: cannot be blank.
+user validation failed
+github.com/jfeng45/servicetmpl/usecase/registration.modifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:42
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:36
+main.testModifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:94
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:37
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+	1.5619711361711698e+09	info	cmd/main.go:98	user modified:{0 Brian HR 2019-12-01 00:00:00 +0000 UTC}
+	1.5619711802960768e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561971180297075e+09	info	zap/zap.go:48	
+	1.5619711802990758e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619711803000898e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619711803010926e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619711803020747e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619711803030715e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619711803040705e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.561971180617893e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00015c010}
+	1.561971180618891e+09	info	cmd/main.go:96	Modify user failed:username: cannot be blank.
+user validation failed
+github.com/jfeng45/servicetmpl/usecase/registration.modifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:42
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:36
+main.testModifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:94
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:37
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+	1.561971180620891e+09	info	cmd/main.go:98	user modified:{1  HR 2019-12-01 00:00:00 +0000 UTC}
+	1.5619711973213775e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619711973223758e+09	info	zap/zap.go:48	
+	1.5619711973243752e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619711973253865e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.561971197326394e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619711973273942e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619711973283722e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619711973283722e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619711976421933e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc0000901b8}
+	1.5619711976441941e+09	debug	mysql/userDataMysql.go:124	update: rows affected: 0
+	1.5619711976481898e+09	info	cmd/main.go:98	user modified:{1 Brian HR 2019-12-01 00:00:00 +0000 UTC}
+	1.5619713950756133e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619713950765903e+09	info	zap/zap.go:48	
+	1.5619713950795894e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619713950805886e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619713950815883e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619713950815883e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561971395082588e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619713950835907e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619713953994088e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000006020}
+	1.5619713954024146e+09	debug	mysql/userDataMysql.go:124	update: rows affected: 0
+	1.5619713954064105e+09	info	cmd/main.go:96	Modify user failed:Modify user failed. rows affected is 0
+github.com/jfeng45/servicetmpl/usecase/registration.modifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:49
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:36
+main.testModifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:94
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:37
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+	1.5619713954074023e+09	info	cmd/main.go:98	user modified:{1 Brian HR 2019-12-01 00:00:00 +0000 UTC}
+	1.5619714758454547e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619714758464527e+09	info	zap/zap.go:48	
+	1.5619714758494523e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619714758494523e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619714758504503e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619714758504503e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619714758514495e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.561971475852449e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619714761692705e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00015e010}
+	1.5619714761742668e+09	debug	mysql/userDataMysql.go:124	update: rows affected: 0
+	1.5619714761762645e+09	info	cmd/main.go:96	Modify user failed:Modify user failed. rows affected is 0
+github.com/jfeng45/servicetmpl/usecase/registration.modifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:49
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:36
+main.testModifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:94
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:37
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+	1.561971512588482e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561971512589479e+09	info	zap/zap.go:48	
+	1.5619715125914803e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619715125925066e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.561971512593478e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619715125944757e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561971512595475e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.561971512595475e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619715129082966e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc0000901b0}
+	1.5619715129122934e+09	debug	mysql/userDataMysql.go:124	update: rows affected: 1
+	1.5619715129142928e+09	info	cmd/main.go:98	user modified succeed:{3 Brian HR 2019-12-01 00:00:00 +0000 UTC}
+	1.5619716815317814e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619716815337803e+09	info	zap/zap.go:48	
+	1.5619716815367804e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619716815377777e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619716815377777e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561971681538779e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619716815397778e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619716815407772e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619716818525965e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000144010}
+	1.5619716818525965e+09	info	cmd/main.go:148	ModifyAndUnregister succeed
+	1.5619720894733498e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619720894743488e+09	info	zap/zap.go:48	
+	1.5619720894763482e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.561972089477347e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619720894783466e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619720894793456e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619720894793456e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619720894803452e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.561972089794167e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00015e008}
+	1.5619720897951646e+09	debug	registration/registraton.go:93	modifyAndUnregister
+	1.5619720897971654e+09	debug	registration/registraton.go:41	modifyAndUnregister
+	1.5619720898001616e+09	info	cmd/main.go:148	ModifyAndUnregister succeed
+	1.561972156364966e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561972156364966e+09	info	zap/zap.go:48	
+	1.5619721563679645e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.561972156368964e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.561972156369963e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561972156369963e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619721563709621e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619721563719625e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619721566837823e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000158010}
+	1.5619721566837823e+09	debug	registration/registraton.go:93	modifyAndUnregister
+	1.561972156686784e+09	debug	registration/registraton.go:41	modifyUser
+	1.561972156688782e+09	error	cmd/main.go:146	ModifyAndUnregister failed:uid: cannot be blank.
+user validation failed
+github.com/jfeng45/servicetmpl/usecase/registration.modifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:44
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:94
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:107
+main.testModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:144
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:96
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:107
+main.testModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:144
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:146
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5619722475156653e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619722475156653e+09	info	zap/zap.go:48	
+	1.5619722475166612e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619722475166612e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619722475176606e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619722475176606e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619722475176606e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619722475176606e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619722478304825e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000174008}
+	1.5619722478324814e+09	debug	mysql/userDataMysql.go:124	update: rows affected: 0
+	1.561972247833482e+09	error	cmd/main.go:146	ModifyAndUnregister failed:Modify user failed. rows affected is 0
+github.com/jfeng45/servicetmpl/usecase/registration.modifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:50
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:93
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:106
+main.testModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:144
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:95
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:106
+main.testModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:144
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:146
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5619722945946484e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619722945956502e+09	info	zap/zap.go:48	
+	1.5619722945986474e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619722945996454e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619722945996454e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561972294600645e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561972294601648e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619722946026459e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619722949164631e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000144010}
+	1.561972294920463e+09	debug	mysql/userDataMysql.go:124	update: rows affected: 1
+	1.561972294922462e+09	debug	mysql/userDataMysql.go:36	remove:row affected 2
+	1.561972294922462e+09	error	cmd/main.go:146	ModifyAndUnregister failed:UnregisterUser failed. Number of users unregistered are  2
+github.com/jfeng45/servicetmpl/usecase/registration.unregisterUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:83
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:97
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:106
+main.testModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:144
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:99
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:106
+main.testModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:144
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:146
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5619723563342206e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619723563352203e+09	info	zap/zap.go:48	
+	1.561972356336221e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.561972356337221e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.561972356337221e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.561972356337221e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561972356337221e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619723563392184e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619723566540377e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc0000901c0}
+	1.5619723566560383e+09	debug	mysql/userDataMysql.go:124	update: rows affected: 0
+	1.5619723566580367e+09	error	cmd/main.go:146	ModifyAndUnregister failed:Modify user failed. rows affected is 0
+github.com/jfeng45/servicetmpl/usecase/registration.modifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:50
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:93
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:106
+main.testModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:144
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:95
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:106
+main.testModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:144
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:146
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5619734862821393e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5619734862841425e+09	info	zap/zap.go:48	
+	1.5619734862861369e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619734862861369e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619734862871382e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619734862881377e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619734862891364e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619734862891364e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619734866039565e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000178008}
+	1.5619734866049538e+09	debug	mysql/userDataMysql.go:124	update: rows affected: 0
+	1.5619734866069546e+09	error	cmd/main.go:146	ModifyAndUnregister failed:Modify user failed. rows affected is 0
+github.com/jfeng45/servicetmpl/usecase/registration.modifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registrationHelper.go:21
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registrationHelper.go:47
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:54
+main.testModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:144
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registrationHelper.go:49
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:54
+main.testModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:144
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testModifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:146
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.561973599656555e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561973599656555e+09	info	zap/zap.go:48	
+	1.5619735996606078e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619735996615577e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619735996625516e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619735996635504e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.5619735996645525e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5619735996695476e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5619735999813724e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc00015c010}
+	1.561973599988366e+09	debug	mysql/userDataMysql.go:124	update: rows affected: 1
+	1.5619735999913762e+09	debug	mysql/userDataMysql.go:36	remove:row affected 1
+	1.561973599992378e+09	info	cmd/main.go:148	ModifyAndUnregister succeed
+	1.5619834956457553e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.561983495647761e+09	info	zap/zap.go:48	
+	1.5619834956497536e+09	debug	registry/registry.go:7	getFromRegistry: key=registration
+	1.5619834956507537e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5619834956507537e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5619834956517527e+09	debug	registry/registry.go:7	getFromRegistry: key=mysql
+	1.561983495652752e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.561983495653751e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.56198349596857e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000158008}
+	1.5619834959695706e+09	debug	transaction/transaction.go:58	transaction begin
+	1.5619834959735677e+09	debug	mysql/userDataMysql.go:124	update: rows affected: 0
+	1.5619834959745717e+09	debug	transaction/transaction.go:102	found error and rollback:%!(EXTRA *errors.withStack=: Modify user failed. rows affected is 0)
+	1.5619834959755666e+09	error	cmd/main.go:164	ModifyAndUnregisterWithTx failed:Modify user failed. rows affected is 0
+github.com/jfeng45/servicetmpl/usecase/registration.modifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registrationHelper.go:21
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registrationHelper.go:47
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:64
+github.com/jfeng45/servicetmpl/dataservice/transaction.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/transaction/transaction.go:109
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:150
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:62
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:162
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:41
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registrationHelper.go:49
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:64
+github.com/jfeng45/servicetmpl/dataservice/transaction.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/transaction/transaction.go:109
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:150
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:62
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:162
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:41
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:164
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:41
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.562021509858908e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5620215098599048e+09	info	zap/zap.go:48	
+	1.562021509861904e+09	debug	registry/registry.go:9	getFromRegistry: key=registration
+	1.562021509861904e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5620215098629038e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5620215098639026e+09	debug	registry/registry.go:9	getFromRegistry: key=mysql
+	1.5620215098649006e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5620215098659012e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5620215101857152e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000168008}
+	1.5620215101857152e+09	debug	transaction/transaction.go:58	transaction begin
+	1.5620215101987083e+09	debug	mysql/userDataMysql.go:123	update: rows affected: 0
+	1.5620215101987083e+09	debug	transaction/transaction.go:102	found error and rollback:%!(EXTRA *errors.withStack=: Modify user failed. rows affected is 0)
+	1.5620215101997101e+09	error	cmd/main.go:163	ModifyAndUnregisterWithTx failed:Modify user failed. rows affected is 0
+github.com/jfeng45/servicetmpl/usecase/registration.modifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registrationHelper.go:21
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registrationHelper.go:47
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:66
+github.com/jfeng45/servicetmpl/dataservice/transaction.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/transaction/transaction.go:109
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:149
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:64
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:161
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:11
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registrationHelper.go:49
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:66
+github.com/jfeng45/servicetmpl/dataservice/transaction.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/transaction/transaction.go:109
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:149
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:64
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:161
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:11
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:163
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:11
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5620450249885454e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5620450249885454e+09	info	zap/zap.go:48	
+	1.5620450249905457e+09	debug	registry/registry.go:9	getFromRegistry: key=registration
+	1.5620450249905457e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.562045024992544e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.562045024992544e+09	debug	registry/registry.go:9	getFromRegistry: key=mysql
+	1.5620450249935434e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.5620450249945424e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5620450253193576e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc0000901b8}
+	1.562045025335347e+09	debug	mysql/userDataMysql.go:125	update: rows affected: 0
+	1.562045025336346e+09	debug	gdbc/transaction.go:54	found error and rollback:%!(EXTRA *errors.withStack=: Modify user failed. rows affected is 0)
+	1.5620450253383448e+09	error	cmd/main.go:163	ModifyAndUnregisterWithTx failed:Modify user failed. rows affected is 0
+github.com/jfeng45/servicetmpl/usecase/registration.modifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registrationHelper.go:21
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registrationHelper.go:47
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:70
+github.com/jfeng45/servicetmpl/dataservice/gdbc.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/gdbc/transaction.go:61
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:151
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:68
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:161
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:11
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registrationHelper.go:49
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:70
+github.com/jfeng45/servicetmpl/dataservice/gdbc.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/gdbc/transaction.go:61
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:151
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:68
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:161
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:11
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:163
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:11
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.562047968969197e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5620479689701962e+09	info	zap/zap.go:48	
+	1.5620479689731946e+09	debug	registry/registry.go:9	getFromRegistry: key=registration
+	1.5620479689741943e+09	debug	appcontainer/registrationFactory.go:35	doesn't find key=registration need to created a new one
+
+	1.5620479689781919e+09	debug	databasefactory/databaseFactory.go:31	RetrieveUserData: dbc.driverName=mysql
+	1.5620479689781919e+09	debug	registry/registry.go:9	getFromRegistry: key=mysql
+	1.5620479689801905e+09	debug	databasefactory/databaseFactory.go:38	doesn't find key=mysql need to craeted a new one
+
+	1.56204796898219e+09	debug	databasefactory/mysqlFactory.go:15	mySqlFactory
+	1.5620479693050053e+09	debug	databasefactory/mysqlFactory.go:29	uts{0xc000158010}
+	1.5620479693110023e+09	debug	mysql/userDataMysql.go:125	update: rows affected: 0
+	1.5620479693110023e+09	debug	gdbc/transaction.go:54	found error and rollback:%!(EXTRA *errors.withStack=: Modify user failed. rows affected is 0)
+	1.5620479693120005e+09	error	cmd/main.go:163	ModifyAndUnregisterWithTx failed:Modify user failed. rows affected is 0
+github.com/jfeng45/servicetmpl/usecase/registration.modifyUser
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registrationHelper.go:21
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registrationHelper.go:47
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:70
+github.com/jfeng45/servicetmpl/dataservice/gdbc.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/gdbc/transaction.go:61
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:151
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:68
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:161
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:11
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+github.com/jfeng45/servicetmpl/usecase/registration.modifyAndUnregister
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registrationHelper.go:49
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx.func1
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:70
+github.com/jfeng45/servicetmpl/dataservice/gdbc.(*ConnTx).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/gdbc/transaction.go:61
+github.com/jfeng45/servicetmpl/dataservice/userdata/mysql.(*DBTxStore).TxEnd
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/mysql/userDataMysql.go:151
+github.com/jfeng45/servicetmpl/usecase/registration.(*RegistrationUseCase).ModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/registration/registraton.go:68
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:161
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:11
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testModifyAndUnregisterWithTx
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:163
+main.testMySql
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:40
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:11
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5620511338755996e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5620511338765972e+09	info	zap/zap.go:48	
+	1.562051133877598e+09	debug	registry/registry.go:11	getFromRegistry: key=listUser
+	1.562051133878596e+09	debug	appcontainer/listUserFactory.go:40	doesn't find key=listUser need to created a new one
+
+	1.562051133878596e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=couch
+	1.5620511338795967e+09	debug	registry/registry.go:11	getFromRegistry: key=couch
+	1.5620511338815954e+09	debug	databasefactory/databaseFactory.go:51	doesn't find key=couch need to craeted a new one
+
+	1.5620511338835957e+09	debug	databasefactory/couchdbFactory.go:19	couchdbFactory
+	1.5620511348110616e+09	debug	databasefactory/couchdbFactory.go:37	udc:{0xc0001b4450}
+	1.5620511348110616e+09	debug	registry/registry.go:11	getFromRegistry: key=cache
+	1.5620511348140597e+09	debug	appcontainer/cacheFactory.go:37	doesn't find key=%v need to created a new one
+cache
+	1.5620511361243093e+09	error	listuser/listUser.go:28	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:28
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:175
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5620511361812763e+09	error	couchdb/userDataCouchdb.go:32	err:Conflict: Document update conflict.
+
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.createView
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/userDataCouchdb.go:32
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.(*UserDataCouchdb).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/userDataCouchdb.go:40
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:35
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:175
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5620511361812763e+09	debug	couchdb/userDataCouchdb.go:34	rev:
+	1.5620511364241354e+09	debug	couchdb/userDataCouchdb.go:53	view:{Id:0 Name: Department: Created:0001-01-01 00:00:00 +0000 UTC}
+	1.5620511364261353e+09	info	cmd/main.go:179	find user:&{0   0001-01-01 00:00:00 +0000 UTC}
+	1.5620517098590925e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.562051709860092e+09	info	zap/zap.go:48	
+	1.5620517098700864e+09	debug	registry/registry.go:11	getFromRegistry: key=listUser
+	1.5620517098710842e+09	debug	appcontainer/listUserFactory.go:40	doesn't find key=listUser need to created a new one
+
+	1.562051709872085e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=couch
+	1.5620517098740869e+09	debug	registry/registry.go:11	getFromRegistry: key=couch
+	1.562051709875082e+09	debug	databasefactory/databaseFactory.go:51	doesn't find key=couch need to craeted a new one
+
+	1.562051709875082e+09	debug	databasefactory/couchdbFactory.go:19	couchdbFactory
+	1.5620517105107188e+09	debug	databasefactory/couchdbFactory.go:37	udc:{0xc000140750}
+	1.5620517105107188e+09	debug	registry/registry.go:11	getFromRegistry: key=cache
+	1.5620517105137165e+09	debug	appcontainer/cacheFactory.go:37	doesn't find key=%v need to created a new one
+cache
+	1.5620517118229651e+09	error	listuser/listUser.go:28	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:28
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:175
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5620517118369577e+09	error	couchdb/userDataCouchdb.go:32	err:Conflict: Document update conflict.
+
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.createView
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/userDataCouchdb.go:32
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.(*UserDataCouchdb).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/userDataCouchdb.go:40
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:35
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:175
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5620517118409548e+09	debug	couchdb/userDataCouchdb.go:34	rev:
+	1.562051711906917e+09	debug	couchdb/userDataCouchdb.go:53	view:{Id:12 Name:Kit Department:Engineering Created:2016-11-05 15:04:05 -0300 -0300}
+	1.5620517119079168e+09	info	cmd/main.go:179	find user:&{12 Kit Engineering 2016-11-05 15:04:05 -0300 -0300}
+	1.5620519243230305e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5620519243230305e+09	info	zap/zap.go:48	
+	1.5620519243280263e+09	debug	registry/registry.go:11	getFromRegistry: key=listUser
+	1.5620519243290262e+09	debug	appcontainer/listUserFactory.go:40	doesn't find key=listUser need to created a new one
+
+	1.5620519243300254e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=couch
+	1.5620519243310254e+09	debug	registry/registry.go:11	getFromRegistry: key=couch
+	1.5620519243360217e+09	debug	databasefactory/databaseFactory.go:51	doesn't find key=couch need to craeted a new one
+
+	1.562051924337021e+09	debug	databasefactory/couchdbFactory.go:19	couchdbFactory
+	1.5620519249596646e+09	debug	databasefactory/couchdbFactory.go:37	udc:{0xc00014a570}
+	1.562051924961665e+09	debug	registry/registry.go:11	getFromRegistry: key=cache
+	1.562051924964661e+09	debug	appcontainer/cacheFactory.go:37	doesn't find key=%v need to created a new one
+cache
+	1.5620519264108334e+09	error	listuser/listUser.go:28	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:28
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:175
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5620519264198272e+09	error	couchdb/userDataCouchdb.go:32	err:Conflict: Document update conflict.
+
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.createView
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/userDataCouchdb.go:32
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.(*UserDataCouchdb).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/userDataCouchdb.go:40
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:35
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:175
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5620519264198272e+09	debug	couchdb/userDataCouchdb.go:34	rev:
+	1.5620519264468126e+09	debug	couchdb/userDataCouchdb.go:53	view:{Id:12 Name:Kit Department:Engineering Created:2016-11-05 15:04:05 -0300 -0300}
+	1.5620519264468126e+09	info	cmd/main.go:179	find user:&{12 Kit Engineering 2016-11-05 15:04:05 -0300 -0300}
+	1.5620522394102328e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.562052239413227e+09	info	zap/zap.go:48	
+	1.5620522394162254e+09	debug	registry/registry.go:11	getFromRegistry: key=listUser
+	1.5620522394162254e+09	debug	appcontainer/listUserFactory.go:40	doesn't find key=listUser need to created a new one
+
+	1.5620522394172268e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=couch
+	1.5620522394182267e+09	debug	registry/registry.go:11	getFromRegistry: key=couch
+	1.562052239419223e+09	debug	databasefactory/databaseFactory.go:51	doesn't find key=couch need to craeted a new one
+
+	1.5620522394202244e+09	debug	databasefactory/couchdbFactory.go:19	couchdbFactory
+	1.5620522400478654e+09	debug	databasefactory/couchdbFactory.go:37	udc:{0xc000106f00}
+	1.5620522400478654e+09	debug	registry/registry.go:11	getFromRegistry: key=cache
+	1.5620522400508623e+09	debug	appcontainer/cacheFactory.go:37	doesn't find key=%v need to created a new one
+cache
+	1.5620522413631089e+09	error	listuser/listUser.go:28	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:28
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:176
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.562052241372103e+09	error	couchdb/userDataCouchdb.go:33	err:Conflict: Document update conflict.
+
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.createView
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/userDataCouchdb.go:33
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.(*UserDataCouchdb).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/userDataCouchdb.go:41
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:35
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:176
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5620522413731031e+09	debug	couchdb/userDataCouchdb.go:35	rev:
+	1.5620522413880932e+09	debug	couchdb/userDataCouchdb.go:54	view:<nil>
+	1.5620522413890958e+09	info	cmd/main.go:180	find user:<nil>
+	1.5620522601023552e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5620522601033542e+09	info	zap/zap.go:48	
+	1.5620522601053534e+09	debug	registry/registry.go:11	getFromRegistry: key=listUser
+	1.5620522601063573e+09	debug	appcontainer/listUserFactory.go:40	doesn't find key=listUser need to created a new one
+
+	1.5620522601073523e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=couch
+	1.5620522601083522e+09	debug	registry/registry.go:11	getFromRegistry: key=couch
+	1.5620522601083522e+09	debug	databasefactory/databaseFactory.go:51	doesn't find key=couch need to craeted a new one
+
+	1.562052260109351e+09	debug	databasefactory/couchdbFactory.go:19	couchdbFactory
+	1.5620522607299955e+09	debug	databasefactory/couchdbFactory.go:37	udc:{0xc0001821b0}
+	1.5620522607309976e+09	debug	registry/registry.go:11	getFromRegistry: key=cache
+	1.5620522607329931e+09	debug	appcontainer/cacheFactory.go:37	doesn't find key=%v need to created a new one
+cache
+	1.5620522620412426e+09	error	listuser/listUser.go:28	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:28
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:176
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5620522620462399e+09	error	couchdb/userDataCouchdb.go:33	err:Conflict: Document update conflict.
+
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.createView
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/userDataCouchdb.go:33
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.(*UserDataCouchdb).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/userDataCouchdb.go:41
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:35
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:176
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5620522620482416e+09	debug	couchdb/userDataCouchdb.go:35	rev:
+	1.5620522620532358e+09	error	cmd/main.go:178	fin user failed failed:json: Unmarshal(nil *model.User)
+
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.(*UserDataCouchdb).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/userDataCouchdb.go:51
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:35
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:176
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:178
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5620522620532358e+09	info	cmd/main.go:180	find user:<nil>
+	1.5620524796933503e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5620524796933503e+09	info	zap/zap.go:48	
+	1.5620524796953518e+09	debug	registry/registry.go:11	getFromRegistry: key=listUser
+	1.5620524796973493e+09	debug	appcontainer/listUserFactory.go:40	doesn't find key=listUser need to created a new one
+
+	1.5620524796973493e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=couch
+	1.5620524796983478e+09	debug	registry/registry.go:11	getFromRegistry: key=couch
+	1.5620524796983478e+09	debug	databasefactory/databaseFactory.go:51	doesn't find key=couch need to craeted a new one
+
+	1.5620524796983478e+09	debug	databasefactory/couchdbFactory.go:19	couchdbFactory
+	1.5620524803559718e+09	debug	databasefactory/couchdbFactory.go:37	udc:{0xc00014a750}
+	1.5620524803559718e+09	debug	registry/registry.go:11	getFromRegistry: key=cache
+	1.56205248035797e+09	debug	appcontainer/cacheFactory.go:37	doesn't find key=%v need to created a new one
+cache
+	1.562052481672217e+09	error	listuser/listUser.go:28	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:28
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:176
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5620524816822095e+09	error	couchdb/userDataCouchdb.go:33	err:Conflict: Document update conflict.
+
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.createView
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/userDataCouchdb.go:33
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.(*UserDataCouchdb).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/userDataCouchdb.go:41
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:35
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:176
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.562052481683209e+09	debug	couchdb/userDataCouchdb.go:35	rev:
+	1.5620524817121935e+09	debug	couchdb/userDataCouchdb.go:55	view:&{Id:12 Name:Kit Department:Engineering Created:2016-11-05 15:04:05 -0300 -0300}
+	1.562052481713196e+09	info	cmd/main.go:180	find user:&{12 Kit Engineering 2016-11-05 15:04:05 -0300 -0300}
+	1.5620524974131851e+09	debug	zap/zap.go:96	logger construction succeeded
+	1.5620524974141831e+09	info	zap/zap.go:48	
+	1.562052497416181e+09	debug	registry/registry.go:11	getFromRegistry: key=listUser
+	1.562052497416181e+09	debug	appcontainer/listUserFactory.go:40	doesn't find key=listUser need to created a new one
+
+	1.562052497417183e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=couch
+	1.5620524974181821e+09	debug	registry/registry.go:11	getFromRegistry: key=couch
+	1.5620524974181821e+09	debug	databasefactory/databaseFactory.go:51	doesn't find key=couch need to craeted a new one
+
+	1.5620524974191804e+09	debug	databasefactory/couchdbFactory.go:19	couchdbFactory
+	1.562052498042822e+09	debug	databasefactory/couchdbFactory.go:37	udc:{0xc000188360}
+	1.562052498042822e+09	debug	registry/registry.go:11	getFromRegistry: key=cache
+	1.5620524980478187e+09	debug	appcontainer/cacheFactory.go:37	doesn't find key=%v need to created a new one
+cache
+	1.5620524993570695e+09	error	listuser/listUser.go:28	get from cache error:%!(EXTRA *errors.withStack=: rpc error: code = Unavailable desc = all SubConns are in TransientFailure, latest connection error: connection error: desc = "transport: Error while dialing dial tcp [::1]:5051: connectex: No connection could be made because the target machine actively refused it.")
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:28
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:176
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5620524993620653e+09	error	couchdb/userDataCouchdb.go:33	err:Conflict: Document update conflict.
+
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.createView
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/userDataCouchdb.go:33
+github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb.(*UserDataCouchdb).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb/userDataCouchdb.go:41
+github.com/jfeng45/servicetmpl/usecase/listuser.(*ListUserUseCase).Find
+	C:/code/src/github.com/jfeng45/servicetmpl/usecase/listuser/listUser.go:35
+main.testFindById
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:176
+main.testCouchDB
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:22
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/main.go:12
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.5620524993630655e+09	debug	couchdb/userDataCouchdb.go:35	rev:
+	1.562052499368061e+09	debug	couchdb/userDataCouchdb.go:55	view:<nil>
+	1.5620524993690612e+09	info	cmd/main.go:180	find user:<nil>
+	
