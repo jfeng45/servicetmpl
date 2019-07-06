@@ -8,6 +8,7 @@ import (
 	"github.com/jfeng45/servicetmpl/dataservice/gdbc"
 	"github.com/jfeng45/servicetmpl/model"
 	"github.com/jfeng45/servicetmpl/tools"
+	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/pkg/errors"
 	"time"
 )
@@ -34,7 +35,7 @@ func (userData *DBTxStore) Remove(username string) (int64, error) {
 		return 0, errors.Wrap(err, "")
 	}
 
-	tools.Log.Debug("remove:row affected ", rowsAffected)
+	logger.Log.Debug("remove:row affected ", rowsAffected)
 	return rowsAffected, nil
 }
 
@@ -66,7 +67,7 @@ func rowsToUser(rows *sql.Rows) (*model.User, error) {
 	}
 	user.Created = created
 
-	tools.Log.Debug("rows to User:", user)
+	logger.Log.Debug("rows to User:", user)
 	return user, nil
 }
 func (userData *DBTxStore) FindByName(name string) (*model.User, error) {
@@ -76,7 +77,6 @@ func (userData *DBTxStore) FindByName(name string) (*model.User, error) {
 	}
 	defer rows.Close()
 	return retrieveUser(rows)
-	//return nil, nil
 }
 
 func (userData *DBTxStore) FindAll() ([]model.User, error) {
@@ -101,7 +101,7 @@ func (userData *DBTxStore) FindAll() ([]model.User, error) {
 	if err =rows.Err(); err!= nil {
 		return nil, errors.Wrap(err, "")
 	}
-	tools.Log.Debug("find user list:", users)
+	logger.Log.Debug("find user list:", users)
 	return users, nil
 }
 
@@ -122,7 +122,7 @@ func (userData *DBTxStore) Update(user *model.User) (int64, error) {
 	if err!=nil {
 		return 0, errors.Wrap(err, "")
 	}
-	tools.Log.Debug("update: rows affected: ", rowsAffected)
+	logger.Log.Debug("update: rows affected: ", rowsAffected)
 
 	return rowsAffected, nil
 }
@@ -143,7 +143,7 @@ func (userData *DBTxStore) Insert(user *model.User) (*model.User, error) {
 		return nil, errors.Wrap(err, "")
 	}
 	user.Id = int(id)
-	tools.Log.Debug("user inserted:", user)
+	logger.Log.Debug("user inserted:", user)
 	return user, nil
 }
 

@@ -26,7 +26,7 @@ type RegistrationUseCaseInterface interface {
 	// ModifyUser change user information on the User.Id passed in.
 	ModifyUser(user *model.User) error
 	// ModifyAndUnregister change user information and then unregister the user on the User.Id passed in.
-	// It is create to illustrate transaction, no real use.
+	// It is created to illustrate transaction, no real use.
 	ModifyAndUnregister(user *model.User) error
 	// ModifyAndUnregisterWithTx change user information and then unregister the user on the User.Id passed in.
 	// It supports transaction

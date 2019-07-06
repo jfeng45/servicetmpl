@@ -6,7 +6,7 @@ import (
 	"github.com/jfeng45/servicetmpl/dataservice"
 	"github.com/jfeng45/servicetmpl/dataservice/gdbc"
 	"github.com/jfeng45/servicetmpl/dataservice/userdata/mysql"
-	"github.com/jfeng45/servicetmpl/tools"
+	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/pkg/errors"
 )
 
@@ -15,7 +15,7 @@ type mysqlFactory dbFactoryBuilder
 
 // implement build method for MySQL database
 func (mf *mysqlFactory) build(factoryMap map[string]interface{}, dc *configs.DatabaseConfig) (dataservice.UserDataInterface, error) {
-	tools.Log.Debug("mySqlFactory")
+	logger.Log.Debug("mySqlFactory")
 	key := dc.Code
 	db, err := sql.Open(dc.DriverName, dc.DataSourceName)
 	if err != nil {
@@ -29,7 +29,7 @@ func (mf *mysqlFactory) build(factoryMap map[string]interface{}, dc *configs.Dat
 
 	dt := gdbc.DBTx{DB: db}
 	uts := mysql.DBTxStore{DB: &dt}
-	tools.Log.Debug("uts", uts)
+	logger.Log.Debug("uts", uts)
 	factoryMap[key] = &uts
 	return &uts, nil
 

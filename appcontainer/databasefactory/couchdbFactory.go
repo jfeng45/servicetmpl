@@ -7,7 +7,7 @@ import (
 	"github.com/jfeng45/servicetmpl/configs"
 	"github.com/jfeng45/servicetmpl/dataservice"
 	"github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb"
-	"github.com/jfeng45/servicetmpl/tools"
+	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/pkg/errors"
 )
 
@@ -16,7 +16,7 @@ type couchdbFactory dbFactoryBuilder
 
 // implement build method for CouchDB database
 func (mf *couchdbFactory) build(factoryMap map[string]interface{}, dbc *configs.DatabaseConfig) (dataservice.UserDataInterface, error) {
-	tools.Log.Debug("couchdbFactory")
+	logger.Log.Debug("couchdbFactory")
 
 	// Don't know why needs adding the following line, because the driver is already registered in init() in couchdbKiv
 	// however, not adding this, I got the error "unknown driver "couch" (forgotten import?)"
@@ -33,7 +33,7 @@ func (mf *couchdbFactory) build(factoryMap map[string]interface{}, dbc *configs.
 		return nil, errors.Wrap(err, "")
 	}
 	udc := couchdb.UserDataCouchdb{db}
-	tools.Log.Debugf("udc:%v",udc)
+	logger.Log.Debugf("udc:%v",udc)
 	factoryMap[key] = &udc
 	return &udc, nil
 

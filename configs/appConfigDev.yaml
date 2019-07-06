@@ -18,7 +18,7 @@ zapConfig: &zapConfig
     enableCaller: true
 logrusConfig: &logrusConfig
     code: logrus
-    level: info
+    level: debug
     enableCaller: false
 logConfig: *zapConfig
 useCaseConfig:

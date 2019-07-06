@@ -6,7 +6,7 @@ import (
 	"github.com/go-kivik/kivik"
 	"github.com/jfeng45/servicetmpl/dataservice"
 	"github.com/jfeng45/servicetmpl/model"
-	"github.com/jfeng45/servicetmpl/tools"
+	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/pkg/errors"
 )
 
@@ -30,9 +30,9 @@ func createView(dataStore *UserDataCouchdb) {
 	})
 	// For each rnu after first, it will throw an error because it already exist. Just ignore it.
 	if err != nil {
-		tools.Log.Errorf("err:%v\n" , err)
+		logger.Log.Errorf("err:%v\n" , err)
 	}
-	tools.Log.Debug("rev:", rev)
+	logger.Log.Debug("rev:", rev)
 }
 
 func (dataStore *UserDataCouchdb) Find(id int) (*model.User, error) {
@@ -52,7 +52,7 @@ func (dataStore *UserDataCouchdb) Find(id int) (*model.User, error) {
 			return nil, errors.Wrap(err, "")
 		}
 	}
-	tools.Log.Debugf("view:%+v", user)
+	logger.Log.Debugf("view:%+v", user)
 
 	if rows.Err() != nil {
 		return nil, errors.Wrap(rows.Err(), "")

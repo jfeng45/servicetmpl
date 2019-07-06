@@ -4,12 +4,13 @@ import (
 	"github.com/jfeng45/servicetmpl/appcontainer"
 	"github.com/jfeng45/servicetmpl/model"
 	"github.com/jfeng45/servicetmpl/tools"
+	"github.com/jfeng45/servicetmpl/tools/logger"
 	"time"
 )
 
 func main() {
-	//testMySql()
-	testCouchDB()
+	testMySql()
+	//testCouchDB()
 }
 func testCouchDB() {
 	factoryMap :=make(map[string]interface{})
@@ -17,7 +18,7 @@ func testCouchDB() {
 	filename := "../configs/appConfigProd.yaml"
 	err:= appcontainer.InitApp(factoryMap, filename)
 	if err!=nil  {
-		tools.Log.Errorf("%+v\n", err)
+		logger.Log.Errorf("%+v\n", err)
 	}
 	testFindById(factoryMap)
 }
@@ -27,7 +28,7 @@ func testMySql() {
 	filename := "../configs/appConfigDev.yaml"
 	err:= appcontainer.InitApp(factoryMap, filename)
 	if err!=nil  {
-		tools.Log.Errorf("%+v\n", err)
+		logger.Log.Errorf("%+v\n", err)
 	}
 
 	//testListUser(factoryMap)
@@ -45,25 +46,25 @@ func testUnregister(factoryMap map[string]interface{}) {
 
 	ruci, err := appcontainer.RetrieveRegistration(factoryMap)
 	if err != nil {
-		tools.Log.Fatal("registration interface build failed:%+v\n", err)
+		logger.Log.Fatal("registration interface build failed:%+v\n", err)
 	}
 	username := "Richard"
 	//username := "Peter"
 	err =ruci.UnregisterUser(username)
 	if err != nil {
-		tools.Log.Fatalf("testUnregister failed:%+v\n", err)
+		logger.Log.Fatalf("testUnregister failed:%+v\n", err)
 	}
-	tools.Log.Infof("testUnregister successully")
+	logger.Log.Infof("testUnregister successully")
 }
 
 func testRegisterUser(factoryMap map[string]interface{}) {
 	ruci, err := appcontainer.RetrieveRegistration(factoryMap)
 	if err != nil {
-		tools.Log.Fatal("registration interface build failed:%+v\n", err)
+		logger.Log.Fatal("registration interface build failed:%+v\n", err)
 	}
 	created, err := time.Parse(tools.FORMAT_ISO8601_DATE,"2018-12-09")
 	if err != nil {
-		tools.Log.Errorf("date format err:%+v\n", err)
+		logger.Log.Errorf("date format err:%+v\n", err)
 	}
 	//user := usermodel.User{Name: "Richard", Department:"finance", Created:created}
 	//user := usermodel.User{Name: "Tony", Department:"IT", Created:created}
@@ -73,41 +74,41 @@ func testRegisterUser(factoryMap map[string]interface{}) {
 
 	resultUser, err :=ruci.RegisterUser(&user)
 	if err != nil {
-		tools.Log.Errorf("user registration failed:%+v\n", err)
+		logger.Log.Errorf("user registration failed:%+v\n", err)
 	} else {
-		tools.Log.Info("new user registered:", resultUser)
+		logger.Log.Info("new user registered:", resultUser)
 	}
 }
 
 func testModifyUser(factoryMap map[string]interface{}) {
 	ruci, err := appcontainer.RetrieveRegistration(factoryMap)
 	if err != nil {
-		tools.Log.Fatal("registration interface build failed:%+v\n", err)
+		logger.Log.Fatal("registration interface build failed:%+v\n", err)
 	}
 	created, err := time.Parse(tools.FORMAT_ISO8601_DATE,"2019-12-01")
 	if err != nil {
-		tools.Log.Errorf("date format err:%+v\n", err)
+		logger.Log.Errorf("date format err:%+v\n", err)
 	}
 	user := model.User{Id: 3, Name:"Brian", Department:"HR", Created:created}
 	//user := usermodel.User{Name:"Brian", Department:"HR", Created:created}
 	err =ruci.ModifyUser(&user)
 	if err !=nil {
-		tools.Log.Infof("Modify user failed:%+v\n", err)
+		logger.Log.Infof("Modify user failed:%+v\n", err)
 	} else {
-		tools.Log.Info("user modified succeed:", user)
+		logger.Log.Info("user modified succeed:", user)
 	}
 }
 
 func testListUser(factoryMap map[string]interface{}) {
 	rluf, err := appcontainer.RetrieveListUser(factoryMap)
 	if err != nil {
-		tools.Log.Fatal("RetrieveListUser interface build failed:", err)
+		logger.Log.Fatal("RetrieveListUser interface build failed:", err)
 	}
 	users, err := rluf.ListUser()
 	if err != nil {
-		tools.Log.Errorf("user list failed:%+v\n", err)
+		logger.Log.Errorf("user list failed:%+v\n", err)
 	}
-	tools.Log.Info("user list:", users)
+	logger.Log.Info("user list:", users)
 }
 
 //func testTransaction(factoryMap map[string]interface{}) {
@@ -131,38 +132,38 @@ func testListUser(factoryMap map[string]interface{}) {
 func testModifyAndUnregister(factoryMap map[string]interface{}) {
 	ruci, err := appcontainer.RetrieveRegistration(factoryMap)
 	if err != nil {
-		tools.Log.Fatal("RegisterRegistration interface build failed:%+v\n", err)
+		logger.Log.Fatal("RegisterRegistration interface build failed:%+v\n", err)
 	}
 	created, err := time.Parse(tools.FORMAT_ISO8601_DATE,"2018-12-09")
 	if err != nil {
-		tools.Log.Errorf("date format err:%+v\n", err)
+		logger.Log.Errorf("date format err:%+v\n", err)
 	}
 	//user := usermodel.User{Name:"Anshu", Department:"Sales", Created:created}
 	user := model.User{Id: 4, Name:"Peter", Department:"Sales", Created:created}
 	//user :=model.User{Id:2, Name:"Aditi", Department:"Marketing", Created:created}
 	err = ruci.ModifyAndUnregister(&user)
 	if err != nil {
-		tools.Log.Errorf("ModifyAndUnregister failed:%+v\n", err)
+		logger.Log.Errorf("ModifyAndUnregister failed:%+v\n", err)
 	} else {
-		tools.Log.Infof("ModifyAndUnregister succeed")
+		logger.Log.Infof("ModifyAndUnregister succeed")
 	}
 }
 
 func testModifyAndUnregisterWithTx(factoryMap map[string]interface{}) {
 	ruci, err := appcontainer.RetrieveRegistration(factoryMap)
 	if err != nil {
-		tools.Log.Fatal("RegisterRegistration interface build failed:%+v\n", err)
+		logger.Log.Fatal("RegisterRegistration interface build failed:%+v\n", err)
 	}
 	created, err := time.Parse(tools.FORMAT_ISO8601_DATE,"2018-12-09")
 	if err != nil {
-		tools.Log.Errorf("date format err:%+v\n", err)
+		logger.Log.Errorf("date format err:%+v\n", err)
 	}
 	user := model.User{Id: 3, Name:"Anshu", Department:"Sales", Created:created}
 	err = ruci.ModifyAndUnregisterWithTx(&user)
 	if err != nil {
-		tools.Log.Errorf("ModifyAndUnregisterWithTx failed:%+v\n", err)
+		logger.Log.Errorf("ModifyAndUnregisterWithTx failed:%+v\n", err)
 	} else {
-		tools.Log.Infof("ModifyAndUnregisterWithTx succeed")
+		logger.Log.Infof("ModifyAndUnregisterWithTx succeed")
 	}
 }
 
@@ -171,11 +172,11 @@ func testFindById(factoryMap map[string]interface{}) {
 	id :=12
 	rluf, err := appcontainer.RetrieveListUser(factoryMap)
 	if err != nil {
-		tools.Log.Fatalf("RetrieveListUser interface build failed:%+v\n", err)
+		logger.Log.Fatalf("RetrieveListUser interface build failed:%+v\n", err)
 	}
 	user, err := rluf.Find(id)
 	if err != nil {
-		tools.Log.Errorf("fin user failed failed:%+v\n", err)
+		logger.Log.Errorf("fin user failed failed:%+v\n", err)
 	}
-	tools.Log.Info("find user:", user)
+	logger.Log.Info("find user:", user)
 }

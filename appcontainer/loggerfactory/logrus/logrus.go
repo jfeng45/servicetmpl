@@ -3,7 +3,7 @@ package logrus
 
 import (
 	"github.com/jfeng45/servicetmpl/configs"
-	"github.com/jfeng45/servicetmpl/tools"
+	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
 	"os"
@@ -52,7 +52,7 @@ func RegisterLog(lc configs.LogConfig) error{
 	//This is for loggerWrapper implementation
 	//logger.Logger(&loggerWrapper{log})
 
-	tools.SetLogger(log)
+	logger.SetLogger(log)
 	return nil
 }
 

@@ -3,7 +3,7 @@ import (
 	"github.com/jfeng45/servicetmpl/appcontainer/databasefactory"
 	"github.com/jfeng45/servicetmpl/appcontainer/registry"
 	"github.com/jfeng45/servicetmpl/configs"
-	"github.com/jfeng45/servicetmpl/tools"
+	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/jfeng45/servicetmpl/usecase"
 	"github.com/jfeng45/servicetmpl/usecase/listuser"
 	"github.com/pkg/errors"
@@ -33,11 +33,11 @@ func RetrieveListUser(factoryMap map[string]interface{}) (usecase.ListUserUseCas
 	key := config.UseCase.ListUser.Code
 	value, found := registry.GetFromRegistry(factoryMap, key)
 	if found {
-		tools.Log.Debug("found RetrieveListUser: key=", key)
+		logger.Log.Debug("found RetrieveListUser: key=", key)
 		return value.(usecase.ListUserUseCaseInterface), nil
 	}
 	//not in map, need to create one
-	tools.Log.Debugf("doesn't find key=%v need to created a new one\n",key)
+	logger.Log.Debugf("doesn't find key=%v need to created a new one\n",key)
 	return listUserFactory(factoryMap, config, key)
 }
 

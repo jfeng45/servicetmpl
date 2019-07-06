@@ -1,8 +1,7 @@
 package gdbc
 
 import (
-	"fmt"
-	"github.com/jfeng45/servicetmpl/tools"
+	"github.com/jfeng45/servicetmpl/tools/logger"
 )
 
 // Transactioner is the transaction interface for database handler
@@ -29,7 +28,7 @@ func (db *DBTx) Commit() error {
 }
 // TransactionBegin starts a transaction
 func (db *DBTx)TxBegin( ) (Gdbc, error) {
-	fmt.Println("transaction begin")
+	logger.Log.Debug("transaction begin")
 	tx, err := db.DB.Begin()
 	ct := ConnTx{tx}
 	return &ct, err
@@ -45,14 +44,14 @@ func (db *ConnTx) TxEnd( txFunc func() error) error {
 
 	defer func() {
 		if p := recover(); p != nil {
-			tools.Log.Debug("found p and rollback:", p)
+			logger.Log.Debug("found p and rollback:", p)
 			tx.Rollback()
 			panic(p) // re-throw panic after Rollback
 		} else if err != nil {
-			tools.Log.Debugf("found error and rollback:", err)
+			logger.Log.Debugf("found error and rollback:", err)
 			tx.Rollback() // err is non-nil; don't change it
 		} else {
-			tools.Log.Debug("commit:")
+			logger.Log.Debug("commit:")
 			err = tx.Commit() // if Commit returns error update err with commit err
 		}
 	}()

@@ -4,40 +4,40 @@ package zap
 import (
 	"encoding/json"
 	"github.com/jfeng45/servicetmpl/configs"
-	"github.com/jfeng45/servicetmpl/tools"
+	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
 )
 
-//type loggerWrapper struct {
-//	lw *zap.SugaredLogger
-//}
-//
+type loggerWrapper struct {
+	lw *zap.SugaredLogger
+}
 
-//func (logger *loggerWrapper) Errorf(format string, args ...interface{}) {
-//	logger.lw.Errorf(format, args)
-//}
-//func (logger *loggerWrapper) Fatalf(format string, args ...interface{}) {
-//	logger.lw.Fatalf(format, args)
-//}
-//func (logger *loggerWrapper) Fatal(args ...interface{}) {
-//	logger.lw.Fatal(args)
-//}
-//func (logger *loggerWrapper) Infof(format string, args ...interface{}) {
-//	logger.lw.Infof(format, args)
-//}
-//func (logger *loggerWrapper) Warnf(format string, args ...interface{}) {
-//	logger.lw.Warnf(format, args)
-//}
-//func (logger *loggerWrapper) Debugf(format string, args ...interface{}) {
-//	logger.lw.Debugf(format, args)
-//}
-//func (logger *loggerWrapper) Printf(format string, args ...interface{}) {
-//	logger.lw.Infof(format, args)
-//}
-//func (logger *loggerWrapper) Println(args ...interface{}) {
-//	logger.lw.Info(args, "\n")
-//}
+
+func (logger *loggerWrapper) Errorf(format string, args ...interface{}) {
+	logger.lw.Errorf(format, args)
+}
+func (logger *loggerWrapper) Fatalf(format string, args ...interface{}) {
+	logger.lw.Fatalf(format, args)
+}
+func (logger *loggerWrapper) Fatal(args ...interface{}) {
+	logger.lw.Fatal(args)
+}
+func (logger *loggerWrapper) Infof(format string, args ...interface{}) {
+	logger.lw.Infof(format, args)
+}
+func (logger *loggerWrapper) Warnf(format string, args ...interface{}) {
+	logger.lw.Warnf(format, args)
+}
+func (logger *loggerWrapper) Debugf(format string, args ...interface{}) {
+	logger.lw.Debugf(format, args)
+}
+func (logger *loggerWrapper) Printf(format string, args ...interface{}) {
+	logger.lw.Infof(format, args)
+}
+func (logger *loggerWrapper) Println(args ...interface{}) {
+	logger.lw.Info(args, "\n")
+}
 
 func RegisterLog(lc configs.LogConfig) error{
 	zLogger, err:=initLog(lc)
@@ -51,7 +51,7 @@ func RegisterLog(lc configs.LogConfig) error{
 	//This is for loggerWrapper implementation
 	//appLogger.SetLogger(&loggerWrapper{zaplog})
 
-	tools.SetLogger(zSugarlog)
+	logger.SetLogger(zSugarlog)
 	return nil
 }
 
@@ -62,7 +62,7 @@ func initLog (lc configs.LogConfig) (zap.Logger, error){
      "Development": true,
       "DisableCaller": false,
 	 "encoding": "console",
-	 "outputPaths": ["stdout", "./demo.log"],
+	 "outputPaths": ["stdout", "../../demo.log"],
 	 "errorOutputPaths": ["stderr"],
 	 "encoderConfig": {
 		"timeKey":        "ts",

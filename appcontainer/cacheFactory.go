@@ -5,7 +5,7 @@ import (
 	"github.com/jfeng45/servicetmpl/appcontainer/registry"
 	"github.com/jfeng45/servicetmpl/configs"
 	"github.com/jfeng45/servicetmpl/dataservice"
-	"github.com/jfeng45/servicetmpl/tools"
+	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"
 )
@@ -30,11 +30,11 @@ func retrieveCache(factoryMap map[string]interface{}, gc *configs.GrpcConfig) (d
 	key := gc.Code
 	value, found := registry.GetFromRegistry(factoryMap, key)
 	if found {
-		tools.Log.Debug("find RetrieveCache key=%v \n",key)
+		logger.Log.Debug("find RetrieveCache key=%v \n",key)
 		return value.(dataservice.CacheDataInterface), nil
 	}
 	//not in map, need to create one
-	tools.Log.Debug("doesn't find key=%v need to created a new one\n",key)
+	logger.Log.Debug("doesn't find key=%v need to created a new one\n",key)
 	return addCacheData(factoryMap, gc)
 }
 

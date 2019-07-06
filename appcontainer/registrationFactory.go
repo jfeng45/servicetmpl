@@ -3,7 +3,7 @@ import (
 	"github.com/jfeng45/servicetmpl/appcontainer/databasefactory"
 	"github.com/jfeng45/servicetmpl/appcontainer/registry"
 	"github.com/jfeng45/servicetmpl/configs"
-	"github.com/jfeng45/servicetmpl/tools"
+	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/jfeng45/servicetmpl/usecase"
 	"github.com/jfeng45/servicetmpl/usecase/registration"
 	"github.com/pkg/errors"
@@ -32,11 +32,11 @@ func RetrieveRegistration(factoryMap map[string]interface{}) (usecase.Registrati
 	key := config.UseCase.Registration.Code
 	value, found := registry.GetFromRegistry(factoryMap, key)
 	if found {
-		tools.Log.Debug("found Retrieve registration: key=", key)
+		logger.Log.Debug("found Retrieve registration: key=", key)
 		return value.(usecase.RegistrationUseCaseInterface), nil
 	}
 	//not in map, need to create one
-	tools.Log.Debugf("doesn't find key=%v need to created a new one\n",key)
+	logger.Log.Debugf("doesn't find key=%v need to created a new one\n",key)
 	return addRegistration(factoryMap, config, key)
 }
 

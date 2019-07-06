@@ -6,7 +6,7 @@ package cacheclient
 import (
 	"context"
 	pb "github.com/jfeng45/servicetmpl/adapter/cacheclient/generatedclient"
-	"github.com/jfeng45/servicetmpl/tools"
+	"github.com/jfeng45/servicetmpl/tools/logger"
 	"google.golang.org/grpc"
 )
 
@@ -40,7 +40,7 @@ func (cdg CacheDataGrpc) Store(key string, value []byte) error {
 	if err != nil {
 		return err
 	} else {
-		tools.Log.Debug("store called")
+		logger.Log.Debug("store called")
 	}
 	return nil
 }

@@ -5,7 +5,7 @@ import (
 	"github.com/jfeng45/servicetmpl/appcontainer/registry"
 	"github.com/jfeng45/servicetmpl/configs"
 	"github.com/jfeng45/servicetmpl/dataservice"
-	"github.com/jfeng45/servicetmpl/tools"
+	"github.com/jfeng45/servicetmpl/tools/logger"
 )
 
 // Empty struct to server as a receiver for build method
@@ -41,14 +41,14 @@ func GetDbFactoryBuilder(key string) dbFbInterface {
 // based on database code
 func RetrieveUserData(factoryMap map[string]interface{}, dc *configs.DatabaseConfig, dfbi dbFbInterface)  (dataservice.UserDataInterface, error){
 	key := dc.Code
-	tools.Log.Debug("RetrieveUserData: dbc.driverName=", key)
+	logger.Log.Debug("RetrieveUserData: dbc.driverName=", key)
 	value, found := registry.GetFromRegistry(factoryMap, key)
 	if found {
-		tools.Log.Debug("found RetrieveListUser: key=", key)
+		logger.Log.Debug("found RetrieveListUser: key=", key)
 		return value.(dataservice.UserDataInterface), nil
 	}
 	// not in map, need to create one
-	tools.Log.Debugf("doesn't find key=%v need to craeted a new one\n", key)
+	logger.Log.Debugf("doesn't find key=%v need to craeted a new one\n", key)
 	return  dfbi.build(factoryMap, dc)
 }
 
