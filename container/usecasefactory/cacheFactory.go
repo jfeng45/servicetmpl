@@ -1,4 +1,4 @@
-package appcontainer
+package usecasefactory
 
 import (
 	"github.com/jfeng45/servicetmpl/adapter/cacheclient"
