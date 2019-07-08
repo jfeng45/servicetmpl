@@ -1,11 +1,11 @@
-//package appcontainer use dependency injection to create concrete type and wire the whole application together
+//package container use dependency injection to create concrete type and wire the whole application together
 package servicecontainer
 
 import (
-	logFactory "github.com/jfeng45/servicetmpl/appcontainer/loggerfactory"
-	"github.com/jfeng45/servicetmpl/appcontainer/registry"
-	"github.com/jfeng45/servicetmpl/appcontainer/usecasefactory"
 	"github.com/jfeng45/servicetmpl/configs"
+	logFactory "github.com/jfeng45/servicetmpl/container/loggerfactory"
+	"github.com/jfeng45/servicetmpl/container/registry"
+	"github.com/jfeng45/servicetmpl/container/usecasefactory"
 	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/jfeng45/servicetmpl/usecase"
 	"github.com/pkg/errors"
@@ -44,7 +44,7 @@ func loadConfig (filename string) (*configs.AppConfig, error) {
 
 	ac, err := configs.ReadConfig(filename)
 	if err != nil {
-		return nil, errors.Wrap(err, "read appcontainer")
+		return nil, errors.Wrap(err, "read container")
 	}
 	return &ac, nil
 }

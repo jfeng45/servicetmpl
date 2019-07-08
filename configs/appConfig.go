@@ -67,34 +67,9 @@ type LogConfig struct{
 	EnableCaller   bool `yaml:"enableCaller"`
 }
 
-// appConfig has all the configuration information for the application
-var appConfig *AppConfig
-
-// set whether to reload the configuration file. After it is loaded, it is set to false, so it only loaded once.
-var reloadConfig =true
-
-// GetAppConfig is getter for appConfig
-func GetAppConfig() *AppConfig {
-	return appConfig
-}
-
-// SetAppConfig is setter for appConfig
-func SetAppConfig(newAppConfig *AppConfig) {
-	appConfig = newAppConfig
-}
-
-// GetReloadConfig is getter for reloadConfig
-func GetReloadConfig() bool {
-	return reloadConfig
-}
-
-// SetReloadConfig is setter for reloadConfig
-func SetReloadConfig(b bool)  {
-	reloadConfig = b
-}
-
 // ReadConfig reads the file of the filename (in the same folder) and put it into the AppConfig
 func ReadConfig(filename string) (AppConfig, error) {
+	fmt.Println("read from log file: ", filename)
 	var ac AppConfig
 	file, err :=ioutil.ReadFile(filename)
 	if err != nil {

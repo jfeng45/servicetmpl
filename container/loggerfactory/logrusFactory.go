@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"github.com/jfeng45/servicetmpl/appcontainer/loggerfactory/logrus"
+	"github.com/jfeng45/servicetmpl/container/loggerfactory/logrus"
 	"github.com/jfeng45/servicetmpl/configs"
 	"github.com/pkg/errors"
 )

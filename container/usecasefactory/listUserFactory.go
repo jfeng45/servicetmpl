@@ -1,7 +1,7 @@
 package usecasefactory
 
 import (
-	"github.com/jfeng45/servicetmpl/appcontainer/databasefactory"
+	"github.com/jfeng45/servicetmpl/container/databasefactory"
 	"github.com/jfeng45/servicetmpl/configs"
 	"github.com/jfeng45/servicetmpl/usecase"
 	"github.com/jfeng45/servicetmpl/usecase/listuser"

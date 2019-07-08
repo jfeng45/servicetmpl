@@ -2,7 +2,7 @@ package usecasefactory
 
 import (
 	"github.com/jfeng45/servicetmpl/adapter/cacheclient"
-	"github.com/jfeng45/servicetmpl/appcontainer/registry"
+	"github.com/jfeng45/servicetmpl/container/registry"
 	"github.com/jfeng45/servicetmpl/configs"
 	"github.com/jfeng45/servicetmpl/dataservice"
 	"github.com/jfeng45/servicetmpl/tools/logger"

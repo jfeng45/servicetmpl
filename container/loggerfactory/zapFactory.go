@@ -1,7 +1,7 @@
 package logger
 
 import (
-	"github.com/jfeng45/servicetmpl/appcontainer/loggerfactory/zap"
+	"github.com/jfeng45/servicetmpl/container/loggerfactory/zap"
 	"github.com/jfeng45/servicetmpl/configs"
 	"github.com/pkg/errors"
 )

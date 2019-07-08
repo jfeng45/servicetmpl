@@ -1,7 +1,9 @@
 package main
 
 import (
-	"github.com/jfeng45/servicetmpl/appcontainer"
+	"github.com/jfeng45/servicetmpl/container/servicecontainer"
+	"github.com/jfeng45/servicetmpl/container"
+	"github.com/jfeng45/servicetmpl/configs"
 	"github.com/jfeng45/servicetmpl/model"
 	"github.com/jfeng45/servicetmpl/tools"
 	"github.com/jfeng45/servicetmpl/tools/logger"
@@ -12,39 +14,50 @@ func main() {
 	testMySql()
 	//testCouchDB()
 }
-func testCouchDB() {
+func buildContainer (filename string) (container.Container, error){
 	factoryMap :=make(map[string]interface{})
+	config := configs.AppConfig{}
+	container := servicecontainer.ServiceContainer{factoryMap, &config}
 
-	filename := "../configs/appConfigProd.yaml"
-	err:= appcontainer.InitApp(factoryMap, filename)
+	err:= container.InitApp( filename)
 	if err!=nil  {
 		logger.Log.Errorf("%+v\n", err)
+		return nil, err
 	}
-	testFindById(factoryMap)
+	return &container, nil
+}
+func testCouchDB() {
+	filename := "../configs/appConfigProd.yaml"
+	container, err := buildContainer(filename)
+	if err!=nil  {
+		logger.Log.Errorf("%+v\n", err)
+		return
+	}
+	testFindById(container)
 }
 func testMySql() {
-	factoryMap :=make(map[string]interface{})
 
 	filename := "../configs/appConfigDev.yaml"
-	err:= appcontainer.InitApp(factoryMap, filename)
+	container, err := buildContainer(filename)
 	if err!=nil  {
 		logger.Log.Errorf("%+v\n", err)
+		return
 	}
 
-	//testListUser(factoryMap)
-	//testFindById(factoryMap)
-	//testRegisterUser(factoryMap)
-	//testModifyUser(factoryMap)
-	//testUnregister(factoryMap)
+	testListUser(container)
+	testFindById(container)
+	//testRegisterUser(container)
+	//testModifyUser(container)
+	//testUnregister(container)
 
-	//testModifyAndUnregister(factoryMap)
-	testModifyAndUnregisterWithTx(factoryMap)
-	//testTransaction(factoryMap)
+	//testModifyAndUnregister(container)
+	//testModifyAndUnregisterWithTx(container)
+	//testTransaction(container)
 
 }
-func testUnregister(factoryMap map[string]interface{}) {
+func testUnregister(container container.Container) {
 
-	ruci, err := appcontainer.RetrieveRegistration(factoryMap)
+	ruci, err := container.RetrieveRegistration()
 	if err != nil {
 		logger.Log.Fatal("registration interface build failed:%+v\n", err)
 	}
@@ -57,8 +70,8 @@ func testUnregister(factoryMap map[string]interface{}) {
 	logger.Log.Infof("testUnregister successully")
 }
 
-func testRegisterUser(factoryMap map[string]interface{}) {
-	ruci, err := appcontainer.RetrieveRegistration(factoryMap)
+func testRegisterUser(container container.Container) {
+	ruci, err := container.RetrieveRegistration()
 	if err != nil {
 		logger.Log.Fatal("registration interface build failed:%+v\n", err)
 	}
@@ -80,8 +93,8 @@ func testRegisterUser(factoryMap map[string]interface{}) {
 	}
 }
 
-func testModifyUser(factoryMap map[string]interface{}) {
-	ruci, err := appcontainer.RetrieveRegistration(factoryMap)
+func testModifyUser(container container.Container) {
+	ruci, err := container.RetrieveRegistration()
 	if err != nil {
 		logger.Log.Fatal("registration interface build failed:%+v\n", err)
 	}
@@ -99,8 +112,8 @@ func testModifyUser(factoryMap map[string]interface{}) {
 	}
 }
 
-func testListUser(factoryMap map[string]interface{}) {
-	rluf, err := appcontainer.RetrieveListUser(factoryMap)
+func testListUser(container container.Container) {
+	rluf, err := container.RetrieveListUser()
 	if err != nil {
 		logger.Log.Fatal("RetrieveListUser interface build failed:", err)
 	}
@@ -111,26 +124,9 @@ func testListUser(factoryMap map[string]interface{}) {
 	logger.Log.Info("user list:", users)
 }
 
-//func testTransaction(factoryMap map[string]interface{}) {
-//	ruci, err := appcontainer.RetrieveRegistration(factoryMap)
-//	if err != nil {
-//		logger.Log.Fatal("RegisterRegistration interface build failed:%+v\n", err)
-//	}
-//	created, err := time.Parse(timea.FORMAT_ISO8601_DATE,"2018-12-09")
-//	if err != nil {
-//		logger.Log.Errorf("date format err:%+v\n", err)
-//	}
-//	user :=model.User{Name:"Anshu", Department:"Sales", Created:created}
-//	ruci.Transaction(&user)
-//	if err != nil {
-//		logger.Log.Errorf("transaction failed:%+v\n", err)
-//	} else {
-//		logger.Log.Infof("transaction succeed")
-//	}
-//}
 
-func testModifyAndUnregister(factoryMap map[string]interface{}) {
-	ruci, err := appcontainer.RetrieveRegistration(factoryMap)
+func testModifyAndUnregister(container container.Container) {
+	ruci, err := container.RetrieveRegistration()
 	if err != nil {
 		logger.Log.Fatal("RegisterRegistration interface build failed:%+v\n", err)
 	}
@@ -149,8 +145,8 @@ func testModifyAndUnregister(factoryMap map[string]interface{}) {
 	}
 }
 
-func testModifyAndUnregisterWithTx(factoryMap map[string]interface{}) {
-	ruci, err := appcontainer.RetrieveRegistration(factoryMap)
+func testModifyAndUnregisterWithTx(container container.Container) {
+	ruci, err := container.RetrieveRegistration()
 	if err != nil {
 		logger.Log.Fatal("RegisterRegistration interface build failed:%+v\n", err)
 	}
@@ -167,10 +163,10 @@ func testModifyAndUnregisterWithTx(factoryMap map[string]interface{}) {
 	}
 }
 
-func testFindById(factoryMap map[string]interface{}) {
+func testFindById(container container.Container) {
 	//It is uid in database. Make sure you have it in database, otherwise it won't find it.
 	id :=12
-	rluf, err := appcontainer.RetrieveListUser(factoryMap)
+	rluf, err := container.RetrieveListUser()
 	if err != nil {
 		logger.Log.Fatalf("RetrieveListUser interface build failed:%+v\n", err)
 	}
