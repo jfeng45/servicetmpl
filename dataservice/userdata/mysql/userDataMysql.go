@@ -71,6 +71,7 @@ func rowsToUser(rows *sql.Rows) (*model.User, error) {
 	return user, nil
 }
 func (userData *DBTxStore) FindByName(name string) (*model.User, error) {
+	//logger.Log.Debug("call FindByName() and name is:", name)
 	rows, err := userData.DB.Query("SELECT * FROM userinfo where username =?", name)
 	if err != nil {
 		return nil, errors.Wrap(err, "")

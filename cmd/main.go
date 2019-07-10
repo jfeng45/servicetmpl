@@ -1,9 +1,9 @@
 package main
 
 import (
-	"github.com/jfeng45/servicetmpl/container/servicecontainer"
-	"github.com/jfeng45/servicetmpl/container"
 	"github.com/jfeng45/servicetmpl/configs"
+	"github.com/jfeng45/servicetmpl/container"
+	"github.com/jfeng45/servicetmpl/container/servicecontainer"
 	"github.com/jfeng45/servicetmpl/model"
 	"github.com/jfeng45/servicetmpl/tools"
 	"github.com/jfeng45/servicetmpl/tools/logger"
@@ -81,7 +81,7 @@ func testRegisterUser(container container.Container) {
 	}
 	//user := usermodel.User{Name: "Richard", Department:"finance", Created:created}
 	//user := usermodel.User{Name: "Tony", Department:"IT", Created:created}
-	user := model.User{Name: "Anshu", Department:"IT", Created:created}
+	user := model.User{Name: "Aditi", Department:"Marketing", Created:created}
 	//created = time.Time{}
 	//user := usermodel.User{Name: "", Department:"IT", Created:created}
 

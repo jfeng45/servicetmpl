@@ -62,7 +62,7 @@ func initLog (lc configs.LogConfig) (zap.Logger, error){
      "Development": true,
       "DisableCaller": false,
 	 "encoding": "console",
-	 "outputPaths": ["stdout", "../../demo.log"],
+	 "outputPaths": ["stdout", "../../../demo.log"],
 	 "errorOutputPaths": ["stderr"],
 	 "encoderConfig": {
 		"timeKey":        "ts",

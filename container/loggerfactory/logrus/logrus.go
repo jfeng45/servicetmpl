@@ -6,7 +6,7 @@ import (
 	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
-	"os"
+	//"os"
 )
 
 //type loggerWrapper struct {
@@ -43,7 +43,7 @@ func RegisterLog(lc configs.LogConfig) error{
 	log := logrus.New()
 	log.SetFormatter(&logrus.TextFormatter{})
 	log.SetReportCaller(true)
-	log.SetOutput(os.Stdout)
+	//log.SetOutput(os.Stdout)
 	//customize it from configuration file
 	err := customizeLogFromConfig(log, lc)
 	if err != nil {
@@ -59,7 +59,7 @@ func RegisterLog(lc configs.LogConfig) error{
 // customizeLogFromConfig customize log based on parameters from configuration file
 func customizeLogFromConfig(log *logrus.Logger, lc configs.LogConfig) error{
 	log.SetReportCaller(lc.EnableCaller)
-	log.SetOutput(os.Stdout)
+	//log.SetOutput(os.Stdout)
 	l := &log.Level
 	err := l.UnmarshalText([]byte(lc.Level))
 	if err != nil {

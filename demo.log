@@ -1,0 +1,160 @@
+1.5627202735386305e+09	debug	zap/zap.go:98	logger construction succeeded
+	1.5627202735386305e+09	info	zap/zap.go:49	
+	1.5627202735456302e+09	debug	grpcserver/grpcServerMain.go:68	start runserver
+	1.5627202735566213e+09	error	grpcserver/grpcServerMain.go:92	Failed to run cache server: listen tcp 127.0.0.1:5052: bind: Only one usage of each socket address (protocol/network address/port) is normally permitted.
+
+main.runServer
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/grpcserver/grpcServerMain.go:77
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/grpcserver/grpcServerMain.go:91
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+runtime.goexit
+	C:/app1/Go/src/runtime/asm_amd64.s:1337
+
+main.main
+	C:/code/src/github.com/jfeng45/servicetmpl/cmd/grpcserver/grpcServerMain.go:92
+runtime.main
+	C:/app1/Go/src/runtime/proc.go:200
+	1.562720331419429e+09	debug	zap/zap.go:98	logger construction succeeded
+	1.5627203314204283e+09	info	zap/zap.go:49	
+	1.5627203314234276e+09	debug	grpcserver/grpcServerMain.go:68	start runserver
+	1.5627203314324229e+09	debug	grpcserver/grpcServerMain.go:79	server listening
+	1.5627203813372986e+09	debug	grpcserver/grpcServerMain.go:20	RegisterUser called
+	1.5627203813383007e+09	debug	registry/registry.go:11	getFromRegistry: key=registration
+	1.5627203813393197e+09	debug	servicecontainer/serviceContainer.go:61	doesn't find key=registration need to created a new one
+
+	1.562720381340311e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=couch
+	1.562720381340311e+09	debug	registry/registry.go:11	getFromRegistry: key=couch
+	1.562720381341299e+09	debug	databasefactory/databaseFactory.go:51	doesn't find key=couch need to craeted a new one
+
+	1.562720381341299e+09	debug	databasefactory/couchdbFactory.go:19	couchdbFactory
+	1.5627203820019171e+09	debug	databasefactory/couchdbFactory.go:36	udc:{0xc00013a5d0}
+	1.562720847184159e+09	debug	zap/zap.go:98	logger construction succeeded
+	1.5627208471851602e+09	info	zap/zap.go:49	
+	1.562720847186158e+09	debug	grpcserver/grpcServerMain.go:68	start runserver
+	1.5627208471951542e+09	debug	grpcserver/grpcServerMain.go:79	server listening
+	1.5627209288093214e+09	debug	grpcserver/grpcServerMain.go:20	RegisterUser called
+	1.5627209288093214e+09	debug	registry/registry.go:11	getFromRegistry: key=registration
+	1.5627209288113205e+09	debug	servicecontainer/serviceContainer.go:61	doesn't find key=registration need to created a new one
+
+	1.5627209288113205e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=couch
+	1.5627209288113205e+09	debug	registry/registry.go:11	getFromRegistry: key=couch
+	1.5627209288113205e+09	debug	databasefactory/databaseFactory.go:51	doesn't find key=couch need to craeted a new one
+
+	1.5627209288123205e+09	debug	databasefactory/couchdbFactory.go:19	couchdbFactory
+	1.5627209294279668e+09	debug	databasefactory/couchdbFactory.go:36	udc:{0xc000136360}
+	1.5627211764922004e+09	debug	zap/zap.go:98	logger construction succeeded
+	1.5627211764922004e+09	info	zap/zap.go:49	
+	1.562721176494198e+09	debug	grpcserver/grpcServerMain.go:70	start runserver
+	1.5627211765031924e+09	debug	grpcserver/grpcServerMain.go:81	server listening
+	1.5627211838189964e+09	debug	grpcserver/grpcServerMain.go:20	RegisterUser called
+	1.5627211838189964e+09	debug	registry/registry.go:11	getFromRegistry: key=registration
+	1.5627211838199964e+09	debug	servicecontainer/serviceContainer.go:61	doesn't find key=registration need to created a new one
+
+	1.5627211838199964e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=couch
+	1.562721183822994e+09	debug	registry/registry.go:11	getFromRegistry: key=couch
+	1.562721183822994e+09	debug	databasefactory/databaseFactory.go:51	doesn't find key=couch need to craeted a new one
+
+	1.562721183822994e+09	debug	databasefactory/couchdbFactory.go:19	couchdbFactory
+	1.5627211844376392e+09	debug	databasefactory/couchdbFactory.go:36	udc:{0xc00013a8a0}
+	1.562721184438639e+09	debug	grpcserver/grpcServerMain.go:30	mu:&{0 Tony IT 2019-07-10 01:13:03.5071726 +0000 UTC}
+	1.5627211844396386e+09	debug	grpcserver/grpcServerMain.go:35	resultUser:<nil>
+	1.562721350714227e+09	debug	zap/zap.go:98	logger construction succeeded
+	1.5627213507152295e+09	info	zap/zap.go:49	
+	1.562721350716228e+09	debug	grpcserver/grpcServerMain.go:70	start runserver
+	1.5627213507282195e+09	debug	grpcserver/grpcServerMain.go:81	server listening
+	1.5627213609683456e+09	debug	grpcserver/grpcServerMain.go:20	RegisterUser called
+	1.5627213609683456e+09	debug	registry/registry.go:11	getFromRegistry: key=registration
+	1.5627213609693463e+09	debug	servicecontainer/serviceContainer.go:61	doesn't find key=registration need to created a new one
+
+	1.5627213609693463e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=mysql
+	1.5627213609693463e+09	debug	registry/registry.go:11	getFromRegistry: key=mysql
+	1.5627213609693463e+09	debug	databasefactory/databaseFactory.go:51	doesn't find key=mysql need to craeted a new one
+
+	1.5627213609703443e+09	debug	databasefactory/mysqlFactory.go:18	mySqlFactory
+	1.562721361280166e+09	debug	databasefactory/mysqlFactory.go:32	uts{0xc000006020}
+	1.562721361280166e+09	debug	grpcserver/grpcServerMain.go:30	mu:&{0 Tony IT 2019-07-10 01:16:00.6535242 +0000 UTC}
+	1.5627213613011556e+09	debug	mysql/userDataMysql.go:146	user inserted:&{6 Tony IT 2019-07-10 01:16:00.6535242 +0000 UTC}
+	1.562721361302152e+09	debug	grpcserver/grpcServerMain.go:35	resultUser:&{6 Tony IT 2019-07-10 01:16:00.6535242 +0000 UTC}
+	1.5627213613041513e+09	debug	grpcserver/grpcServerMain.go:41	user registered: id:6 name:"Tony" department:"IT" created:<seconds:1562721360 nanos:653524200 > 
+	1.562721411940097e+09	debug	grpcserver/grpcServerMain.go:20	RegisterUser called
+	1.562721411940097e+09	debug	registry/registry.go:11	getFromRegistry: key=registration
+	1.5627214119420953e+09	debug	servicecontainer/serviceContainer.go:57	found Retrieve registration: key=registration
+	1.5627214119440978e+09	debug	grpcserver/grpcServerMain.go:30	mu:&{0 Tony IT 2019-07-10 01:16:51.6292762 +0000 UTC}
+	1.5627214119450948e+09	debug	mysql/userDataMysql.go:70	rows to User:&{6 Tony IT 2019-07-10 00:00:00 +0000 UTC}
+	1.5627214119460924e+09	debug	grpcserver/grpcServerMain.go:48	ListUser called
+	1.5627214119470918e+09	debug	registry/registry.go:11	getFromRegistry: key=listUser
+	1.5627214119470918e+09	debug	servicecontainer/serviceContainer.go:73	doesn't find key=listUser need to created a new one
+
+	1.5627214119480925e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=mysql
+	1.5627214119480925e+09	debug	registry/registry.go:11	getFromRegistry: key=mysql
+	1.5627214119480925e+09	debug	databasefactory/databaseFactory.go:47	found RetrieveListUser: key=mysql
+	1.5627214119480925e+09	debug	registry/registry.go:11	getFromRegistry: key=cache
+	1.5627214119480925e+09	debug	usecasefactory/cacheFactory.go:37	doesn't find key=%v need to created a new one
+cache
+	1.5627214119500918e+09	debug	mysql/userDataMysql.go:70	rows to User:&{6 Tony IT 2019-07-10 00:00:00 +0000 UTC}
+	1.5627214119500918e+09	debug	mysql/userDataMysql.go:104	find user list:[{6 Tony IT 2019-07-10 00:00:00 +0000 UTC}]
+	1.5627214119560883e+09	debug	grpcserver/grpcServerMain.go:64	user list: [id:6 name:"Tony" department:"IT" created:<seconds:1562716800 > ]
+	1.5627217717486324e+09	debug	zap/zap.go:98	logger construction succeeded
+	1.5627217717496312e+09	info	zap/zap.go:49	
+	1.5627217717526321e+09	debug	grpcserver/grpcServerMain.go:70	start runserver
+	1.5627217717646236e+09	debug	grpcserver/grpcServerMain.go:81	server listening
+	1.5627217784427907e+09	debug	grpcserver/grpcServerMain.go:20	RegisterUser called
+	1.5627217784427907e+09	debug	registry/registry.go:11	getFromRegistry: key=registration
+	1.5627217784447958e+09	debug	servicecontainer/serviceContainer.go:61	doesn't find key=registration need to created a new one
+
+	1.5627217784447958e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=mysql
+	1.5627217784447958e+09	debug	registry/registry.go:11	getFromRegistry: key=mysql
+	1.5627217784447958e+09	debug	databasefactory/databaseFactory.go:51	doesn't find key=mysql need to craeted a new one
+
+	1.5627217784447958e+09	debug	databasefactory/mysqlFactory.go:18	mySqlFactory
+	1.562721778751614e+09	debug	databasefactory/mysqlFactory.go:32	uts{0xc00014a018}
+	1.562721778751614e+09	debug	grpcserver/grpcServerMain.go:30	mu:&{0 Tony IT 2019-07-10 01:22:58.1299718 +0000 UTC}
+	1.5627217787526143e+09	debug	mysql/userDataMysql.go:74	call FindByName() and name is:Tony
+	1.562721778759611e+09	debug	mysql/userDataMysql.go:70	rows to User:&{6 Tony IT 2019-07-10 00:00:00 +0000 UTC}
+	1.5627217787616084e+09	debug	grpcserver/grpcServerMain.go:48	ListUser called
+	1.5627217787636068e+09	debug	registry/registry.go:11	getFromRegistry: key=listUser
+	1.5627217787636068e+09	debug	servicecontainer/serviceContainer.go:73	doesn't find key=listUser need to created a new one
+
+	1.5627217787646067e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=mysql
+	1.5627217787646067e+09	debug	registry/registry.go:11	getFromRegistry: key=mysql
+	1.5627217787646067e+09	debug	databasefactory/databaseFactory.go:47	found RetrieveListUser: key=mysql
+	1.5627217787646067e+09	debug	registry/registry.go:11	getFromRegistry: key=cache
+	1.5627217787646067e+09	debug	usecasefactory/cacheFactory.go:37	doesn't find key=%v need to created a new one
+cache
+	1.5627217787676075e+09	debug	mysql/userDataMysql.go:70	rows to User:&{6 Tony IT 2019-07-10 00:00:00 +0000 UTC}
+	1.5627217787676075e+09	debug	mysql/userDataMysql.go:105	find user list:[{6 Tony IT 2019-07-10 00:00:00 +0000 UTC}]
+	1.5627217787676075e+09	debug	grpcserver/grpcServerMain.go:64	user list: [id:6 name:"Tony" department:"IT" created:<seconds:1562716800 > ]
+	1.5627221297095122e+09	debug	zap/zap.go:98	logger construction succeeded
+	1.5627221297105122e+09	info	zap/zap.go:49	
+	1.562722129713512e+09	debug	grpcserver/grpcServerMain.go:70	start runserver
+	1.562722129725503e+09	debug	grpcserver/grpcServerMain.go:81	server listening
+	1.562722136096847e+09	debug	grpcserver/grpcServerMain.go:20	RegisterUser called
+	1.562722136096847e+09	debug	registry/registry.go:11	getFromRegistry: key=registration
+	1.5627221360988462e+09	debug	servicecontainer/serviceContainer.go:61	doesn't find key=registration need to created a new one
+
+	1.5627221360988462e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=mysql
+	1.5627221360998456e+09	debug	registry/registry.go:11	getFromRegistry: key=mysql
+	1.5627221360998456e+09	debug	databasefactory/databaseFactory.go:51	doesn't find key=mysql need to craeted a new one
+
+	1.5627221360998456e+09	debug	databasefactory/mysqlFactory.go:18	mySqlFactory
+	1.5627221364026723e+09	debug	databasefactory/mysqlFactory.go:32	uts{0xc0000901b0}
+	1.5627221364036722e+09	debug	grpcserver/grpcServerMain.go:30	mu:&{0 Tony IT 2019-07-10 01:28:55.7820281 +0000 UTC}
+	1.5627221364046707e+09	debug	mysql/userDataMysql.go:74	call FindByName() and name is:Tony
+	1.5627221364056704e+09	debug	mysql/userDataMysql.go:70	rows to User:&{6 Tony IT 2019-07-10 00:00:00 +0000 UTC}
+	1.5627221364066694e+09	debug	registration/registraton.go:48	isDuplicate() user:&{6 Tony IT 2019-07-10 00:00:00 +0000 UTC}
+	1.562722136408668e+09	debug	grpcserver/grpcServerMain.go:48	ListUser called
+	1.562722136408668e+09	debug	registry/registry.go:11	getFromRegistry: key=listUser
+	1.562722136408668e+09	debug	servicecontainer/serviceContainer.go:73	doesn't find key=listUser need to created a new one
+
+	1.562722136408668e+09	debug	databasefactory/databaseFactory.go:44	RetrieveUserData: dbc.driverName=mysql
+	1.562722136408668e+09	debug	registry/registry.go:11	getFromRegistry: key=mysql
+	1.562722136408668e+09	debug	databasefactory/databaseFactory.go:47	found RetrieveListUser: key=mysql
+	1.562722136408668e+09	debug	registry/registry.go:11	getFromRegistry: key=cache
+	1.562722136410667e+09	debug	usecasefactory/cacheFactory.go:37	doesn't find key=%v need to created a new one
+cache
+	1.5627221364126654e+09	debug	mysql/userDataMysql.go:70	rows to User:&{6 Tony IT 2019-07-10 00:00:00 +0000 UTC}
+	1.5627221364126654e+09	debug	mysql/userDataMysql.go:105	find user list:[{6 Tony IT 2019-07-10 00:00:00 +0000 UTC}]
+	1.5627221364136653e+09	debug	grpcserver/grpcServerMain.go:64	user list: [id:6 name:"Tony" department:"IT" created:<seconds:1562716800 > ]
+	

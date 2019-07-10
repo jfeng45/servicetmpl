@@ -1,0 +1,30 @@
+syntax = "proto3";
+package generatedclient;
+
+import "google/protobuf/timestamp.proto";
+
+service UserService {
+    rpc RegisterUser(RegisterUserReq ) returns (RegisterUserResp) {}
+    rpc ListUser(ListUserReq) returns (ListUserResp) {}
+}
+
+message ListUserReq {
+}
+message ListUserResp {
+    repeated User user =1;
+}
+
+message User {
+    int32 id = 1;
+    string name  = 2;
+    string department =3;
+    google.protobuf.Timestamp created =4;
+}
+message RegisterUserReq {
+    User user = 1;
+}
+
+message RegisterUserResp {
+    User user =1;
+}
+

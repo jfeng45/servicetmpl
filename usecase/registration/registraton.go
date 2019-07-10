@@ -42,6 +42,7 @@ func (uuc *RegistrationUseCase) ModifyUser(user *model.User) error {
 
 func (uuc *RegistrationUseCase) isDuplicate(name string) (bool, error) {
 	user, err :=uuc.UserDataInterface.FindByName(name)
+	//logger.Log.Debug("isDuplicate() user:", user)
 	if err != nil {
 		return false, errors.Wrap(err, "")
 	}

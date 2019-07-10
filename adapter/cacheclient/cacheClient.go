@@ -5,7 +5,7 @@ package cacheclient
 
 import (
 	"context"
-	pb "github.com/jfeng45/servicetmpl/adapter/cacheclient/generatedclient"
+	cspb "github.com/jfeng45/servicetmpl/adapter/cacheclient/generatedclient"
 	"github.com/jfeng45/servicetmpl/tools/logger"
 	"google.golang.org/grpc"
 )
@@ -16,14 +16,14 @@ type CacheDataGrpc struct {
 }
 
 // getCacheClient creates a gRPC client
-func getCacheClient(conn grpc.ClientConn) pb.CacheServiceClient {
-	return pb.NewCacheServiceClient(&conn)
+func getCacheClient(conn grpc.ClientConn) cspb.CacheServiceClient {
+	return cspb.NewCacheServiceClient(&conn)
 }
 
 // Get handles call to Get function on Cache service
 func (cdg CacheDataGrpc) Get(key string) ([]byte, error) {
 	cacheClient := getCacheClient(cdg.Conn)
-	resp, err := cacheClient.Get(context.Background(), &pb.GetReq{Key: key})
+	resp, err := cacheClient.Get(context.Background(), &cspb.GetReq{Key: key})
 	if err != nil {
 		return nil, err
 	} else {
@@ -35,7 +35,7 @@ func (cdg CacheDataGrpc) Get(key string) ([]byte, error) {
 func (cdg CacheDataGrpc) Store(key string, value []byte) error {
 	cacheClient := getCacheClient(cdg.Conn)
 	ctx := context.Background()
-	_, err:= cacheClient.Store(ctx, &pb.StoreReq{Key:key,Value:value})
+	_, err:= cacheClient.Store(ctx, &cspb.StoreReq{Key: key,Value:value})
 
 	if err != nil {
 		return err
