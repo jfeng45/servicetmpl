@@ -4,7 +4,7 @@ package zap
 import (
 	"encoding/json"
 	"github.com/jfeng45/servicetmpl/configs"
-	"github.com/jfeng45/servicetmpl/tools/logger"
+	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
 )

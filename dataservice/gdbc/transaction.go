@@ -1,7 +1,7 @@
 package gdbc
 
 import (
-	"github.com/jfeng45/servicetmpl/tools/logger"
+	"github.com/jfeng45/servicetmpl/container/logger"
 )
 
 // Transactioner is the transaction interface for database handler

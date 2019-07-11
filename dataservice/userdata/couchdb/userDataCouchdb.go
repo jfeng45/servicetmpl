@@ -4,9 +4,9 @@ package couchdb
 import (
 	"context"
 	"github.com/go-kivik/kivik"
+	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/jfeng45/servicetmpl/dataservice"
 	"github.com/jfeng45/servicetmpl/model"
-	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/pkg/errors"
 )
 

@@ -2,9 +2,9 @@
 package listuser
 
 import (
+	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/jfeng45/servicetmpl/dataservice"
 	"github.com/jfeng45/servicetmpl/model"
-	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/pkg/errors"
 	"strconv"
 )
@@ -26,6 +26,7 @@ func (uuc *ListUserUseCase)Find(id int) (*model.User,error) {
 	users, err := uuc.getFromCache(strconv.Itoa(id))
 	if err != nil {
 		logger.Log.Errorf("get from cache error:", err)
+		return nil, errors.Wrap(err, "")
 	}
 	if users != nil {
 		//here should return the results from cache, however, right now the cache doesn't store user info,

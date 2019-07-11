@@ -2,7 +2,7 @@
 package registry
 
 import (
-	"github.com/jfeng45/servicetmpl/tools/logger"
+	"github.com/jfeng45/servicetmpl/container/logger"
 )
 
 // GetFromRegistry get configuration from registry based on key

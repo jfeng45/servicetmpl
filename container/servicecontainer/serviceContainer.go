@@ -3,10 +3,10 @@ package servicecontainer
 
 import (
 	"github.com/jfeng45/servicetmpl/configs"
+	"github.com/jfeng45/servicetmpl/container/logger"
 	logFactory "github.com/jfeng45/servicetmpl/container/loggerfactory"
 	"github.com/jfeng45/servicetmpl/container/registry"
 	"github.com/jfeng45/servicetmpl/container/usecasefactory"
-	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/jfeng45/servicetmpl/usecase"
 	"github.com/pkg/errors"
 )

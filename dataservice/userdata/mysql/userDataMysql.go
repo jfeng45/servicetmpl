@@ -4,11 +4,11 @@ package mysql
 import (
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
+	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/jfeng45/servicetmpl/dataservice"
 	"github.com/jfeng45/servicetmpl/dataservice/gdbc"
 	"github.com/jfeng45/servicetmpl/model"
 	"github.com/jfeng45/servicetmpl/tools"
-	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/pkg/errors"
 	"time"
 )

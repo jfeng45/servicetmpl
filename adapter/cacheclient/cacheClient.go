@@ -6,7 +6,7 @@ package cacheclient
 import (
 	"context"
 	cspb "github.com/jfeng45/servicetmpl/adapter/cacheclient/generatedclient"
-	"github.com/jfeng45/servicetmpl/tools/logger"
+	"github.com/jfeng45/servicetmpl/container/logger"
 	"google.golang.org/grpc"
 )
 

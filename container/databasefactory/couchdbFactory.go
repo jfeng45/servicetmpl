@@ -5,9 +5,9 @@ import (
 	couchdbKivid "github.com/go-kivik/couchdb"
 	"github.com/go-kivik/kivik"
 	"github.com/jfeng45/servicetmpl/configs"
+	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/jfeng45/servicetmpl/dataservice"
 	"github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb"
-	"github.com/jfeng45/servicetmpl/tools/logger"
 	"github.com/pkg/errors"
 )
 
