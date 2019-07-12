@@ -4,9 +4,12 @@ import (
 	"fmt"
 	"github.com/golang/protobuf/ptypes"
 	uspb "github.com/jfeng45/servicetmpl/adapter/userclient/generatedclient"
-	//"github.com/pkg/errors"
 	"golang.org/x/net/context"
 	"google.golang.org/grpc"
+)
+
+const (
+	TARGET string = "localhost:5052"
 )
 
 func callRegisterUser (usc uspb.UserServiceClient) {
@@ -35,7 +38,7 @@ func callListUser(usc uspb.UserServiceClient) {
 
 func main() {
 
-	conn, err:=grpc.Dial("localhost:5052", grpc.WithInsecure())
+	conn, err:=grpc.Dial(TARGET, grpc.WithInsecure())
 	if err != nil {
 		fmt.Errorf("failed to dial server: %v", err)
 	}

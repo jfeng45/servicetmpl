@@ -7,8 +7,8 @@
 package model
 
 import (
-	"time"
 	"github.com/go-ozzo/ozzo-validation"
+	"time"
 )
 
 // User has a name, department and created date. Name and created are required, department is optional.

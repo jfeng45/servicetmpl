@@ -12,6 +12,10 @@ import (
 	"google.golang.org/grpc"
 	"net"
 )
+const (
+	FILENAME string = "../../configs/appConfigDev.yaml"
+)
+
 type UserService struct {
 	container container.Container
 }
@@ -21,20 +25,38 @@ func (uss *UserService) RegisterUser(ctx context.Context, req *uspb.RegisterUser
 
 	ruci, err := uss.container.RetrieveRegistration()
 	if err != nil {
+		logger.Log.Errorf("%+v\n", err)
 		return nil, errors.Wrap(err, "")
 	}
+	defer  func() {
+		logger.Log.Infof("in defre")
+		if p := recover(); p != nil {
+			logger.Log.Errorf("%+v\n", p)
+			//return nil, nil
+		}
+	}()
 	mu, err := userclient.GrpcToUser(req.User)
+	defer  func() {
+		logger.Log.Infof("in defre")
+		if err := recover(); err != nil {
+			logger.Log.Errorf("%+v\n", err)
+			//return nil, nil
+		}
+	}()
 	if err != nil {
+		logger.Log.Errorf("%+v\n", err)
 		return nil, errors.Wrap(err, "")
 	}
 	logger.Log.Debug("mu:", mu)
 	resultUser, err :=ruci.RegisterUser(mu)
 	if err != nil {
+		logger.Log.Errorf("%+v\n", err)
 		return nil, errors.Wrap(err, "")
 	}
 	logger.Log.Debug("resultUser:", resultUser)
 	gu, err := userclient.UserToGrpc(resultUser)
 	if err != nil {
+		logger.Log.Errorf("%+v\n", err)
 		return nil, errors.Wrap(err, "")
 	}
 
@@ -49,15 +71,18 @@ func (uss *UserService) ListUser(ctx context.Context, in *uspb.ListUserReq) (*us
 
 	luci, err := uss.container.RetrieveListUser()
 	if err != nil {
+		logger.Log.Errorf("%+v\n", err)
 		return nil, errors.Wrap(err, "")
 	}
 
 	lu, err :=luci.ListUser()
 	if err != nil {
+		logger.Log.Errorf("%+v\n", err)
 		return nil, errors.Wrap(err, "")
 	}
 	gu, err := userclient.UserListToGrpc(lu)
 	if err != nil {
+		logger.Log.Errorf("%+v\n", err)
 		return nil, errors.Wrap(err, "")
 	}
 
@@ -84,7 +109,7 @@ func runServer(c container.Container) error {
 }
 
 func main () {
-	filename := "../../configs/appConfigDev.yaml"
+	filename := FILENAME
 	container, err := buildContainer(filename)
 	if err != nil {
 		logger.Log.Errorf("%+v\n", err)

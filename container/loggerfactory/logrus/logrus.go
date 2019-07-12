@@ -6,7 +6,6 @@ import (
 	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
-	//"os"
 )
 
 //type loggerWrapper struct {

@@ -13,6 +13,14 @@ import (
 	"time"
 )
 
+const (
+	DELETE_USER string ="delete from userinfo where username=?"
+	QUERY_USER_BY_ID string ="SELECT * FROM userinfo where uid =?"
+	QUERY_USER_BY_NAME = "SELECT * FROM userinfo where username =?"
+	QUERY_USER = "SELECT * FROM userinfo "
+	UPDATE_USER = "update userinfo set username=?, department=?, created=? where uid=?"
+    INSERT_USER = "INSERT userinfo SET username=?,department=?,created=?"
+)
 // DBTxStore is the MySQL implementation of Gdbc interface
 type DBTxStore struct {
 	DB gdbc.Gdbc
@@ -20,7 +28,7 @@ type DBTxStore struct {
 
 func (userData *DBTxStore) Remove(username string) (int64, error) {
 
-	stmt, err := userData.DB.Prepare("delete from userinfo where username=?")
+	stmt, err := userData.DB.Prepare(DELETE_USER)
 	if err!=nil {
 		return 0, errors.Wrap(err, "")
 	}
@@ -40,13 +48,12 @@ func (userData *DBTxStore) Remove(username string) (int64, error) {
 }
 
 func (userData *DBTxStore) Find(id int) (*model.User, error) {
-	rows, err := userData.DB.Query("SELECT * FROM userinfo where uid =?", id)
-	if err!=nil {
+	rows, err := userData.DB.Query(QUERY_USER_BY_ID, id)
+	if err !=nil {
 		return nil, errors.Wrap(err, "")
 	}
 	defer rows.Close()
 	return retrieveUser(rows)
-	//return user, nil
 }
 func retrieveUser(rows *sql.Rows) (*model.User, error) {
 	if rows.Next() {
@@ -72,7 +79,7 @@ func rowsToUser(rows *sql.Rows) (*model.User, error) {
 }
 func (userData *DBTxStore) FindByName(name string) (*model.User, error) {
 	//logger.Log.Debug("call FindByName() and name is:", name)
-	rows, err := userData.DB.Query("SELECT * FROM userinfo where username =?", name)
+	rows, err := userData.DB.Query(QUERY_USER_BY_NAME, name)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}
@@ -82,7 +89,7 @@ func (userData *DBTxStore) FindByName(name string) (*model.User, error) {
 
 func (userData *DBTxStore) FindAll() ([]model.User, error) {
 
-	rows, err := userData.DB.Query("SELECT * FROM userinfo ")
+	rows, err := userData.DB.Query(QUERY_USER)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}
@@ -108,7 +115,7 @@ func (userData *DBTxStore) FindAll() ([]model.User, error) {
 
 func (userData *DBTxStore) Update(user *model.User) (int64, error) {
 
-	stmt, err := userData.DB.Prepare("update userinfo set username=?, department=?, created=? where uid=?")
+	stmt, err := userData.DB.Prepare(UPDATE_USER)
 
 	if err!=nil {
 		return 0, errors.Wrap(err, "")
@@ -130,7 +137,7 @@ func (userData *DBTxStore) Update(user *model.User) (int64, error) {
 
 func (userData *DBTxStore) Insert(user *model.User) (*model.User, error) {
 
-	stmt, err := userData.DB.Prepare("INSERT userinfo SET username=?,department=?,created=?")
+	stmt, err := userData.DB.Prepare(INSERT_USER)
 	if err!=nil {
 		return nil, errors.Wrap(err, "")
 	}

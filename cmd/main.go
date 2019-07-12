@@ -10,6 +10,10 @@ import (
 	"time"
 )
 
+const (
+	DEV_CONFIG string = "../configs/appConfigDev.yaml"
+	PROD_CONFIG string = "../configs/appConfigProd.yaml"
+)
 func main() {
 	testMySql()
 	//testCouchDB()
@@ -27,7 +31,7 @@ func buildContainer (filename string) (container.Container, error){
 	return &container, nil
 }
 func testCouchDB() {
-	filename := "../configs/appConfigProd.yaml"
+	filename := PROD_CONFIG
 	container, err := buildContainer(filename)
 	if err!=nil  {
 		logger.Log.Errorf("%+v\n", err)
@@ -37,7 +41,7 @@ func testCouchDB() {
 }
 func testMySql() {
 
-	filename := "../configs/appConfigDev.yaml"
+	filename := DEV_CONFIG
 	container, err := buildContainer(filename)
 	if err!=nil  {
 		logger.Log.Errorf("%+v\n", err)
@@ -46,13 +50,13 @@ func testMySql() {
 
 	testListUser(container)
 	testFindById(container)
-	//testRegisterUser(container)
-	//testModifyUser(container)
-	//testUnregister(container)
+	testRegisterUser(container)
+	testModifyUser(container)
+	testUnregister(container)
 
-	//testModifyAndUnregister(container)
-	//testModifyAndUnregisterWithTx(container)
-	//testTransaction(container)
+	testModifyAndUnregister(container)
+	testModifyAndUnregisterWithTx(container)
+
 
 }
 func testUnregister(container container.Container) {
@@ -61,8 +65,7 @@ func testUnregister(container container.Container) {
 	if err != nil {
 		logger.Log.Fatal("registration interface build failed:%+v\n", err)
 	}
-	username := "Richard"
-	//username := "Peter"
+	username := "Brian"
 	err =ruci.UnregisterUser(username)
 	if err != nil {
 		logger.Log.Fatalf("testUnregister failed:%+v\n", err)
@@ -79,11 +82,8 @@ func testRegisterUser(container container.Container) {
 	if err != nil {
 		logger.Log.Errorf("date format err:%+v\n", err)
 	}
-	//user := usermodel.User{Name: "Richard", Department:"finance", Created:created}
-	//user := usermodel.User{Name: "Tony", Department:"IT", Created:created}
-	user := model.User{Name: "Aditi", Department:"Marketing", Created:created}
-	//created = time.Time{}
-	//user := usermodel.User{Name: "", Department:"IT", Created:created}
+
+	user := model.User{Name: "Brian", Department:"Marketing", Created:created}
 
 	resultUser, err :=ruci.RegisterUser(&user)
 	if err != nil {
@@ -102,8 +102,7 @@ func testModifyUser(container container.Container) {
 	if err != nil {
 		logger.Log.Errorf("date format err:%+v\n", err)
 	}
-	user := model.User{Id: 3, Name:"Brian", Department:"HR", Created:created}
-	//user := usermodel.User{Name:"Brian", Department:"HR", Created:created}
+	user := model.User{Id: 6, Name:"Aditi", Department:"HR", Created:created}
 	err =ruci.ModifyUser(&user)
 	if err !=nil {
 		logger.Log.Infof("Modify user failed:%+v\n", err)
@@ -134,9 +133,7 @@ func testModifyAndUnregister(container container.Container) {
 	if err != nil {
 		logger.Log.Errorf("date format err:%+v\n", err)
 	}
-	//user := usermodel.User{Name:"Anshu", Department:"Sales", Created:created}
-	user := model.User{Id: 4, Name:"Peter", Department:"Sales", Created:created}
-	//user :=model.User{Id:2, Name:"Aditi", Department:"Marketing", Created:created}
+	user := model.User{Id: 6, Name:"Richard", Department:"Sales", Created:created}
 	err = ruci.ModifyAndUnregister(&user)
 	if err != nil {
 		logger.Log.Errorf("ModifyAndUnregister failed:%+v\n", err)
@@ -154,7 +151,7 @@ func testModifyAndUnregisterWithTx(container container.Container) {
 	if err != nil {
 		logger.Log.Errorf("date format err:%+v\n", err)
 	}
-	user := model.User{Id: 3, Name:"Anshu", Department:"Sales", Created:created}
+	user := model.User{Id: 8, Name:"Anshu", Department:"Sales", Created:created}
 	err = ruci.ModifyAndUnregisterWithTx(&user)
 	if err != nil {
 		logger.Log.Errorf("ModifyAndUnregisterWithTx failed:%+v\n", err)

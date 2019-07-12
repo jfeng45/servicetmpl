@@ -5,14 +5,6 @@ import (
 	"github.com/jfeng45/servicetmpl/configs"
 )
 
-// empty type for logger receiver
-type logFactoryBuilder struct {}
-
-// interface for logger factory
-type logFbInterface interface {
-	Build(*configs.LogConfig) error
-}
-
 // constant for logger code, it needs to match code in configuration
 const (
 	LOGRUS string ="logrus"
@@ -23,6 +15,14 @@ const (
 var logfactoryBuilderMap = map[string]logFbInterface{
 	ZAP: &zapFactory{},
 	LOGRUS: &logrusFactory{},
+}
+
+// empty type for logger receiver
+type logFactoryBuilder struct {}
+
+// interface for logger factory
+type logFbInterface interface {
+	Build(*configs.LogConfig) error
 }
 
 // accessors for factoryBuilderMap

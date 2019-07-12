@@ -25,8 +25,9 @@ func (uuc *ListUserUseCase) ListUser() ([]model.User, error) {
 func (uuc *ListUserUseCase)Find(id int) (*model.User,error) {
 	users, err := uuc.getFromCache(strconv.Itoa(id))
 	if err != nil {
+		//not find and continue
 		logger.Log.Errorf("get from cache error:", err)
-		return nil, errors.Wrap(err, "")
+		//return nil, errors.Wrap(err, "")
 	}
 	if users != nil {
 		//here should return the results from cache, however, right now the cache doesn't store user info,

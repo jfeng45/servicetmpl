@@ -10,6 +10,10 @@ import (
 	"github.com/pkg/errors"
 )
 
+const (
+	DDOC string = "_design/serviceConfigDesignDoc"
+	VIEW_ID string = "_view/serviceConfigByID"
+)
 type UserDataCouchdb struct {
 	DB *kivik.DB
 }
@@ -19,8 +23,8 @@ type UserDataCouchdb struct {
 // This function is created to make it easy to run the application, don't do it in production code
 // When run for more than once, it will show error "Conflict: Document update conflict", just ignore it
 func createView(dataStore *UserDataCouchdb) {
-	rev, err := dataStore.DB.Put(context.TODO(), "_design/serviceConfigDesignDoc", map[string]interface{}{
-		"_id": "_design/serviceConfigDesignDoc",
+	rev, err := dataStore.DB.Put(context.TODO(), DDOC, map[string]interface{}{
+		"_id": DDOC,
 		"views": map[string]interface{}{
 			"serviceConfigByID": map[string]interface{}{
 				"map": "function(doc) {\n  if (doc.uid) {\n emit(doc.uid, doc);\n}\n}",
@@ -39,7 +43,7 @@ func (dataStore *UserDataCouchdb) Find(id int) (*model.User, error) {
 	var err error
 	// only need to it once
 	createView(dataStore)
-	rows, err := dataStore.DB.Query(context.TODO(), "_design/serviceConfigDesignDoc", "_view/serviceConfigByID", map[string]interface{}{"reduce": false},
+	rows, err := dataStore.DB.Query(context.TODO(), DDOC, VIEW_ID, map[string]interface{}{"reduce": false},
 		kivik.Options{"key":id})
 
 	if err != nil {
