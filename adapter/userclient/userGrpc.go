@@ -19,7 +19,6 @@ func GrpcToUser(user *uspb.User) (*model.User, error){
 		return nil, errors.Wrap(err,"")
 	}
 	resultUser.Created = created
-	panic("test")
 	return &resultUser, nil
 }
 

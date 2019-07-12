@@ -13,14 +13,26 @@ import (
 	"net"
 )
 const (
-	FILENAME string = "../../configs/appConfigDev.yaml"
+	DEV_CONFIG string = "../../configs/appConfigDev.yaml"
+	PROD_CONFIG string = "../../configs/appConfigProd.yaml"
+	GRPC_NETWORK = "tcp"
+	GRPC_ADDRESS = "localhost:5052"
+
+
 )
 
 type UserService struct {
 	container container.Container
 }
 
+func catchPanic() {
+	if p := recover(); p != nil {
+		logger.Log.Errorf("%+v\n", p)
+	}
+}
+
 func (uss *UserService) RegisterUser(ctx context.Context, req *uspb.RegisterUserReq) (*uspb.RegisterUserResp, error) {
+	defer catchPanic()
 	logger.Log.Debug("RegisterUser called")
 
 	ruci, err := uss.container.RetrieveRegistration()
@@ -28,21 +40,8 @@ func (uss *UserService) RegisterUser(ctx context.Context, req *uspb.RegisterUser
 		logger.Log.Errorf("%+v\n", err)
 		return nil, errors.Wrap(err, "")
 	}
-	defer  func() {
-		logger.Log.Infof("in defre")
-		if p := recover(); p != nil {
-			logger.Log.Errorf("%+v\n", p)
-			//return nil, nil
-		}
-	}()
 	mu, err := userclient.GrpcToUser(req.User)
-	defer  func() {
-		logger.Log.Infof("in defre")
-		if err := recover(); err != nil {
-			logger.Log.Errorf("%+v\n", err)
-			//return nil, nil
-		}
-	}()
+
 	if err != nil {
 		logger.Log.Errorf("%+v\n", err)
 		return nil, errors.Wrap(err, "")
@@ -67,6 +66,7 @@ func (uss *UserService) RegisterUser(ctx context.Context, req *uspb.RegisterUser
 }
 
 func (uss *UserService) ListUser(ctx context.Context, in *uspb.ListUserReq) (*uspb.ListUserResp, error) {
+	defer catchPanic()
 	logger.Log.Debug("ListUser called")
 
 	luci, err := uss.container.RetrieveListUser()
@@ -98,7 +98,7 @@ func runServer(c container.Container) error {
 
 	cs:= &UserService{c}
 	uspb.RegisterUserServiceServer(srv, cs)
-	l, err:=net.Listen("tcp", "localhost:5052")
+	l, err:=net.Listen(GRPC_NETWORK, GRPC_ADDRESS)
 
 	if err!=nil {
 		return errors.Wrap(err, "")
@@ -109,7 +109,7 @@ func runServer(c container.Container) error {
 }
 
 func main () {
-	filename := FILENAME
+	filename := DEV_CONFIG
 	container, err := buildContainer(filename)
 	if err != nil {
 		logger.Log.Errorf("%+v\n", err)
@@ -134,13 +134,4 @@ func buildContainer (filename string) (container.Container, error){
 	}
 	return &container, nil
 }
-//func initContainer() container.Container{
-//	filename := "../../configs/appConfigProd.yaml"
-//	container, err := buildContainer(filename)
-//	if err!=nil  {
-//		logger.Log.Errorf("%+v\n", err)
-//		return
-//	}
-//	return
-//	//testFindById(container)
-//}
+
