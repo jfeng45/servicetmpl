@@ -38,6 +38,7 @@ type CacheDataInterface interface {
 // It is created to illustrate project layout, no real use.
 type CourseDataInterface interface {
 	GetAvailableCourse()
+	FindAll() ([]model.Course, error)
 }
 
 // TxDataService represents operations needed for transaction support.

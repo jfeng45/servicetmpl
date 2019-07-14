@@ -5,28 +5,41 @@ import (
 	"github.com/jfeng45/servicetmpl/configs"
 	"github.com/jfeng45/servicetmpl/container/logger"
 	logFactory "github.com/jfeng45/servicetmpl/container/loggerfactory"
-	"github.com/jfeng45/servicetmpl/container/registry"
 	"github.com/jfeng45/servicetmpl/container/usecasefactory"
-	"github.com/jfeng45/servicetmpl/usecase"
 	"github.com/pkg/errors"
 )
 
 type ServiceContainer struct {
 	FactoryMap map[string]interface{}
-	Config     *configs.AppConfig
 }
 
 func (sc *ServiceContainer)InitApp( filename string ) error {
 	var err error
-	sc.Config, err = loadConfig(filename)
+	config, err := loadConfig(filename)
 	if err != nil {
 		return errors.Wrap(err,"loadConfig")
 	}
-	err = loadLogger(sc.Config.Log)
+	err = loadLogger(config.Log)
 	if err != nil {
 		return errors.Wrap(err,"loadLogger")
 	}
+	err = buildUseCase(sc, config)
+	if err != nil {
+		return errors.Wrap(err,"build use case")
+	}
 	return nil
+}
+
+func (sc *ServiceContainer) GetInstance(code string) ( interface{}, error) {
+
+	value, found := sc.FactoryMap[code]
+	if found {
+		logger.Log.Debug("found Retrieve registration: code=", code)
+		return value, nil
+	} else {
+		errMsg := "can't find corresponding type for code " + code + " in container"
+		return nil, errors.New(errMsg)
+	}
 }
 
 // loads the logger
@@ -49,27 +62,25 @@ func loadConfig (filename string) (*configs.AppConfig, error) {
 	return &ac, nil
 }
 
-func (sc *ServiceContainer) RetrieveRegistration() (usecase.RegistrationUseCaseInterface, error){
-
-	key := sc.Config.UseCase.Registration.Code
-	value, found := registry.GetFromRegistry(sc.FactoryMap, key)
-	if found {
-		logger.Log.Debug("found Retrieve registration: key=", key)
-		return value.(usecase.RegistrationUseCaseInterface), nil
+// create concrete types for use case interfaces
+func buildUseCase(sc *ServiceContainer, config *configs.AppConfig) error {
+	for key,ucfb := range usecasefactory.UseCaseFactoryBuilderMap {
+		err := ucfb.Build(sc, config, key)
+		if err != nil {
+			return errors.Wrap(err, "build use case")
+		}
 	}
-	//not in map, need to create one
-	logger.Log.Debugf("doesn't find key=%v need to created a new one\n",key)
-	return usecasefactory.AddRegistration(sc.FactoryMap, sc.Config, key)
+	return nil
 }
 
-func (sc *ServiceContainer) RetrieveListUser() (usecase.ListUserUseCaseInterface, error){
-	key := sc.Config.UseCase.ListUser.Code
-	value, found := registry.GetFromRegistry(sc.FactoryMap, key)
-	if found {
-		logger.Log.Debug("found RetrieveListUser: key=", key)
-		return value.(usecase.ListUserUseCaseInterface), nil
-	}
-	//not in map, need to create one
-	logger.Log.Debugf("doesn't find key=%v need to created a new one\n",key)
-	return usecasefactory.AddListUser(sc.FactoryMap, sc.Config, key)
+func (sc *ServiceContainer) Get(code string) (interface{}, bool){
+	value, found := sc.FactoryMap[code]
+	return value, found
 }
+
+func (sc *ServiceContainer) Put(code string, value interface{}) {
+	sc.FactoryMap[code] =value
+}
+
+
+

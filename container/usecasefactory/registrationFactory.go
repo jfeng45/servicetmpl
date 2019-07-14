@@ -2,25 +2,38 @@ package usecasefactory
 
 import (
 	"github.com/jfeng45/servicetmpl/configs"
+	"github.com/jfeng45/servicetmpl/container"
 	"github.com/jfeng45/servicetmpl/container/databasefactory"
-	"github.com/jfeng45/servicetmpl/usecase"
+	"github.com/jfeng45/servicetmpl/container/logger"
+	"github.com/jfeng45/servicetmpl/dataservice"
 	"github.com/jfeng45/servicetmpl/usecase/registration"
 	"github.com/pkg/errors"
 )
 
-// AddRegistration creates RegistrationUseCaseInterface
-func AddRegistration(factoryMap map[string]interface{}, appConfig *configs.AppConfig, key string) (usecase.RegistrationUseCaseInterface, error) {
+type RegistrationFactory struct {
+}
+// Build creates concrete type for RegistrationUseCaseInterface
+func (rf *RegistrationFactory) Build(c container.Container, appConfig *configs.AppConfig, key string) error {
 
 	uc := &appConfig.UseCase.Registration.UserConfig
-	udi, err := databasefactory.RetrieveUserData(factoryMap, uc, databasefactory.GetDbFactoryBuilder(uc.Code))
+	var udi dataservice.UserDataInterface
+	var err error
+	value, found := c.Get(uc.Code)
+	if found {
+		logger.Log.Debug("found registration use case: key=", key)
+		udi = value.(dataservice.UserDataInterface)
+	} else {
+		udi, err = databasefactory.GetDbFactoryBuilder(uc.Code).Build(c, uc )
+	}
+
 	if err != nil {
-		return nil, errors.Wrap(err, "")
+		return errors.Wrap(err, "")
 	}
 	ruc := registration.RegistrationUseCase{UserDataInterface: udi}
 
-	factoryMap[key] = &ruc
+	c.Put(key, &ruc)
 
-	return &ruc, nil
+	return nil
 }
 
 

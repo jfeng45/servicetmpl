@@ -5,17 +5,19 @@ import (
 	couchdbKivid "github.com/go-kivik/couchdb"
 	"github.com/go-kivik/kivik"
 	"github.com/jfeng45/servicetmpl/configs"
+	"github.com/jfeng45/servicetmpl/container"
 	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/jfeng45/servicetmpl/dataservice"
 	"github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb"
 	"github.com/pkg/errors"
 )
 
-// couchdbFactory is receiver for build method
-type couchdbFactory dbFactoryBuilder
+// couchdbFactory is receiver for Build method
+//type couchdbFactory dbFactoryBuilder
+type couchdbFactory struct {}
 
-// implement build method for CouchDB database
-func (mf *couchdbFactory) build(factoryMap map[string]interface{}, dbc *configs.DatabaseConfig) (dataservice.UserDataInterface, error) {
+// implement Build method for CouchDB database
+func (mf *couchdbFactory) Build(c container.Container, dbc *configs.DatabaseConfig) (dataservice.UserDataInterface, error) {
 	logger.Log.Debug("couchdbFactory")
 
 	// Don't know why needs adding the following line, because the driver is already registered in init() in couchdbKiv
@@ -34,7 +36,7 @@ func (mf *couchdbFactory) build(factoryMap map[string]interface{}, dbc *configs.
 	}
 	udc := couchdb.UserDataCouchdb{db}
 	logger.Log.Debugf("udc:%v",udc)
-	factoryMap[key] = &udc
+	c.Put(key, &udc)
 	return &udc, nil
 
 }

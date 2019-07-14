@@ -14,6 +14,7 @@ import (
 // access persistence layer
 type RegistrationUseCase struct {
 	UserDataInterface  dataservice.UserDataInterface
+	CourseDataInterface dataservice.CourseDataInterface
 }
 
 func (uuc *RegistrationUseCase) RegisterUser(user *model.User) (*model.User, error) {

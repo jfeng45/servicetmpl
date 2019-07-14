@@ -3,22 +3,20 @@ package logger
 
 import (
 	"github.com/jfeng45/servicetmpl/configs"
+	"github.com/jfeng45/servicetmpl/container/loggerfactory/logrus"
+	"github.com/jfeng45/servicetmpl/container/loggerfactory/zap"
 )
 
 // constant for logger code, it needs to match code in configuration
 const (
 	LOGRUS string ="logrus"
 	ZAP string ="zap"
-
 )
 // logger mapp to map logger code to logger builder
 var logfactoryBuilderMap = map[string]logFbInterface{
-	ZAP: &zapFactory{},
-	LOGRUS: &logrusFactory{},
+	ZAP: &zap.ZapFactory{},
+	LOGRUS: &logrus.LogrusFactory{},
 }
-
-// empty type for logger receiver
-type logFactoryBuilder struct {}
 
 // interface for logger factory
 type logFbInterface interface {

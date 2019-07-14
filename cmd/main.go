@@ -1,12 +1,13 @@
 package main
 
 import (
-	"github.com/jfeng45/servicetmpl/configs"
 	"github.com/jfeng45/servicetmpl/container"
 	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/jfeng45/servicetmpl/container/servicecontainer"
 	"github.com/jfeng45/servicetmpl/model"
 	"github.com/jfeng45/servicetmpl/tools"
+	"github.com/jfeng45/servicetmpl/usecase"
+	"github.com/pkg/errors"
 	"time"
 )
 
@@ -18,10 +19,40 @@ func main() {
 	testMySql()
 	//testCouchDB()
 }
+
+func getListUserUseCase(c container.Container) (usecase.ListUserUseCaseInterface, error){
+	key := container.LIST_USER
+	//value, found := registry.GetFromRegistry(sc.FactoryMap, key)
+	value, err := c.GetInstance(key)
+	if err!=nil  {
+		//logger.Log.Errorf("%+v\n", err)
+		return nil, errors.Wrap(err, "")
+	}
+	if value !=nil {
+		logger.Log.Debug("found list user use case: key=", key)
+		return value.(usecase.ListUserUseCaseInterface), nil
+	}
+	return nil, nil
+}
+
+func getRegistrationUseCase(c container.Container) (usecase.RegistrationUseCaseInterface, error){
+	key := container.REGISTRATION
+	//value, found := registry.GetFromRegistry(sc.FactoryMap, key)
+	value, err := c.GetInstance(key)
+	if err!=nil  {
+		//logger.Log.Errorf("%+v\n", err)
+		return nil, errors.Wrap(err, "")
+	}
+	if value !=nil {
+		logger.Log.Debug("found registration use case: key=", key)
+		return value.(usecase.RegistrationUseCaseInterface), nil
+	}
+	return nil, nil
+}
+
 func buildContainer (filename string) (container.Container, error){
 	factoryMap :=make(map[string]interface{})
-	config := configs.AppConfig{}
-	container := servicecontainer.ServiceContainer{factoryMap, &config}
+	container := servicecontainer.ServiceContainer{factoryMap}
 
 	err:= container.InitApp( filename)
 	if err!=nil  {
@@ -50,18 +81,18 @@ func testMySql() {
 
 	testListUser(container)
 	testFindById(container)
-	testRegisterUser(container)
-	testModifyUser(container)
-	testUnregister(container)
-
-	testModifyAndUnregister(container)
-	testModifyAndUnregisterWithTx(container)
+	//testRegisterUser(container)
+	//testModifyUser(container)
+	//testUnregister(container)
+	//
+	//testModifyAndUnregister(container)
+	//testModifyAndUnregisterWithTx(container)
 
 
 }
 func testUnregister(container container.Container) {
 
-	ruci, err := container.RetrieveRegistration()
+	ruci, err := getRegistrationUseCase(container)
 	if err != nil {
 		logger.Log.Fatal("registration interface build failed:%+v\n", err)
 	}
@@ -74,7 +105,7 @@ func testUnregister(container container.Container) {
 }
 
 func testRegisterUser(container container.Container) {
-	ruci, err := container.RetrieveRegistration()
+	ruci, err :=  getRegistrationUseCase(container)
 	if err != nil {
 		logger.Log.Fatal("registration interface build failed:%+v\n", err)
 	}
@@ -94,7 +125,7 @@ func testRegisterUser(container container.Container) {
 }
 
 func testModifyUser(container container.Container) {
-	ruci, err := container.RetrieveRegistration()
+	ruci, err :=  getRegistrationUseCase(container)
 	if err != nil {
 		logger.Log.Fatal("registration interface build failed:%+v\n", err)
 	}
@@ -112,7 +143,8 @@ func testModifyUser(container container.Container) {
 }
 
 func testListUser(container container.Container) {
-	rluf, err := container.RetrieveListUser()
+	//rluf, err := container.RetrieveListUser()
+	rluf, err := getListUserUseCase(container)
 	if err != nil {
 		logger.Log.Fatal("RetrieveListUser interface build failed:", err)
 	}
@@ -125,7 +157,7 @@ func testListUser(container container.Container) {
 
 
 func testModifyAndUnregister(container container.Container) {
-	ruci, err := container.RetrieveRegistration()
+	ruci, err :=  getRegistrationUseCase(container)
 	if err != nil {
 		logger.Log.Fatal("RegisterRegistration interface build failed:%+v\n", err)
 	}
@@ -143,7 +175,7 @@ func testModifyAndUnregister(container container.Container) {
 }
 
 func testModifyAndUnregisterWithTx(container container.Container) {
-	ruci, err := container.RetrieveRegistration()
+	ruci, err :=  getRegistrationUseCase(container)
 	if err != nil {
 		logger.Log.Fatal("RegisterRegistration interface build failed:%+v\n", err)
 	}
@@ -162,8 +194,9 @@ func testModifyAndUnregisterWithTx(container container.Container) {
 
 func testFindById(container container.Container) {
 	//It is uid in database. Make sure you have it in database, otherwise it won't find it.
-	id :=12
-	rluf, err := container.RetrieveListUser()
+	id :=11
+	//rluf, err := container.RetrieveListUser()
+	rluf, err := getListUserUseCase(container)
 	if err != nil {
 		logger.Log.Fatalf("RetrieveListUser interface build failed:%+v\n", err)
 	}
