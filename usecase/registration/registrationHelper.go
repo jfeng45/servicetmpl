@@ -43,8 +43,9 @@ func unregisterUser(udi dataservice.UserDataInterface, username string) error {
 // The business function will be wrapped inside a transaction and without a transaction
 // It needs to be written in a way that every error will be returned so it can be catched by TxEnd() function,
 // which will handle commit and rollback
-func modifyAndUnregister(udi dataservice.UserDataInterface, user *model.User) error {
+func modifyAndUnregister(uuc *RegistrationUseCase, user *model.User) error {
 	//loggera.Log.Debug("modifyAndUnregister")
+	udi := uuc.UserDataInterface
 	err := modifyUser(udi, user)
 	if err != nil {
 		return errors.Wrap(err, "")

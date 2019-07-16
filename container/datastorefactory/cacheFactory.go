@@ -1,4 +1,4 @@
-package databasefactory
+package datastorefactory
 
 import (
 	"github.com/jfeng45/servicetmpl/adapter/cacheclient"

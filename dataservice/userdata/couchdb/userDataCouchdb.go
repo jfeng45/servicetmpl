@@ -102,6 +102,6 @@ func (dataStore *UserDataCouchdb)TxEnd( txFunc func() error) error {
 	return nil
 }
 //CouchDB doesn't support transaction, do nothing
-func (dataStore *UserDataCouchdb)TxBegin() (dataservice.UserDataInterface, error) {
+func (dataStore *UserDataCouchdb)TxBegin() (dataservice.TxDataInterface, error) {
 	return nil, nil
 }

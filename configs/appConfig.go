@@ -27,17 +27,24 @@ type UseCaseConfig struct {
 	ListUser    ListUserConfig `yaml:"listUser"`
 }
 
-// UseCaseConfig represents registration use case
+// RegistrationConfig represents registration use case
 type RegistrationConfig struct {
-	Code        string         `yaml:"code"`
-	UserConfig  DatabaseConfig `yaml:"userConfig"`
+	Code           string         `yaml:"code"`
+	UserDataConfig UserDataConfig `yaml:"userDataConfig"`
+	TxConfig       DatabaseConfig `yaml:"txConfig"`
 }
 
-// UseCaseConfig represents list user use case
+// ListUserConfig represents list user use case
 type ListUserConfig struct {
-	Code        string         `yaml:"code"`
-	UserConfig  DatabaseConfig `yaml:"userConfig"`
-	CacheConfig GrpcConfig     `yaml:"cacheConfig"`
+	Code           string         `yaml:"code"`
+	UserDataConfig UserDataConfig `yaml:"userDataConfig"`
+	CacheConfig    GrpcConfig     `yaml:"cacheConfig"`
+}
+
+// UserDataConfig represents user data service
+type UserDataConfig struct {
+	Code           string         `yaml:"code"`
+	DataStoreConfig DatabaseConfig `yaml:"dataStoreConfig"`
 }
 
 // DatabaseConfig represents database handler

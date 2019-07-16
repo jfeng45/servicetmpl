@@ -24,8 +24,11 @@ logConfig: *zapConfig
 useCaseConfig:
     registration:
         code: registration
-        userConfig: *mySqlConfig
+        userDataConfig: &userDataConfig
+            code: userData
+            dataStoreConfig: *mySqlConfig
+        TxDataConfig: *mySqlConfig
     listUser:
         code: listUser
-        userConfig: *mySqlConfig
+        userDataConfig: *userDataConfig
         cacheConfig: *cacheConfig

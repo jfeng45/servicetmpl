@@ -41,3 +41,4 @@ type ListUserUseCaseInterface interface {
 	// Find retrieves a user based on a user's id
 	Find(id int) (*model.User, error)
 }
+

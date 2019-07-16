@@ -14,7 +14,8 @@ import (
 // access persistence layer
 type RegistrationUseCase struct {
 	UserDataInterface  dataservice.UserDataInterface
-	CourseDataInterface dataservice.CourseDataInterface
+	TxDataInterface  dataservice.TxDataInterface
+
 }
 
 func (uuc *RegistrationUseCase) RegisterUser(user *model.User) (*model.User, error) {
@@ -59,16 +60,16 @@ func (uuc *RegistrationUseCase) UnregisterUser(username string) error {
 
 // The use case of ModifyAndUnregister without transaction
 func (uuc *RegistrationUseCase) ModifyAndUnregister(user *model.User) error {
-	return modifyAndUnregister(uuc.UserDataInterface, user)
+	return modifyAndUnregister(uuc, user)
 }
 // The use case of ModifyAndUnregister with transaction
 func (uuc *RegistrationUseCase) ModifyAndUnregisterWithTx(user *model.User) error {
-	newUdi, err := uuc.UserDataInterface.TxBegin()
+	tdi, err := uuc.TxDataInterface.TxBegin()
 	if err != nil {
 		return errors.Wrap(err, "")
 	}
-	return newUdi.TxEnd( func () error {
+	return tdi.TxEnd( func () error {
 		//wrap the business function inside the TxEnd function
-		return modifyAndUnregister(newUdi, user)
+		return modifyAndUnregister(uuc, user)
 	})
 }

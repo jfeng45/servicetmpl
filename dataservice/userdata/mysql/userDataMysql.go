@@ -5,10 +5,9 @@ import (
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jfeng45/servicetmpl/container/logger"
-	"github.com/jfeng45/servicetmpl/dataservice"
-	"github.com/jfeng45/servicetmpl/dataservice/gdbc"
 	"github.com/jfeng45/servicetmpl/model"
 	"github.com/jfeng45/servicetmpl/tools"
+	"github.com/jfeng45/servicetmpl/tools/gdbc"
 	"github.com/pkg/errors"
 	"time"
 )
@@ -21,12 +20,12 @@ const (
 	UPDATE_USER = "update userinfo set username=?, department=?, created=? where uid=?"
     INSERT_USER = "INSERT userinfo SET username=?,department=?,created=?"
 )
-// DBTxStore is the MySQL implementation of Gdbc interface
-type DBTxStore struct {
+// UserDataMySql is the MySQL implementation of UserDatainterface
+type UserDataMySql struct {
 	DB gdbc.Gdbc
 }
 
-func (userData *DBTxStore) Remove(username string) (int64, error) {
+func (userData *UserDataMySql) Remove(username string) (int64, error) {
 
 	stmt, err := userData.DB.Prepare(DELETE_USER)
 	if err!=nil {
@@ -47,7 +46,7 @@ func (userData *DBTxStore) Remove(username string) (int64, error) {
 	return rowsAffected, nil
 }
 
-func (userData *DBTxStore) Find(id int) (*model.User, error) {
+func (userData *UserDataMySql) Find(id int) (*model.User, error) {
 	rows, err := userData.DB.Query(QUERY_USER_BY_ID, id)
 	if err !=nil {
 		return nil, errors.Wrap(err, "")
@@ -77,7 +76,7 @@ func rowsToUser(rows *sql.Rows) (*model.User, error) {
 	logger.Log.Debug("rows to User:", user)
 	return user, nil
 }
-func (userData *DBTxStore) FindByName(name string) (*model.User, error) {
+func (userData *UserDataMySql) FindByName(name string) (*model.User, error) {
 	//logger.Log.Debug("call FindByName() and name is:", name)
 	rows, err := userData.DB.Query(QUERY_USER_BY_NAME, name)
 	if err != nil {
@@ -87,7 +86,7 @@ func (userData *DBTxStore) FindByName(name string) (*model.User, error) {
 	return retrieveUser(rows)
 }
 
-func (userData *DBTxStore) FindAll() ([]model.User, error) {
+func (userData *UserDataMySql) FindAll() ([]model.User, error) {
 
 	rows, err := userData.DB.Query(QUERY_USER)
 	if err != nil {
@@ -113,7 +112,7 @@ func (userData *DBTxStore) FindAll() ([]model.User, error) {
 	return users, nil
 }
 
-func (userData *DBTxStore) Update(user *model.User) (int64, error) {
+func (userData *UserDataMySql) Update(user *model.User) (int64, error) {
 
 	stmt, err := userData.DB.Prepare(UPDATE_USER)
 
@@ -135,7 +134,7 @@ func (userData *DBTxStore) Update(user *model.User) (int64, error) {
 	return rowsAffected, nil
 }
 
-func (userData *DBTxStore) Insert(user *model.User) (*model.User, error) {
+func (userData *UserDataMySql) Insert(user *model.User) (*model.User, error) {
 
 	stmt, err := userData.DB.Prepare(INSERT_USER)
 	if err!=nil {
@@ -155,13 +154,3 @@ func (userData *DBTxStore) Insert(user *model.User) (*model.User, error) {
 	return user, nil
 }
 
-func (dataStore *DBTxStore)TxEnd( txFunc func() error) error {
-	return dataStore.DB.TxEnd(txFunc)
-}
-
-func (dataStore *DBTxStore)TxBegin() (dataservice.UserDataInterface, error) {
-
-	gdbc, error :=dataStore.DB.TxBegin()
-	dbts := DBTxStore{gdbc}
-	return &dbts, error
-}
