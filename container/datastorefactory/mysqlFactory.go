@@ -13,10 +13,10 @@ import (
 type mysqlFactory struct {}
 
 // implement Build method for MySQL database
-func (mf *mysqlFactory) Build(c container.Container, dc *configs.DatabaseConfig) (DataStoreInterface, error) {
+func (mf *mysqlFactory) Build(c container.Container, dc *configs.DataStoreConfig) (DataStoreInterface, error) {
 	logger.Log.Debug("mySqlFactory")
 	key := dc.Code
-	db, err := sql.Open(dc.DriverName, dc.DataSourceName)
+	db, err := sql.Open(dc.DriverName, dc.UrlAddress)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}

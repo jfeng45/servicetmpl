@@ -10,15 +10,23 @@ import (
 	"io/ioutil"
 )
 
+type dataInterface interface{
+	getCode() string
+	getDataStore() dataStoreInterface
+}
+
+type dataStoreInterface interface {
+	getCode () string
+}
 // AppConfig represents the application config
 type AppConfig struct {
-	MySQLConfig     DatabaseConfig     `yaml:"mySQLConfig"`
-	CouchdbConfig   DatabaseConfig     `yaml:"couchdbConfig"`
-	CacheGrpcConfig GrpcConfig         `yaml:"cacheGrpcConfig"`
-	ZapConfig       LogConfig         `yaml:"zapConfig"`
-	LorusConfig       LogConfig         `yaml:"logrusConfig"`
-	Log              LogConfig         `yaml:"logConfig"`
-	UseCase         UseCaseConfig       `yaml:"useCaseConfig"`
+	MySQLConfig     DataStoreConfig `yaml:"mySQLConfig"`
+	CouchdbConfig   DataStoreConfig `yaml:"couchdbConfig"`
+	CacheGrpcConfig DataStoreConfig      `yaml:"cacheGrpcConfig"`
+	ZapConfig       LogConfig       `yaml:"zapConfig"`
+	LorusConfig     LogConfig       `yaml:"logrusConfig"`
+	Log             LogConfig       `yaml:"logConfig"`
+	UseCase         UseCaseConfig   `yaml:"useCaseConfig"`
 }
 
 // UseCaseConfig represents different use case
@@ -29,38 +37,54 @@ type UseCaseConfig struct {
 
 // RegistrationConfig represents registration use case
 type RegistrationConfig struct {
-	Code           string         `yaml:"code"`
-	UserDataConfig UserDataConfig `yaml:"userDataConfig"`
-	TxConfig       DatabaseConfig `yaml:"txConfig"`
+	Code           string          `yaml:"code"`
+	UserDataConfig DataConfig    `yaml:"userDataConfig"`
+	TxConfig       DataStoreConfig `yaml:"txConfig"`
 }
 
 // ListUserConfig represents list user use case
 type ListUserConfig struct {
 	Code           string         `yaml:"code"`
-	UserDataConfig UserDataConfig `yaml:"userDataConfig"`
-	CacheConfig    GrpcConfig     `yaml:"cacheConfig"`
+	UserDataConfig DataConfig `yaml:"userDataConfig"`
+	CacheDataConfig    DataConfig     `yaml:"cacheDataConfig"`
 }
 
-// UserDataConfig represents user data service
-type UserDataConfig struct {
-	Code           string         `yaml:"code"`
-	DataStoreConfig DatabaseConfig `yaml:"dataStoreConfig"`
+// DataConfig represents data service
+type DataConfig struct {
+	Code            string          `yaml:"code"`
+	DataStoreConfig DataStoreConfig `yaml:"dataStoreConfig"`
 }
 
-// DatabaseConfig represents database handler
-type DatabaseConfig struct{
+// DataStoreConfig represents database handler
+//type DataStoreConfig struct{
+//	Code        string         `yaml:"code"`
+//	DriverName string `yaml:"driverName"`
+//	DataSourceName string `yaml:"dataSourceName"`
+//	DbName string `yaml:"dbName"`
+//}
+
+type DataStoreConfig struct{
 	Code        string         `yaml:"code"`
+	// only database has driver name, grpc don't use it
 	DriverName string `yaml:"driverName"`
-	DataSourceName string `yaml:"dataSourceName"`
-	DbName string `yaml:"dbName"`
+	// for database this is datasource name; for grpc, it is target url
+	UrlAddress string `yaml:"urlAddress"`
+	// only for some database need this database name
+	DbName string `yaml:"DbName"`
 }
 
-// DatabaseConfig represents gRPC handler
-type GrpcConfig struct{
-	Code        string   `yaml:"code"`
-	GrpcName string `yaml:"grpcName"`
-	Target   string `yaml:"target"`
-}
+//// DataStoreConfig represents database handler
+//type grpcDataConfig struct{
+//	Code        string         `yaml:"code"`
+//	GrpcConfig GrpcConfig `yaml:"grpcConfig"`
+//}
+//
+//// DataStoreConfig represents gRPC handler
+//type GrpcConfig struct{
+//	Code        string   `yaml:"code"`
+//	GrpcName string `yaml:"grpcName"`
+//	Target   string `yaml:"target"`
+//}
 
 // LogConfig represents logger handler
 // Logger has many parameters can be set or changed. Currently, only three are listed here, which is most likely to be

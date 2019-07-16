@@ -80,9 +80,9 @@ func testMySql() {
 	}
 
 	testListUser(container)
-	testListUser(container)
+	//testListUser(container)
 	testFindById(container)
-	testFindById(container)
+	//testFindById(container)
 	//testRegisterUser(container)
 	//testModifyUser(container)
 	//testUnregister(container)

@@ -10,15 +10,15 @@ import (
 type RegistrationFactory struct {
 }
 // Build creates concrete type for RegistrationUseCaseInterface
-func (rf *RegistrationFactory) Build(c container.Container, appConfig *configs.AppConfig, key string) error {
+func (rf *RegistrationFactory) Build(c container.Container, appConfig *configs.AppConfig, key string) (UseCaseInterface, error) {
 	udi, err := buildUserData(c, appConfig)
 	if err != nil {
-		return errors.Wrap(err, "")
+		return nil, errors.Wrap(err, "")
 	}
 	ruc := registration.RegistrationUseCase{UserDataInterface: udi}
 	c.Put(key, &ruc)
 
-	return nil
+	return &ruc, nil
 }
 
 

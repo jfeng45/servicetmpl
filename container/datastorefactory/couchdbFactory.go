@@ -14,7 +14,7 @@ import (
 type couchdbFactory struct {}
 
 // implement Build method for CouchDB database
-func (mf *couchdbFactory) Build(c container.Container, dbc *configs.DatabaseConfig) (DataStoreInterface, error) {
+func (mf *couchdbFactory) Build(c container.Container, dbc *configs.DataStoreConfig) (DataStoreInterface, error) {
 	logger.Log.Debug("couchdbFactory")
 
 	// Don't know why needs adding the following line, because the driver is already registered in init() in couchdbKiv
@@ -22,7 +22,7 @@ func (mf *couchdbFactory) Build(c container.Container, dbc *configs.DatabaseConf
 	kivik.Register(COUCHDB, &couchdbKivid.Couch{})
 
 	key := dbc.Code
-	client, err := kivik.New(context.TODO(), dbc.Code, dbc.DataSourceName)
+	client, err := kivik.New(context.TODO(), dbc.Code, dbc.UrlAddress)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}

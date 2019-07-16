@@ -12,12 +12,12 @@ import (
 
 // CacheDataGrpc represents the gRPC connection handler
 type CacheDataGrpc struct {
-	Conn grpc.ClientConn
+	Conn *grpc.ClientConn
 }
 
 // getCacheClient creates a gRPC client
-func getCacheClient(conn grpc.ClientConn) cspb.CacheServiceClient {
-	return cspb.NewCacheServiceClient(&conn)
+func getCacheClient(conn *grpc.ClientConn) cspb.CacheServiceClient {
+	return cspb.NewCacheServiceClient(conn)
 }
 
 // Get handles call to Get function on Cache service

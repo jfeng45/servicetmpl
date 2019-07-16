@@ -65,7 +65,7 @@ func loadConfig (filename string) (*configs.AppConfig, error) {
 // create concrete types for use case interfaces
 func buildUseCase(sc *ServiceContainer, config *configs.AppConfig) error {
 	for key,ucfb := range usecasefactory.UseCaseFactoryBuilderMap {
-		err := ucfb.Build(sc, config, key)
+		_, err := ucfb.Build(sc, config, key)
 		if err != nil {
 			return errors.Wrap(err, "build use case")
 		}
