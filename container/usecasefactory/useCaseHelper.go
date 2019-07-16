@@ -19,10 +19,20 @@ func buildUserData (c container.Container, appConfig *configs.AppConfig) (datase
 	return udi, nil
 }
 
+func buildTxData (c container.Container, appConfig *configs.AppConfig) (dataservice.TxDataInterface, error){
+	tc := &appConfig.UseCase.Registration.TxDataConfig
+	dsi, err := dataservicefactory.GetDataServiceFb(tc.Code).Build(c, tc )
+	if err != nil {
+		return nil, errors.Wrap(err, "")
+	}
+	tdi := dsi.(dataservice.TxDataInterface)
+	return tdi, nil
+}
+
 func buildCacheData (c container.Container, appConfig *configs.AppConfig) (dataservice.CacheDataInterface, error){
-	uc := &appConfig.UseCase.ListUser.CacheDataConfig
-	logger.Log.Debug("uc:", uc)
-	dsi, err := dataservicefactory.GetDataServiceFb(uc.Code).Build(c, uc )
+	cdc := &appConfig.UseCase.ListUser.CacheDataConfig
+	logger.Log.Debug("uc:", cdc)
+	dsi, err := dataservicefactory.GetDataServiceFb(cdc.Code).Build(c, cdc )
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}

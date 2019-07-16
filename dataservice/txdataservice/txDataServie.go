@@ -1,4 +1,4 @@
-package TxDataService
+package txdataservice
 
 import (
 	"github.com/jfeng45/servicetmpl/dataservice"

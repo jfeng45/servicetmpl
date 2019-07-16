@@ -79,16 +79,16 @@ func testMySql() {
 		return
 	}
 
-	testListUser(container)
 	//testListUser(container)
-	testFindById(container)
+	//testListUser(container)
+	//testFindById(container)
 	//testFindById(container)
 	//testRegisterUser(container)
 	//testModifyUser(container)
 	//testUnregister(container)
 	//
 	//testModifyAndUnregister(container)
-	//testModifyAndUnregisterWithTx(container)
+	testModifyAndUnregisterWithTx(container)
 
 
 }
@@ -185,7 +185,7 @@ func testModifyAndUnregisterWithTx(container container.Container) {
 	if err != nil {
 		logger.Log.Errorf("date format err:%+v\n", err)
 	}
-	user := model.User{Id: 8, Name:"Anshu", Department:"Sales", Created:created}
+	user := model.User{Id: 11, Name:"Anshu", Department:"Sales", Created:created}
 	err = ruci.ModifyAndUnregisterWithTx(&user)
 	if err != nil {
 		logger.Log.Errorf("ModifyAndUnregisterWithTx failed:%+v\n", err)

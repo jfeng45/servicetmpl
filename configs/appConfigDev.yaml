@@ -27,7 +27,9 @@ useCaseConfig:
         userDataConfig: &userDataConfig
             code: userData
             dataStoreConfig: *mySqlConfig
-        TxDataConfig: *mySqlConfig
+        txDataConfig: &txDataConfig
+            code: txData
+            dataStoreConfig: *mySqlConfig
     listUser:
         code: listUser
         userDataConfig: *userDataConfig

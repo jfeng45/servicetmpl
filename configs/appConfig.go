@@ -39,7 +39,7 @@ type UseCaseConfig struct {
 type RegistrationConfig struct {
 	Code           string          `yaml:"code"`
 	UserDataConfig DataConfig    `yaml:"userDataConfig"`
-	TxConfig       DataStoreConfig `yaml:"txConfig"`
+	TxDataConfig       DataConfig `yaml:"txDataConfig"`
 }
 
 // ListUserConfig represents list user use case
@@ -55,14 +55,6 @@ type DataConfig struct {
 	DataStoreConfig DataStoreConfig `yaml:"dataStoreConfig"`
 }
 
-// DataStoreConfig represents database handler
-//type DataStoreConfig struct{
-//	Code        string         `yaml:"code"`
-//	DriverName string `yaml:"driverName"`
-//	DataSourceName string `yaml:"dataSourceName"`
-//	DbName string `yaml:"dbName"`
-//}
-
 type DataStoreConfig struct{
 	Code        string         `yaml:"code"`
 	// only database has driver name, grpc don't use it
@@ -72,19 +64,6 @@ type DataStoreConfig struct{
 	// only for some database need this database name
 	DbName string `yaml:"DbName"`
 }
-
-//// DataStoreConfig represents database handler
-//type grpcDataConfig struct{
-//	Code        string         `yaml:"code"`
-//	GrpcConfig GrpcConfig `yaml:"grpcConfig"`
-//}
-//
-//// DataStoreConfig represents gRPC handler
-//type GrpcConfig struct{
-//	Code        string   `yaml:"code"`
-//	GrpcName string `yaml:"grpcName"`
-//	Target   string `yaml:"target"`
-//}
 
 // LogConfig represents logger handler
 // Logger has many parameters can be set or changed. Currently, only three are listed here, which is most likely to be

@@ -14,10 +14,10 @@ import (
 type cacheDataServiceFactory struct {}
 
 func (udmf *cacheDataServiceFactory) Build(c container.Container, dataConfig *configs.DataConfig) (DataServiceInterface, error) {
-	logger.Log.Debug("userDataServiceFactory")
+	logger.Log.Debug("cacheDataServiceFactory")
 	key := dataConfig.Code
 	if CACHE_DATA != key {
-		errMsg := USER_DATA + " in userDataServiceFactory doesn't match key = " + key
+		errMsg := USER_DATA + " in cacheDataServiceFactory doesn't match key = " + key
 		return nil, errors.New(errMsg)
 	}
 	//if it is already in container, return

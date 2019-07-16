@@ -9,6 +9,7 @@ import (
 const (
 	USER_DATA   string ="userData"
 	CACHE_DATA   string ="cacheData"
+	TX_DATA   string ="txData"
 	COURSE_DATA string ="courseData"
 )
 // builder map to map model data code to model data service interface builder
@@ -17,6 +18,7 @@ const (
 var dsFbMap = map[string]dataServiceFbInterface {
 	USER_DATA: &userDataServiceFactory{},
 	CACHE_DATA: &cacheDataServiceFactory{},
+	TX_DATA: &txDataServiceFactory{},
 	//COURSE: &courseDataServiceFactory{},
 }
 
