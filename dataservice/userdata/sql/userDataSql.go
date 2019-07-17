@@ -1,5 +1,5 @@
-// Package mysql represents the mySQL implementation of the user data persistence layer
-package mysql
+// Package sql represents SQL database implementation of the user data persistence layer
+package sql
 
 import (
 	"database/sql"
@@ -20,14 +20,14 @@ const (
 	UPDATE_USER = "update userinfo set username=?, department=?, created=? where uid=?"
     INSERT_USER = "INSERT userinfo SET username=?,department=?,created=?"
 )
-// UserDataMySql is the MySQL implementation of UserDatainterface
-type UserDataMySql struct {
-	DB gdbc.Gdbc
+// UserDataSql is the SQL implementation of UserDatainterface
+type UserDataSql struct {
+	DB gdbc.SqlGdbc
 }
 
-func (userData *UserDataMySql) Remove(username string) (int64, error) {
+func (uds *UserDataSql) Remove(username string) (int64, error) {
 
-	stmt, err := userData.DB.Prepare(DELETE_USER)
+	stmt, err := uds.DB.Prepare(DELETE_USER)
 	if err!=nil {
 		return 0, errors.Wrap(err, "")
 	}
@@ -46,8 +46,8 @@ func (userData *UserDataMySql) Remove(username string) (int64, error) {
 	return rowsAffected, nil
 }
 
-func (userData *UserDataMySql) Find(id int) (*model.User, error) {
-	rows, err := userData.DB.Query(QUERY_USER_BY_ID, id)
+func (uds *UserDataSql) Find(id int) (*model.User, error) {
+	rows, err := uds.DB.Query(QUERY_USER_BY_ID, id)
 	if err !=nil {
 		return nil, errors.Wrap(err, "")
 	}
@@ -76,9 +76,9 @@ func rowsToUser(rows *sql.Rows) (*model.User, error) {
 	logger.Log.Debug("rows to User:", user)
 	return user, nil
 }
-func (userData *UserDataMySql) FindByName(name string) (*model.User, error) {
+func (uds *UserDataSql) FindByName(name string) (*model.User, error) {
 	//logger.Log.Debug("call FindByName() and name is:", name)
-	rows, err := userData.DB.Query(QUERY_USER_BY_NAME, name)
+	rows, err := uds.DB.Query(QUERY_USER_BY_NAME, name)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}
@@ -86,9 +86,9 @@ func (userData *UserDataMySql) FindByName(name string) (*model.User, error) {
 	return retrieveUser(rows)
 }
 
-func (userData *UserDataMySql) FindAll() ([]model.User, error) {
+func (uds *UserDataSql) FindAll() ([]model.User, error) {
 
-	rows, err := userData.DB.Query(QUERY_USER)
+	rows, err := uds.DB.Query(QUERY_USER)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}
@@ -112,9 +112,9 @@ func (userData *UserDataMySql) FindAll() ([]model.User, error) {
 	return users, nil
 }
 
-func (userData *UserDataMySql) Update(user *model.User) (int64, error) {
+func (uds *UserDataSql) Update(user *model.User) (int64, error) {
 
-	stmt, err := userData.DB.Prepare(UPDATE_USER)
+	stmt, err := uds.DB.Prepare(UPDATE_USER)
 
 	if err!=nil {
 		return 0, errors.Wrap(err, "")
@@ -134,9 +134,9 @@ func (userData *UserDataMySql) Update(user *model.User) (int64, error) {
 	return rowsAffected, nil
 }
 
-func (userData *UserDataMySql) Insert(user *model.User) (*model.User, error) {
+func (uds *UserDataSql) Insert(user *model.User) (*model.User, error) {
 
-	stmt, err := userData.DB.Prepare(INSERT_USER)
+	stmt, err := uds.DB.Prepare(INSERT_USER)
 	if err!=nil {
 		return nil, errors.Wrap(err, "")
 	}

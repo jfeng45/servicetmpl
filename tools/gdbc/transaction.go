@@ -5,6 +5,7 @@ import (
 )
 
 // Transactioner is the transaction interface for database handler
+// It should only be applicable to SQL database
 type Transactioner interface {
 	// Rollback a tranaction
 	Rollback() error
@@ -13,32 +14,32 @@ type Transactioner interface {
 	// TxEnd commits a transaction if no errors, otherwise rollback
 	// txFunc is the operations wrapped in a transaction
 	TxEnd( txFunc func() error) error
-	// TxBegin gets *sql.DB from receiver and return a Gdbc, which has a *sql.Tx
-	TxBegin() (Gdbc, error)
+	// TxBegin gets *sql.DB from receiver and return a SqlGdbc, which has a *sql.Tx
+	TxBegin() (SqlGdbc, error)
 }
 
-// DB doesnt rollback, do nothing here
-func (db *DBTx) Rollback() error {
+// DB doesn't rollback, do nothing here
+func (db *SqlDBTx) Rollback() error {
 	return nil
 }
 
 //DB doesnt commit, do nothing here
-func (db *DBTx) Commit() error {
+func (db *SqlDBTx) Commit() error {
 	return nil
 }
 // TransactionBegin starts a transaction
-func (db *DBTx)TxBegin( ) (Gdbc, error) {
+func (db *SqlDBTx)TxBegin( ) (SqlGdbc, error) {
 	logger.Log.Debug("transaction begin")
 	tx, err := db.DB.Begin()
-	ct := ConnTx{tx}
+	ct := SqlConnTx{tx}
 	return &ct, err
 }
 // DB doesnt rollback, do nothing here
-func (db *DBTx)TxEnd( txFunc func() error) error {
+func (db *SqlDBTx)TxEnd( txFunc func() error) error {
 	return nil
 }
 
-func (db *ConnTx) TxEnd( txFunc func() error) error {
+func (db *SqlConnTx) TxEnd( txFunc func() error) error {
 	var err error
 	tx := db.DB
 
@@ -59,15 +60,15 @@ func (db *ConnTx) TxEnd( txFunc func() error) error {
 	return err
 }
 //*sql.Tx can't begin a transaction, transaction always begins with a *sql.DB
-func (db *ConnTx) TxBegin( ) (Gdbc, error) {
+func (db *SqlConnTx) TxBegin( ) (SqlGdbc, error) {
 	return nil, nil
 }
 
-func (db *ConnTx) Rollback() error {
+func (db *SqlConnTx) Rollback() error {
 	return db.DB.Rollback()
 }
 
-func (db *ConnTx) Commit() error {
+func (db *SqlConnTx) Commit() error {
 	return db.DB.Commit()
 }
 

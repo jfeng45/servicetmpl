@@ -16,8 +16,8 @@ const (
 	PROD_CONFIG string = "../configs/appConfigProd.yaml"
 )
 func main() {
-	testMySql()
-	//testCouchDB()
+	//testMySql()
+	testCouchDB()
 }
 
 func getListUserUseCase(c container.Container) (usecase.ListUserUseCaseInterface, error){
@@ -56,8 +56,8 @@ func buildContainer (filename string) (container.Container, error){
 
 	err:= container.InitApp( filename)
 	if err!=nil  {
-		logger.Log.Errorf("%+v\n", err)
-		return nil, err
+		//logger.Log.Errorf("%+v\n", err)
+		return nil, errors.Wrap(err, "")
 	}
 	return &container, nil
 }
@@ -196,7 +196,7 @@ func testModifyAndUnregisterWithTx(container container.Container) {
 
 func testFindById(container container.Container) {
 	//It is uid in database. Make sure you have it in database, otherwise it won't find it.
-	id :=11
+	id :=12
 	//rluf, err := container.RetrieveListUser()
 	rluf, err := getListUserUseCase(container)
 	if err != nil {

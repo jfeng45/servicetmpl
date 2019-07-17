@@ -10,17 +10,9 @@ import (
 	"io/ioutil"
 )
 
-type dataInterface interface{
-	getCode() string
-	getDataStore() dataStoreInterface
-}
-
-type dataStoreInterface interface {
-	getCode () string
-}
 // AppConfig represents the application config
 type AppConfig struct {
-	MySQLConfig     DataStoreConfig `yaml:"mySQLConfig"`
+	SQLConfig     DataStoreConfig `yaml:"sQLConfig"`
 	CouchdbConfig   DataStoreConfig `yaml:"couchdbConfig"`
 	CacheGrpcConfig DataStoreConfig      `yaml:"cacheGrpcConfig"`
 	ZapConfig       LogConfig       `yaml:"zapConfig"`
@@ -62,7 +54,7 @@ type DataStoreConfig struct{
 	// for database this is datasource name; for grpc, it is target url
 	UrlAddress string `yaml:"urlAddress"`
 	// only for some database need this database name
-	DbName string `yaml:"DbName"`
+	DbName string `yaml:"dbName"`
 }
 
 // LogConfig represents logger handler

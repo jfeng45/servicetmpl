@@ -5,7 +5,7 @@ import (
 	"github.com/jfeng45/servicetmpl/container"
 )
 
-// builder map to use case code to use case interface builder
+//to map "use case code" to "use case interface builder"
 // each use case has exactly one factory. For example, "registration" use case has "RegistrationFactory"
 // Each factory has it's own file. For example, "RegistrationFactory" as in "registrationFactory.go"
 var UseCaseFactoryBuilderMap = map[string]UseCaseFbInterface {

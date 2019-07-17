@@ -1,4 +1,9 @@
-// package datastorefactory using factory method pattern to create concrete database handler
+// Package datastorefactory using factory method pattern to create concrete database handler.
+// Datastore can be a database or a service ( for example, gRPC service or RESTFul service), which provides data access
+// for domain model.
+// There is only one method Build() for the factory and all different types of store following the same interface
+// to build the store connection.
+// Generally speaking, each data store need a separate factory.
 package datastorefactory
 
 import (
@@ -8,15 +13,15 @@ import (
 
 // database code. Need to map to the database code in the configuration yaml file.
 const (
-	MYSQL   string ="mysql"
-	COUCHDB string ="couch"
+	SQL        string ="sql"
+	COUCHDB    string ="couch"
 	CACHE_GRPC string = "cacheGrpc"
 )
-// builder map to map database code to database interface builder
-// Concreate builder is in corresponding factory file. For example, "mysqlFactory" is in "mysqlFactory".go
+// To map "database code" to "database interface builder"
+// Concreate builder is in corresponding factory file. For example, "sqlFactory" is in "sqlFactory".go
 var dbFbMap = map[string]dbFbInterface {
-	MYSQL: &mysqlFactory{},
-	COUCHDB: &couchdbFactory{},
+	SQL:        &sqlFactory{},
+	COUCHDB:    &couchdbFactory{},
 	CACHE_GRPC: &cacheGrpcFactory{},
 }
 

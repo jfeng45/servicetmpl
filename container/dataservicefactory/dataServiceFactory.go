@@ -1,3 +1,9 @@
+// package dataservicefactory using factory method pattern to create concrete type to provide persistence service
+// the source of data can come from database ( for domain model "user") or from other service ( for domain model cache,
+// it is a gRPC service).
+// There is only one method Build() for the factory and all different types of data service following the same interface
+// to build the data service.
+
 package dataservicefactory
 
 import (
@@ -12,7 +18,7 @@ const (
 	TX_DATA   string ="txData"
 	COURSE_DATA string ="courseData"
 )
-// builder map to map model data code to model data service interface builder
+// To map "model data code" to "model data service interface builder"
 // each model data service need a separate build
 // Concrete builder is in corresponding factory file. For example, "userDataServiceFactory" is in "userDataServiceFactory".go
 var dsFbMap = map[string]dataServiceFbInterface {

@@ -2,12 +2,13 @@ package dataservicefactory
 
 import (
 	"github.com/go-kivik/kivik"
+	//"github.com/flimzy/kivik"
 	"github.com/jfeng45/servicetmpl/configs"
 	"github.com/jfeng45/servicetmpl/container"
 	"github.com/jfeng45/servicetmpl/container/datastorefactory"
 	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/jfeng45/servicetmpl/dataservice"
-	"github.com/jfeng45/servicetmpl/dataservice/userdata/mysql"
+	"github.com/jfeng45/servicetmpl/dataservice/userdata/sql"
 	"github.com/jfeng45/servicetmpl/dataservice/userdata/couchdb"
 	"github.com/jfeng45/servicetmpl/tools/gdbc"
 	"github.com/pkg/errors"
@@ -32,15 +33,15 @@ func (udmf *userDataServiceFactory) Build(c container.Container, dataConfig *con
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}
-	if dataConfig.DataStoreConfig.Code == datastorefactory.MYSQL {
-		ds := dsi.(gdbc.Gdbc)
-		udm := mysql.UserDataMySql{DB: ds}
+	if dataConfig.DataStoreConfig.Code == datastorefactory.SQL {
+		ds := dsi.(gdbc.SqlGdbc)
+		udm := sql.UserDataSql{DB: ds}
 		logger.Log.Debug("udm:", udm.DB)
 		c.Put(key, &udm)
 		return &udm, nil
 	} else if dataConfig.DataStoreConfig.Code == datastorefactory.COUCHDB {
-		ds := dsi.(kivik.DB)
-		udm := couchdb.UserDataCouchdb{DB: &ds}
+		ds := dsi.(*kivik.DB)
+		udm := couchdb.UserDataCouchdb{DB: ds}
 		c.Put(key, &udm)
 		return &udm, nil
 	}

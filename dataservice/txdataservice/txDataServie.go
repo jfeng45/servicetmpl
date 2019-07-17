@@ -5,18 +5,19 @@ import (
 	"github.com/jfeng45/servicetmpl/tools/gdbc"
 )
 
-// UserDataMySql is the MySQL implementation of UserDatainterface
-type TxDataMySql struct {
-	DB gdbc.Gdbc
+// TxDataSql is the generic implementation for transaction for SQL database
+// You only need to do it once for each SQL database
+type TxDataSql struct {
+	DB gdbc.SqlGdbc
 }
 
-func (dataStore *TxDataMySql)TxEnd( txFunc func() error) error {
-	return dataStore.DB.TxEnd(txFunc)
+func (tds *TxDataSql)TxEnd( txFunc func() error) error {
+	return tds.DB.TxEnd(txFunc)
 }
 
-func (dataStore *TxDataMySql)TxBegin() (dataservice.TxDataInterface, error) {
+func (tds *TxDataSql)TxBegin() (dataservice.TxDataInterface, error) {
 
-	gdbc, error :=dataStore.DB.TxBegin()
-	dbts := TxDataMySql{gdbc}
-	return &dbts, error
+	sqlTx, error :=tds.DB.TxBegin()
+	tdi:= TxDataSql{sqlTx}
+	return &tdi, error
 }

@@ -1,17 +1,17 @@
-mySQLConfig: &mySqlConfig
-    code: mysql
+sQLConfig: &sqlConfig
+    code: sql
     driverName: mysql
-    dataSourceName: "root:@tcp(localhost:4333)/fasp?charset=utf8"
+    urlAddress: "root:@tcp(localhost:4333)/service_config?charset=utf8"
     dbName:
 couchdbConfig: &couchdbConfig
     code: couch
     driverName: couch
-    dataSourceName: http://admin:admin@localhost:5984
+    urlAddress: http://admin:admin@localhost:5984
     dbName: service_config
-cacheGrpcConfig: &cacheConfig
-    code: cache
-    grpcName: cache
-    target: localhost:5051
+cacheGrpcConfig: &cacheGrpcConfig
+    code: cacheGrpc
+    driverName: cache
+    urlAddress: localhost:5051
 zapConfig: &zapConfig
     code: zap
     level: debug
@@ -24,8 +24,15 @@ logConfig: *zapConfig
 useCaseConfig:
     registration:
         code: registration
-        userConfig: *couchdbConfig
+        userDataConfig: &userDataConfig
+            code: userData
+            dataStoreConfig: *couchdbConfig
+        txDataConfig: &txDataConfig
+            code: txData
+            dataStoreConfig: *sqlConfig
     listUser:
         code: listUser
-        userConfig: *couchdbConfig
-        cacheConfig: *cacheConfig
+        userDataConfig: *userDataConfig
+        cacheDataConfig: &cacheDataConfig
+            code: cacheData
+            dataStoreConfig: *cacheGrpcConfig

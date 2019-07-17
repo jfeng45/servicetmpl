@@ -10,7 +10,7 @@ import (
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"
 )
-// userDataServiceFactory is a empty receiver for Build method
+// cacheDataServiceFactory is a empty receiver for Build method
 type cacheDataServiceFactory struct {}
 
 func (udmf *cacheDataServiceFactory) Build(c container.Container, dataConfig *configs.DataConfig) (DataServiceInterface, error) {

@@ -30,9 +30,9 @@ func (txdsf *txDataServiceFactory) Build(c container.Container, dataConfig *conf
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}
-	if dataConfig.DataStoreConfig.Code == datastorefactory.MYSQL {
-		ds := dsi.(gdbc.Gdbc)
-		tdm := txdataservice.TxDataMySql{ds}
+	if dataConfig.DataStoreConfig.Code == datastorefactory.SQL {
+		ds := dsi.(gdbc.SqlGdbc)
+		tdm := txdataservice.TxDataSql{ds}
 		logger.Log.Debug("udm:", tdm.DB)
 		c.Put(key, &tdm)
 		return &tdm, nil

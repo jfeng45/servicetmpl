@@ -1,5 +1,5 @@
-mySQLConfig: &mySqlConfig
-    code: mysql
+mySQLConfig: &sqlConfig
+    code: sql
     driverName: mysql
     urlAddress: "root:@tcp(localhost:4333)/service_config?charset=utf8"
     dbName:
@@ -7,7 +7,7 @@ couchdbConfig: &couchdbConfig
     code: couch
     driverName: couch
     urlAddress: http://admin:admin@localhost:5984
-    dbName: animals
+    dbName: service_config
 cacheGrpcConfig: &cacheGrpcConfig
     code: cacheGrpc
     driverName: cache
@@ -26,10 +26,10 @@ useCaseConfig:
         code: registration
         userDataConfig: &userDataConfig
             code: userData
-            dataStoreConfig: *mySqlConfig
+            dataStoreConfig: *sqlConfig
         txDataConfig: &txDataConfig
             code: txData
-            dataStoreConfig: *mySqlConfig
+            dataStoreConfig: *sqlConfig
     listUser:
         code: listUser
         userDataConfig: *userDataConfig

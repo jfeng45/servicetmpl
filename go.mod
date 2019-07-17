@@ -3,7 +3,7 @@ module github.com/jfeng45/servicetmpl
 go 1.12
 
 require (
-	github.com/flimzy/kivik v1.8.1 // indirect
+	github.com/flimzy/kivik v1.8.1
 	github.com/go-kivik/couchdb v1.8.1
 	github.com/go-kivik/kivik v1.8.1
 	github.com/go-ozzo/ozzo-validation v3.5.0+incompatible
