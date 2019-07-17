@@ -22,7 +22,7 @@ const (
 // each model data service need a separate build
 // Concrete builder is in corresponding factory file. For example, "userDataServiceFactory" is in "userDataServiceFactory".go
 var dsFbMap = map[string]dataServiceFbInterface {
-	USER_DATA: &userDataServiceFactory{},
+	USER_DATA: &userDataServiceFactoryWrapper{},
 	CACHE_DATA: &cacheDataServiceFactory{},
 	TX_DATA: &txDataServiceFactory{},
 	//COURSE: &courseDataServiceFactory{},

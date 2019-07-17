@@ -10,10 +10,10 @@ import (
 	"github.com/jfeng45/servicetmpl/tools/gdbc"
 	"github.com/pkg/errors"
 )
-// userDataServiceFactory is a empty receiver for Build method
+// txDataServiceFactory is a empty receiver for Build method
 type txDataServiceFactory struct {}
 
-func (txdsf *txDataServiceFactory) Build(c container.Container, dataConfig *configs.DataConfig) (DataServiceInterface, error) {
+func (tdsf *txDataServiceFactory) Build(c container.Container, dataConfig *configs.DataConfig) (DataServiceInterface, error) {
 	logger.Log.Debug("txDataServiceFactory")
 	key := dataConfig.Code
 	if TX_DATA != key {
@@ -30,15 +30,21 @@ func (txdsf *txDataServiceFactory) Build(c container.Container, dataConfig *conf
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}
-	if dataConfig.DataStoreConfig.Code == datastorefactory.SQL {
-		ds := dsi.(gdbc.SqlGdbc)
-		tdm := txdataservice.TxDataSql{ds}
-		logger.Log.Debug("udm:", tdm.DB)
-		c.Put(key, &tdm)
-		return &tdm, nil
-	} else {
-		errMsg := "data store code " + dataConfig.DataStoreConfig.Code + " is not supported for transaction"
-		return nil, errors.New(errMsg)
-	}
+	ds := dsi.(gdbc.SqlGdbc)
+	tdm := txdataservice.TxDataSql{ds}
+	logger.Log.Debug("udm:", tdm.DB)
+	c.Put(key, &tdm)
+	return &tdm, nil
+
+	//if dataConfig.DataStoreConfig.Code == datastorefactory.SQL {
+	//	ds := dsi.(gdbc.SqlGdbc)
+	//	tdm := txdataservice.TxDataSql{ds}
+	//	logger.Log.Debug("udm:", tdm.DB)
+	//	c.Put(key, &tdm)
+	//	return &tdm, nil
+	//} else {
+	//	errMsg := "data store code " + dataConfig.DataStoreConfig.Code + " is not supported for transaction"
+	//	return nil, errors.New(errMsg)
+	//}
 
 }

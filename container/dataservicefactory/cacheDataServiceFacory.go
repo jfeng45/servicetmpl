@@ -1,19 +1,19 @@
 package dataservicefactory
 
 import (
+	"github.com/jfeng45/servicetmpl/adapter/cacheclient"
 	"github.com/jfeng45/servicetmpl/configs"
 	"github.com/jfeng45/servicetmpl/container"
 	"github.com/jfeng45/servicetmpl/container/datastorefactory"
 	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/jfeng45/servicetmpl/dataservice"
-	"github.com/jfeng45/servicetmpl/adapter/cacheclient"
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"
 )
 // cacheDataServiceFactory is a empty receiver for Build method
 type cacheDataServiceFactory struct {}
 
-func (udmf *cacheDataServiceFactory) Build(c container.Container, dataConfig *configs.DataConfig) (DataServiceInterface, error) {
+func (cdsf *cacheDataServiceFactory) Build(c container.Container, dataConfig *configs.DataConfig) (DataServiceInterface, error) {
 	logger.Log.Debug("cacheDataServiceFactory")
 	key := dataConfig.Code
 	if CACHE_DATA != key {
