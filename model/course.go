@@ -1,7 +1,7 @@
 package model
 
-// Course is created to show the project layout, no real use.
+// Course is created to show the project layout and courseDataServiceFactory, no real use.
 type Course struct {
 	Id   int
-	name string
+	Name string
 }

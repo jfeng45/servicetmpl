@@ -8,19 +8,27 @@ import (
 )
 
 type RegistrationFactory struct {
+
 }
 // Build creates concrete type for RegistrationUseCaseInterface
 func (rf *RegistrationFactory) Build(c container.Container, appConfig *configs.AppConfig, key string) (UseCaseInterface, error) {
-	udi, err := buildUserData(c, appConfig)
+	uc := appConfig.UseCase.Registration
+
+	if container.REGISTRATION != uc.Code {
+		errMsg := container.REGISTRATION  + " in RegistrationFactory doesn't match key = " + key
+		return nil, errors.New(errMsg)
+	}
+
+	udi, err := buildUserData(c, &uc.UserDataConfig)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}
-	tdi, err := buildTxData(c, appConfig)
+	tdi, err := buildTxData(c, &uc.TxDataConfig)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}
 	ruc := registration.RegistrationUseCase{UserDataInterface: udi, TxDataInterface:tdi}
-	c.Put(key, &ruc)
+	//c.Put(key, &ruc)
 
 	return &ruc, nil
 }

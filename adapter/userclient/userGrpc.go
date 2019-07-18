@@ -1,3 +1,5 @@
+// Package userclient is client library if you need to call the user Micro-service as a client.
+// It provides client library and the data transformation service.
 package userclient
 
 import (
@@ -7,7 +9,7 @@ import (
 	"github.com/pkg/errors"
 )
 
-// convert from grpc User type to domain Model user type
+// GrpcToUser converts from grpc User type to domain Model user type
 func GrpcToUser(user *uspb.User) (*model.User, error){
 	resultUser := model.User{}
 
@@ -22,7 +24,7 @@ func GrpcToUser(user *uspb.User) (*model.User, error){
 	return &resultUser, nil
 }
 
-// convert from domain Model User type to grpc user type
+// UserToGrpc converts from domain Model User type to grpc user type
 func UserToGrpc(user *model.User) (*uspb.User, error) {
 	resultUser := uspb.User{}
 	resultUser.Id = int32(user.Id)
@@ -36,9 +38,9 @@ func UserToGrpc(user *model.User) (*uspb.User, error) {
 	return &resultUser, nil
 }
 
-// convert from array of domain Model User type to array of grpc user type
+// UserListToGrpc converts from array of domain Model User type to array of grpc user type
 func UserListToGrpc(ul []model.User) ([]*uspb.User, error) {
-	gul :=[]*uspb.User{}
+	var gul []*uspb.User
 	for _, user :=range ul {
 		gu, err :=UserToGrpc(&user)
 		if err != nil {

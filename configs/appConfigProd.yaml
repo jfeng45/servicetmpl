@@ -1,5 +1,5 @@
-sQLConfig: &sqlConfig
-    code: sql
+sqlConfig: &sqlConfig
+    code: sqldb
     driverName: mysql
     urlAddress: "root:@tcp(localhost:4333)/service_config?charset=utf8"
     dbName:
@@ -36,3 +36,8 @@ useCaseConfig:
         cacheDataConfig: &cacheDataConfig
             code: cacheData
             dataStoreConfig: *cacheGrpcConfig
+    listCourse:
+        code: listCourse
+        courseDataConfig: &courseDataConfig
+            code: courseData
+            dataStoreConfig: *sqlConfig

@@ -4,9 +4,7 @@ package couchdb
 import (
 	"context"
 	"github.com/go-kivik/kivik"
-	//"github.com/flimzy/kivik"
 	"github.com/jfeng45/servicetmpl/container/logger"
-	"github.com/jfeng45/servicetmpl/dataservice"
 	"github.com/jfeng45/servicetmpl/model"
 	"github.com/pkg/errors"
 )
@@ -98,11 +96,3 @@ func (udc *UserDataCouchdb) FindByName(name string) (*model.User, error) {
 	return nil, nil
 }
 
-//CouchDB doesn't support transaction, do nothing
-func (udc *UserDataCouchdb)TxEnd( txFunc func() error) error {
-	return nil
-}
-//CouchDB doesn't support transaction, do nothing
-func (udc *UserDataCouchdb)TxBegin() (dataservice.TxDataInterface, error) {
-	return nil, nil
-}

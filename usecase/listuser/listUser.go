@@ -9,8 +9,7 @@ import (
 	"strconv"
 )
 
-// RegistrationUseCase implements RegistrationUseCaseInterface.
-
+// ListUserUseCase implements ListUseCaseInterface.
 type ListUserUseCase struct {
 	// UserDataInterface, which is a interface to underline database connection and can be used to access
 	// persistence layer
@@ -19,27 +18,28 @@ type ListUserUseCase struct {
 	CacheDataInterface dataservice.CacheDataInterface
 }
 
-func (uuc *ListUserUseCase) ListUser() ([]model.User, error) {
-	return uuc.UserDataInterface.FindAll()
+func (luc *ListUserUseCase) ListUser() ([]model.User, error) {
+	return luc.UserDataInterface.FindAll()
 }
-func (uuc *ListUserUseCase)Find(id int) (*model.User,error) {
-	users, err := uuc.getFromCache(strconv.Itoa(id))
+func (luc *ListUserUseCase)Find(id int) (*model.User,error) {
+	users, err := luc.getFromCache(strconv.Itoa(id))
 	if err != nil {
-		//not find and continue
+		//not found in cache and continue
 		logger.Log.Errorf("get from cache error:", err)
 		//return nil, errors.Wrap(err, "")
 	}
 	if users != nil {
 		//here should return the results from cache, however, right now the cache doesn't store user info,
 		//so, just call find(id). This is not real code. Please replace it with real code
-		return uuc.UserDataInterface.Find(id)
+		return luc.UserDataInterface.Find(id)
 	}
-	return uuc.UserDataInterface.Find(id)
+	return luc.UserDataInterface.Find(id)
 }
 
-// getFromCache is a fake function to just show a call to outside service, the call to outside is working, but the results returned is not right
-func (uuc *ListUserUseCase) getFromCache(key string) ([]model.User, error) {
-	value, err := uuc.CacheDataInterface.Get(key)
+// GetFromCache is a fake function to just show a call to outside service, the call to outside is working,
+// but the results returned is not right
+func (luc *ListUserUseCase) getFromCache(key string) ([]model.User, error) {
+	value, err := luc.CacheDataInterface.Get(key)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}

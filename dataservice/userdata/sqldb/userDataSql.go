@@ -1,5 +1,5 @@
 // Package sql represents SQL database implementation of the user data persistence layer
-package sql
+package sqldb
 
 import (
 	"database/sql"
@@ -13,14 +13,14 @@ import (
 )
 
 const (
-	DELETE_USER string ="delete from userinfo where username=?"
+	DELETE_USER string ="delet from userinfo where username=?"
 	QUERY_USER_BY_ID string ="SELECT * FROM userinfo where uid =?"
 	QUERY_USER_BY_NAME = "SELECT * FROM userinfo where username =?"
 	QUERY_USER = "SELECT * FROM userinfo "
 	UPDATE_USER = "update userinfo set username=?, department=?, created=? where uid=?"
     INSERT_USER = "INSERT userinfo SET username=?,department=?,created=?"
 )
-// UserDataSql is the SQL implementation of UserDatainterface
+// UserDataSql is the SQL implementation of UserDataInterface
 type UserDataSql struct {
 	DB gdbc.SqlGdbc
 }

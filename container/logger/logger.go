@@ -1,5 +1,4 @@
-// Package tools represents a wrapper to third party library. It may enhance or modify some of the functionalities
-// of a third party library or create a interface for it.
+// Package logger represents a generic logging interface
 
 package logger
 

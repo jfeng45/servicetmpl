@@ -1,14 +1,16 @@
-// Package dataservice and it's sub-package represents data related operations, mainly access local data store,
-// for example, database.
+// Package dataservice and it's sub-package represents data persistence service, mainly access database,
+// but also including data persisted by other Micro-service.
+// For Micro-server, only the interface is defined in this package, the data transformation code is in adapter package
 // This is the top level package and it only defines interface, and all implementations are defined in sub-package
 // Use case package depends on it.
 package dataservice
 
 import (
 	"github.com/jfeng45/servicetmpl/model"
+	"github.com/jfeng45/servicetmpl/tools/gdbc"
 )
 
-// UserDataInterface represents interface for use data access through local database
+// UserDataInterface represents interface for user data access through database
 type UserDataInterface interface {
 	// Remove deletes a user by user name from database.
 	Remove(username string) (rowsAffected int64, err error)
@@ -25,7 +27,7 @@ type UserDataInterface interface {
 
 }
 
-// CacheDataInterface represents interface for cache service operations
+// CacheDataInterface represents interface for cache service, which is a micro-service
 type CacheDataInterface interface {
 	// Get handles call to Get function on Cache service
 	Get(key string) ([]byte, error)
@@ -33,19 +35,19 @@ type CacheDataInterface interface {
 	Store(key string, value []byte) error
 }
 
-// CourseDataInterface represents interface for course data service operations.
-// It is created to illustrate project layout, no real use.
+// CourseDataInterface represents interface for persistence service for course data
+// It is created for POC of courseDataServiceFactory, no real use.
 type CourseDataInterface interface {
-	GetAvailableCourse()
 	FindAll() ([]model.Course, error)
+	SetDB (gdbc gdbc.Gdbc)
 }
 
 // TxDataInterface represents operations needed for transaction support.
 type TxDataInterface interface {
-	// TxBegin starts a transaction. It gets a DB handler from the receiver and return a UserDataInterface, which has a
-	// *sql.Tx inside. Any following data access will go through the *sql.Tx wrapped inside the UserDataInterface
+	// TxBegin starts a transaction. It gets a DB handler from the receiver and return a TxDataInterface, which has a
+	// *sql.Tx inside. Any data access wrapped inside a transaction will go through the *sql.Tx
 	TxBegin() (TxDataInterface, error)
-	// TxEnd is called at the end of a transaction and based on whether there is a error, it commits or rollback the
+	// TxEnd is called at the end of a transaction and based on whether there is an error, it commits or rollback the
 	// transaction.
 	// txFunc is the business function wrapped in a transaction
 	TxEnd( txFunc func() error ) error

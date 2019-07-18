@@ -17,8 +17,6 @@ const (
 	PROD_CONFIG string = "../../configs/appConfigProd.yaml"
 	GRPC_NETWORK = "tcp"
 	GRPC_ADDRESS = "localhost:5052"
-
-
 )
 
 type UserService struct {

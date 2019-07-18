@@ -1,6 +1,6 @@
-// Package config read configurations from a YAML file and load them into a AppConfig type to save the configuration
-// information for the application. The configuration information is loaded only once by a control flag.
-// configuration for different environment can be saved in files with different suffix, for example [Dev], [Prod]
+// Package config reasd configurations from a YAML file and load them into a AppConfig type to save the configuration
+// information for the application.
+// Configuration for different environment can be saved in files with different suffix, for example [Dev], [Prod]
 package configs
 
 import (
@@ -12,7 +12,7 @@ import (
 
 // AppConfig represents the application config
 type AppConfig struct {
-	SQLConfig     DataStoreConfig `yaml:"sQLConfig"`
+	SQLConfig     DataStoreConfig `yaml:"sqlConfig"`
 	CouchdbConfig   DataStoreConfig `yaml:"couchdbConfig"`
 	CacheGrpcConfig DataStoreConfig      `yaml:"cacheGrpcConfig"`
 	ZapConfig       LogConfig       `yaml:"zapConfig"`
@@ -21,10 +21,11 @@ type AppConfig struct {
 	UseCase         UseCaseConfig   `yaml:"useCaseConfig"`
 }
 
-// UseCaseConfig represents different use case
+// UseCaseConfig represents different use cases
 type UseCaseConfig struct {
 	Registration    RegistrationConfig `yaml:"registration"`
 	ListUser    ListUserConfig `yaml:"listUser"`
+	ListCourse    ListCourseConfig `yaml:"listCourse"`
 }
 
 // RegistrationConfig represents registration use case
@@ -41,25 +42,32 @@ type ListUserConfig struct {
 	CacheDataConfig    DataConfig     `yaml:"cacheDataConfig"`
 }
 
+// ListCourseConfig represents list course use case
+type ListCourseConfig struct {
+	Code           string         `yaml:"code"`
+	CourseDataConfig DataConfig `yaml:"courseDataConfig"`
+}
+
 // DataConfig represents data service
 type DataConfig struct {
 	Code            string          `yaml:"code"`
 	DataStoreConfig DataStoreConfig `yaml:"dataStoreConfig"`
 }
 
+// DataConfig represents handlers for data store. It can be a database or a gRPC connection
 type DataStoreConfig struct{
 	Code        string         `yaml:"code"`
-	// only database has driver name, grpc don't use it
+	// Only database has a driver name, grpc don't use it
 	DriverName string `yaml:"driverName"`
-	// for database this is datasource name; for grpc, it is target url
+	// For database, this is datasource name; for grpc, it is target url
 	UrlAddress string `yaml:"urlAddress"`
-	// only for some database need this database name
+	// Only some databases need this database name
 	DbName string `yaml:"dbName"`
 }
 
 // LogConfig represents logger handler
-// Logger has many parameters can be set or changed. Currently, only three are listed here, which is most likely to be
-// changed at runtime. Can add more into it to fits your needs.
+// Logger has many parameters can be set or changed. Currently, only three are listed here. Can add more into it to
+// fits your needs.
 type LogConfig struct{
 	// log library name
 	Code        string   `yaml:"code"`

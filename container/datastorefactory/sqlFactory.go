@@ -17,9 +17,17 @@ func (sf *sqlFactory) Build(c container.Container, dsc *configs.DataStoreConfig)
 	logger.Log.Debug("sqlFactory")
 	key := dsc.Code
 
-	if SQL != key {
-		errMsg := SQL + " in sqlFactory doesn't match key = " + key
+	if SQLDB != key {
+		errMsg := SQLDB + " in sqlFactory doesn't match key = " + key
 		return nil, errors.New(errMsg)
+	}
+	//if it is already in container, return
+	if value, found := c.Get(key); found {
+		//logger.Log.Debugf("found db value %+v\n:", value)
+		sdb :=value.(*sql.DB)
+		sdt := gdbc.SqlDBTx{DB: sdb}
+		logger.Log.Debug("found db in container for key:", key)
+		return &sdt, nil
 	}
 
 	db, err := sql.Open(dsc.DriverName, dsc.UrlAddress)
@@ -32,7 +40,8 @@ func (sf *sqlFactory) Build(c container.Container, dsc *configs.DataStoreConfig)
 		return nil, errors.Wrap(err, "")
 	}
 	dt := gdbc.SqlDBTx{DB: db}
-	c.Put(key, &dt)
+	//c.Put(key, &dt)
+	c.Put(key, db)
 	return &dt, nil
 
 }

@@ -9,7 +9,7 @@ import (
 
 func modifyUser(udi dataservice.UserDataInterface, user *model.User) error {
 	//loggera.Log.Debug("modifyUser")
-	err :=user.ValidatePersist()
+	err :=user.ValidatePersisted()
 	if err != nil {
 		return errors.Wrap(err, "user validation failed")
 	}
@@ -40,12 +40,12 @@ func unregisterUser(udi dataservice.UserDataInterface, username string) error {
 	return nil
 }
 
-// The business function will be wrapped inside a transaction and without a transaction
+// The business function will be wrapped inside a transaction and inside a non-transaction function
 // It needs to be written in a way that every error will be returned so it can be catched by TxEnd() function,
 // which will handle commit and rollback
-func modifyAndUnregister(uuc *RegistrationUseCase, user *model.User) error {
+func modifyAndUnregister(ruc *RegistrationUseCase, user *model.User) error {
 	//loggera.Log.Debug("modifyAndUnregister")
-	udi := uuc.UserDataInterface
+	udi := ruc.UserDataInterface
 	err := modifyUser(udi, user)
 	if err != nil {
 		return errors.Wrap(err, "")

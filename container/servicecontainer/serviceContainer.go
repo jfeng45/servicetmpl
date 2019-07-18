@@ -1,4 +1,3 @@
-//package container use dependency injection to create concrete type and wire the whole application together
 package servicecontainer
 
 import (
@@ -11,11 +10,13 @@ import (
 
 type ServiceContainer struct {
 	FactoryMap map[string]interface{}
+	AppConfig *configs.AppConfig
 }
 
 func (sc *ServiceContainer)InitApp( filename string ) error {
 	var err error
 	config, err := loadConfig(filename)
+	sc.AppConfig = config
 	if err != nil {
 		return errors.Wrap(err,"loadConfig")
 	}
@@ -23,10 +24,10 @@ func (sc *ServiceContainer)InitApp( filename string ) error {
 	if err != nil {
 		return errors.Wrap(err,"loadLogger")
 	}
-	err = buildUseCase(sc, config)
-	if err != nil {
-		return errors.Wrap(err,"build use case")
-	}
+	//err = buildUseCase(sc, config)
+	//if err != nil {
+	//	return errors.Wrap(err,"build use case")
+	//}
 	return nil
 }
 
@@ -34,7 +35,7 @@ func (sc *ServiceContainer) GetInstance(code string) ( interface{}, error) {
 
 	value, found := sc.FactoryMap[code]
 	if found {
-		logger.Log.Debug("found Retrieve registration: code=", code)
+		logger.Log.Debug("found instance in container: code=", code)
 		return value, nil
 	} else {
 		errMsg := "can't find corresponding type for code " + code + " in container"
@@ -63,14 +64,18 @@ func loadConfig (filename string) (*configs.AppConfig, error) {
 }
 
 // create concrete types for use case interfaces
-func buildUseCase(sc *ServiceContainer, config *configs.AppConfig) error {
-	for key,ucfb := range usecasefactory.UseCaseFactoryBuilderMap {
-		_, err := ucfb.Build(sc, config, key)
-		if err != nil {
-			return errors.Wrap(err, "build use case")
-		}
-	}
-	return nil
+//func buildUseCase(sc *ServiceContainer, config *configs.AppConfig) error {
+//	for key,ucfb := range usecasefactory.UseCaseFactoryBuilderMap {
+//		_, err := ucfb.Build(sc, config, key)
+//		if err != nil {
+//			return errors.Wrap(err, "build use case")
+//		}
+//	}
+//	return nil
+//}
+
+func (sc *ServiceContainer) BuildUseCase (code string) (interface{}, error){
+	return usecasefactory.GetUseCaseFb(code).Build(sc, sc.AppConfig, code)
 }
 
 func (sc *ServiceContainer) Get(code string) (interface{}, bool){

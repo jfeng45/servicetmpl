@@ -1,4 +1,4 @@
-// Package cacheclient is the wrapper around the thrid party gRPC Cache Microservice.
+// Package cacheclient is the wrapper around the third party gRPC Cache Micro-service.
 // It encapsulates the logic to call outside service, to make it transparent to the business logic layer.
 
 package cacheclient
@@ -20,7 +20,7 @@ func getCacheClient(conn *grpc.ClientConn) cspb.CacheServiceClient {
 	return cspb.NewCacheServiceClient(conn)
 }
 
-// Get handles call to Get function on Cache service
+// Get makes a call to Get function on Cache service
 func (cdg CacheDataGrpc) Get(key string) ([]byte, error) {
 	cacheClient := getCacheClient(cdg.Conn)
 	resp, err := cacheClient.Get(context.Background(), &cspb.GetReq{Key: key})
@@ -31,7 +31,7 @@ func (cdg CacheDataGrpc) Get(key string) ([]byte, error) {
 	}
 }
 
-// Store handles call to Store function on Cache service
+// Store makes a call to Store function on Cache service
 func (cdg CacheDataGrpc) Store(key string, value []byte) error {
 	cacheClient := getCacheClient(cdg.Conn)
 	ctx := context.Background()

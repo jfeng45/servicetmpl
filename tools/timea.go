@@ -1,6 +1,6 @@
 package tools
 
-// the following constants represents different data format layout
+// The following constants represents different data format layout
 const (
 	FORMAT_ISO8601_DATE = "2006-01-02"
 	FORMAT_ISO8601_DATE_TIME = "2006-01-02 15:04:05"

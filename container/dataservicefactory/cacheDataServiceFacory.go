@@ -6,7 +6,6 @@ import (
 	"github.com/jfeng45/servicetmpl/container"
 	"github.com/jfeng45/servicetmpl/container/datastorefactory"
 	"github.com/jfeng45/servicetmpl/container/logger"
-	"github.com/jfeng45/servicetmpl/dataservice"
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"
 )
@@ -20,10 +19,7 @@ func (cdsf *cacheDataServiceFactory) Build(c container.Container, dataConfig *co
 		errMsg := USER_DATA + " in cacheDataServiceFactory doesn't match key = " + key
 		return nil, errors.New(errMsg)
 	}
-	//if it is already in container, return
-	if value, found := c.Get(key); found {
-		return value.(dataservice.CacheDataInterface), nil
-	}
+
 	dsc := dataConfig.DataStoreConfig
 	dsi, err := datastorefactory.GetDataStoreFb(dsc.Code).Build(c, &dsc)
 	grpcConn := dsi.(*grpc.ClientConn)
@@ -32,7 +28,7 @@ func (cdsf *cacheDataServiceFactory) Build(c container.Container, dataConfig *co
 	}
 	cdg := cacheclient.CacheDataGrpc{grpcConn}
 	//logger.Log.Debug("udm:", udm.DB)
-	c.Put(key, &cdg)
+	//c.Put(key, &cdg)
 	return &cdg, nil
 
 	return nil, nil

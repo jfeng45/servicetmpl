@@ -7,7 +7,7 @@ import (
 // Transactioner is the transaction interface for database handler
 // It should only be applicable to SQL database
 type Transactioner interface {
-	// Rollback a tranaction
+	// Rollback a transaction
 	Rollback() error
 	// Commit a transaction
 	Commit() error
@@ -19,29 +19,29 @@ type Transactioner interface {
 }
 
 // DB doesn't rollback, do nothing here
-func (db *SqlDBTx) Rollback() error {
+func (cdt *SqlDBTx) Rollback() error {
 	return nil
 }
 
 //DB doesnt commit, do nothing here
-func (db *SqlDBTx) Commit() error {
+func (cdt *SqlDBTx) Commit() error {
 	return nil
 }
 // TransactionBegin starts a transaction
-func (db *SqlDBTx)TxBegin( ) (SqlGdbc, error) {
+func (cdt *SqlDBTx)TxBegin( ) (SqlGdbc, error) {
 	logger.Log.Debug("transaction begin")
-	tx, err := db.DB.Begin()
+	tx, err := cdt.DB.Begin()
 	ct := SqlConnTx{tx}
 	return &ct, err
 }
 // DB doesnt rollback, do nothing here
-func (db *SqlDBTx)TxEnd( txFunc func() error) error {
+func (cdt *SqlDBTx)TxEnd( txFunc func() error) error {
 	return nil
 }
 
-func (db *SqlConnTx) TxEnd( txFunc func() error) error {
+func (sct *SqlConnTx) TxEnd( txFunc func() error) error {
 	var err error
-	tx := db.DB
+	tx := sct.DB
 
 	defer func() {
 		if p := recover(); p != nil {
@@ -60,16 +60,16 @@ func (db *SqlConnTx) TxEnd( txFunc func() error) error {
 	return err
 }
 //*sql.Tx can't begin a transaction, transaction always begins with a *sql.DB
-func (db *SqlConnTx) TxBegin( ) (SqlGdbc, error) {
+func (sct *SqlConnTx) TxBegin( ) (SqlGdbc, error) {
 	return nil, nil
 }
 
-func (db *SqlConnTx) Rollback() error {
-	return db.DB.Rollback()
+func (sct *SqlConnTx) Rollback() error {
+	return sct.DB.Rollback()
 }
 
-func (db *SqlConnTx) Commit() error {
-	return db.DB.Commit()
+func (sct *SqlConnTx) Commit() error {
+	return sct.DB.Commit()
 }
 
 

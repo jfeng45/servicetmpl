@@ -6,14 +6,10 @@ import (
 	"github.com/jfeng45/servicetmpl/container"
 	"github.com/jfeng45/servicetmpl/container/datastorefactory"
 	"github.com/jfeng45/servicetmpl/dataservice"
-
 )
 
-// To map "model data code" to "model data service interface builder"
-// each model data service need a separate build
-// Concrete builder is in corresponding factory file. For example, "UserDataServiceFactory" is in "UserDataServiceFactory".go
 var udsFbMap = map[string] userDataServiceFbInterface {
-	datastorefactory.SQL: &sqlUserDataServiceFactory{},
+	datastorefactory.SQLDB:   &sqlUserDataServiceFactory{},
 	datastorefactory.COUCHDB: &couchdbUserDataServiceFactory{},
 }
 

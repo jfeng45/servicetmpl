@@ -1,6 +1,7 @@
 package main
 
 import (
+	"github.com/jfeng45/servicetmpl/configs"
 	"github.com/jfeng45/servicetmpl/container"
 	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/jfeng45/servicetmpl/container/servicecontainer"
@@ -16,43 +17,45 @@ const (
 	PROD_CONFIG string = "../configs/appConfigProd.yaml"
 )
 func main() {
-	//testMySql()
-	testCouchDB()
+	testMySql()
+	//testCouchDB()
 }
 
 func getListUserUseCase(c container.Container) (usecase.ListUserUseCaseInterface, error){
 	key := container.LIST_USER
-	//value, found := registry.GetFromRegistry(sc.FactoryMap, key)
-	value, err := c.GetInstance(key)
+	value, err := c.BuildUseCase(key)
 	if err!=nil  {
 		//logger.Log.Errorf("%+v\n", err)
 		return nil, errors.Wrap(err, "")
 	}
-	if value !=nil {
-		logger.Log.Debug("found list user use case: key=", key)
-		return value.(usecase.ListUserUseCaseInterface), nil
+	return value.(usecase.ListUserUseCaseInterface), nil
+}
+
+func getListCourseUseCase(c container.Container) (usecase.ListCourseUseCaseInterface, error){
+	key := container.LIST_COURSE
+	value, err := c.BuildUseCase(key)
+	if err!=nil  {
+		return nil, errors.Wrap(err, "")
 	}
-	return nil, nil
+	return value.(usecase.ListCourseUseCaseInterface), nil
+
 }
 
 func getRegistrationUseCase(c container.Container) (usecase.RegistrationUseCaseInterface, error){
 	key := container.REGISTRATION
-	//value, found := registry.GetFromRegistry(sc.FactoryMap, key)
-	value, err := c.GetInstance(key)
+	value, err := c.BuildUseCase(key)
 	if err!=nil  {
 		//logger.Log.Errorf("%+v\n", err)
 		return nil, errors.Wrap(err, "")
 	}
-	if value !=nil {
-		logger.Log.Debug("found registration use case: key=", key)
-		return value.(usecase.RegistrationUseCaseInterface), nil
-	}
-	return nil, nil
+	return value.(usecase.RegistrationUseCaseInterface), nil
+
 }
 
 func buildContainer (filename string) (container.Container, error){
 	factoryMap :=make(map[string]interface{})
-	container := servicecontainer.ServiceContainer{factoryMap}
+	appConfig := configs.AppConfig{}
+	container := servicecontainer.ServiceContainer{factoryMap, &appConfig}
 
 	err:= container.InitApp( filename)
 	if err!=nil  {
@@ -79,16 +82,16 @@ func testMySql() {
 		return
 	}
 
-	//testListUser(container)
-	//testListUser(container)
-	//testFindById(container)
+	testListUser(container)
+	testListUser(container)
 	//testFindById(container)
 	//testRegisterUser(container)
 	//testModifyUser(container)
 	//testUnregister(container)
-	//
 	//testModifyAndUnregister(container)
-	testModifyAndUnregisterWithTx(container)
+	//testModifyAndUnregisterWithTx(container)
+
+	//testListCourse(container)
 
 
 }
@@ -135,7 +138,7 @@ func testModifyUser(container container.Container) {
 	if err != nil {
 		logger.Log.Errorf("date format err:%+v\n", err)
 	}
-	user := model.User{Id: 6, Name:"Aditi", Department:"HR", Created:created}
+	user := model.User{Id: 12, Name:"Aditi", Department:"HR", Created:created}
 	err =ruci.ModifyUser(&user)
 	if err !=nil {
 		logger.Log.Infof("Modify user failed:%+v\n", err)
@@ -167,7 +170,7 @@ func testModifyAndUnregister(container container.Container) {
 	if err != nil {
 		logger.Log.Errorf("date format err:%+v\n", err)
 	}
-	user := model.User{Id: 6, Name:"Richard", Department:"Sales", Created:created}
+	user := model.User{Id: 12, Name:"Richard", Department:"Sales", Created:created}
 	err = ruci.ModifyAndUnregister(&user)
 	if err != nil {
 		logger.Log.Errorf("ModifyAndUnregister failed:%+v\n", err)
@@ -185,7 +188,7 @@ func testModifyAndUnregisterWithTx(container container.Container) {
 	if err != nil {
 		logger.Log.Errorf("date format err:%+v\n", err)
 	}
-	user := model.User{Id: 11, Name:"Anshu", Department:"Sales", Created:created}
+	user := model.User{Id: 14, Name:"Anshu", Department:"Sales", Created:created}
 	err = ruci.ModifyAndUnregisterWithTx(&user)
 	if err != nil {
 		logger.Log.Errorf("ModifyAndUnregisterWithTx failed:%+v\n", err)
@@ -207,4 +210,17 @@ func testFindById(container container.Container) {
 		logger.Log.Errorf("fin user failed failed:%+v\n", err)
 	}
 	logger.Log.Info("find user:", user)
+}
+
+func testListCourse(container container.Container) {
+
+	lcuci, err := getListCourseUseCase(container)
+	if err != nil {
+		logger.Log.Fatal("getListCourseUseCase interface build failed:", err)
+	}
+	users, err := lcuci.ListCourse()
+	if err != nil {
+		logger.Log.Errorf("course list failed:%+v\n", err)
+	}
+	logger.Log.Info("course list:", users)
 }
