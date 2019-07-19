@@ -24,7 +24,6 @@ func (sudsf *sqlUserDataServiceFactory) Build(c container.Container, dataConfig 
 	ds := dsi.(gdbc.SqlGdbc)
 	uds := sqldb.UserDataSql{DB: ds}
 	logger.Log.Debug("uds:", uds.DB)
-	//c.Put(key, &uds)
 	return &uds, nil
 
 }

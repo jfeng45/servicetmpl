@@ -10,8 +10,12 @@ couchdbConfig: &couchdbConfig
     dbName: service_config
 cacheGrpcConfig: &cacheGrpcConfig
     code: cacheGrpc
-    driverName: cache
+    driverName: tcp
     urlAddress: localhost:5051
+userGrpcConfig: &userGrpcConfig
+    code: userGrpc
+    driverName: tcp
+    urlAddress: localhost:5052
 zapConfig: &zapConfig
     code: zap
     level: debug

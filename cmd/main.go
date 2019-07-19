@@ -21,48 +21,25 @@ func main() {
 	//testCouchDB()
 }
 
-func getListUserUseCase(c container.Container) (usecase.ListUserUseCaseInterface, error){
-	key := container.LIST_USER
-	value, err := c.BuildUseCase(key)
+func testMySql() {
+
+	filename := DEV_CONFIG
+	container, err := buildContainer(filename)
 	if err!=nil  {
-		//logger.Log.Errorf("%+v\n", err)
-		return nil, errors.Wrap(err, "")
+		logger.Log.Errorf("%+v\n", err)
+		return
 	}
-	return value.(usecase.ListUserUseCaseInterface), nil
-}
+	testListUser(container)
+	testListUser(container)
+	testFindById(container)
+	testRegisterUser(container)
+	testModifyUser(container)
+	testUnregister(container)
+	testModifyAndUnregister(container)
+	testModifyAndUnregisterWithTx(container)
 
-func getListCourseUseCase(c container.Container) (usecase.ListCourseUseCaseInterface, error){
-	key := container.LIST_COURSE
-	value, err := c.BuildUseCase(key)
-	if err!=nil  {
-		return nil, errors.Wrap(err, "")
-	}
-	return value.(usecase.ListCourseUseCaseInterface), nil
+	testListCourse(container)
 
-}
-
-func getRegistrationUseCase(c container.Container) (usecase.RegistrationUseCaseInterface, error){
-	key := container.REGISTRATION
-	value, err := c.BuildUseCase(key)
-	if err!=nil  {
-		//logger.Log.Errorf("%+v\n", err)
-		return nil, errors.Wrap(err, "")
-	}
-	return value.(usecase.RegistrationUseCaseInterface), nil
-
-}
-
-func buildContainer (filename string) (container.Container, error){
-	factoryMap :=make(map[string]interface{})
-	appConfig := configs.AppConfig{}
-	container := servicecontainer.ServiceContainer{factoryMap, &appConfig}
-
-	err:= container.InitApp( filename)
-	if err!=nil  {
-		//logger.Log.Errorf("%+v\n", err)
-		return nil, errors.Wrap(err, "")
-	}
-	return &container, nil
 }
 func testCouchDB() {
 	filename := PROD_CONFIG
@@ -73,28 +50,7 @@ func testCouchDB() {
 	}
 	testFindById(container)
 }
-func testMySql() {
 
-	filename := DEV_CONFIG
-	container, err := buildContainer(filename)
-	if err!=nil  {
-		logger.Log.Errorf("%+v\n", err)
-		return
-	}
-
-	testListUser(container)
-	testListUser(container)
-	//testFindById(container)
-	//testRegisterUser(container)
-	//testModifyUser(container)
-	//testUnregister(container)
-	//testModifyAndUnregister(container)
-	//testModifyAndUnregisterWithTx(container)
-
-	//testListCourse(container)
-
-
-}
 func testUnregister(container container.Container) {
 
 	ruci, err := getRegistrationUseCase(container)
@@ -188,7 +144,7 @@ func testModifyAndUnregisterWithTx(container container.Container) {
 	if err != nil {
 		logger.Log.Errorf("date format err:%+v\n", err)
 	}
-	user := model.User{Id: 14, Name:"Anshu", Department:"Sales", Created:created}
+	user := model.User{Id: 16, Name:"Anshu", Department:"Sales", Created:created}
 	err = ruci.ModifyAndUnregisterWithTx(&user)
 	if err != nil {
 		logger.Log.Errorf("ModifyAndUnregisterWithTx failed:%+v\n", err)
@@ -223,4 +179,49 @@ func testListCourse(container container.Container) {
 		logger.Log.Errorf("course list failed:%+v\n", err)
 	}
 	logger.Log.Info("course list:", users)
+}
+
+
+func getListUserUseCase(c container.Container) (usecase.ListUserUseCaseInterface, error){
+	key := container.LIST_USER
+	value, err := c.BuildUseCase(key)
+	if err!=nil  {
+		//logger.Log.Errorf("%+v\n", err)
+		return nil, errors.Wrap(err, "")
+	}
+	return value.(usecase.ListUserUseCaseInterface), nil
+}
+
+func getListCourseUseCase(c container.Container) (usecase.ListCourseUseCaseInterface, error){
+	key := container.LIST_COURSE
+	value, err := c.BuildUseCase(key)
+	if err!=nil  {
+		return nil, errors.Wrap(err, "")
+	}
+	return value.(usecase.ListCourseUseCaseInterface), nil
+
+}
+
+func getRegistrationUseCase(c container.Container) (usecase.RegistrationUseCaseInterface, error){
+	key := container.REGISTRATION
+	value, err := c.BuildUseCase(key)
+	if err!=nil  {
+		//logger.Log.Errorf("%+v\n", err)
+		return nil, errors.Wrap(err, "")
+	}
+	return value.(usecase.RegistrationUseCaseInterface), nil
+
+}
+
+func buildContainer (filename string) (container.Container, error){
+	factoryMap :=make(map[string]interface{})
+	appConfig := configs.AppConfig{}
+	container := servicecontainer.ServiceContainer{factoryMap, &appConfig}
+
+	err:= container.InitApp( filename)
+	if err!=nil  {
+		//logger.Log.Errorf("%+v\n", err)
+		return nil, errors.Wrap(err, "")
+	}
+	return &container, nil
 }

@@ -40,7 +40,6 @@ func (sf *sqlFactory) Build(c container.Container, dsc *configs.DataStoreConfig)
 		return nil, errors.Wrap(err, "")
 	}
 	dt := gdbc.SqlDBTx{DB: db}
-	//c.Put(key, &dt)
 	c.Put(key, db)
 	return &dt, nil
 

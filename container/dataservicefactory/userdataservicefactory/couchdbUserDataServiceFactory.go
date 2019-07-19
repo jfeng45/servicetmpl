@@ -22,7 +22,6 @@ func (cudsf *couchdbUserDataServiceFactory) Build(c container.Container, dataCon
 	}
 	ds := dsi.(*kivik.DB)
 	udc := couchdb.UserDataCouchdb{DB: ds}
-	//c.Put(key, &udc)
 	return &udc, nil
 
 }

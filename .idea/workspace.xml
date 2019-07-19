@@ -2,9 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="ddc7f6fd-5115-4c7c-9eef-18bf4419bc53" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/cacheclient/cacheClient.go" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/cacheclient/cacheClient.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/adapter/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/doc.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/adapter/userclient/userGrpc.go" beforeDir="false" afterPath="$PROJECT_DIR$/adapter/userclient/userGrpc.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/grpcserver/grpcServerMain.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/grpcserver/grpcServerMain.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cmd/main.go" afterDir="false" />
@@ -13,40 +10,21 @@
       <change beforePath="$PROJECT_DIR$/configs/appConfigProd.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/configs/appConfigProd.yaml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/container/container.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/container.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/container/dataservicefactory/cacheDataServiceFacory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/dataservicefactory/cacheDataServiceFacory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/dataservicefactory/dataServiceFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/dataservicefactory/dataServiceFactory.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/container/dataservicefactory/courseDataServiceFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/dataservicefactory/courseDataServiceFactory.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/container/dataservicefactory/txDataServiceFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/dataservicefactory/txDataServiceFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/dataservicefactory/userDataServiceFactoryWrapper.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/dataservicefactory/userDataServiceFactoryWrapper.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/couchdbUserDataServiceFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/couchdbUserDataServiceFactory.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/sqlUserDataServiceFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/sqlUserDataServiceFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/userDataServiceFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/userDataServiceFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/datastorefactory/cacheGrpcFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/datastorefactory/cacheGrpcFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/datastorefactory/couchdbFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/datastorefactory/couchdbFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/datastorefactory/datastoreFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/datastorefactory/datastoreFactory.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/container/datastorefactory/sqlFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/datastorefactory/sqlFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/logger/logger.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/logger/logger.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/loggerfactory/logFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/loggerfactory/logFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/loggerfactory/logrus/logrusFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/loggerfactory/logrusFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/loggerfactory/zap/zapFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/loggerfactory/zapFactory.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/container/servicecontainer/serviceContainer.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/servicecontainer/serviceContainer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/container/usecasefactory/listCourseFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/usecasefactory/listCourseFactory.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/container/usecasefactory/listUserFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/usecasefactory/listUserFactory.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/container/usecasefactory/registrationFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/usecasefactory/registrationFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/usecasefactory/useCaseFactory.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/usecasefactory/useCaseFactory.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/container/usecasefactory/useCaseHelper.go" beforeDir="false" afterPath="$PROJECT_DIR$/container/usecasefactory/useCaseHelper.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataservice/coursedata/courseData.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/dataservice/dataservice.go" beforeDir="false" afterPath="$PROJECT_DIR$/dataservice/dataservice.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataservice/txdataservice/txDataServie.go" beforeDir="false" afterPath="$PROJECT_DIR$/dataservice/txdataservice/txDataServie.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dataservice/userdata/couchdb/userDataCouchdb.go" beforeDir="false" afterPath="$PROJECT_DIR$/dataservice/userdata/couchdb/userDataCouchdb.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/dataservice/userdata/sql/userDataSql.go" beforeDir="false" afterPath="$PROJECT_DIR$/dataservice/userdata/sqldb/userDataSql.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/course.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/course.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/model/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/model/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scripts/user.sql" beforeDir="false" afterPath="$PROJECT_DIR$/scripts/user.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/gdbc/gdbc.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/gdbc/gdbc.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/gdbc/noSqlGdbc.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/gdbc/noSqlGdbc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dataservice/userdata/sqldb/userDataSql.go" beforeDir="false" afterPath="$PROJECT_DIR$/dataservice/userdata/sqldb/userDataSql.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/gdbc/sqlGdbc.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/gdbc/sqlGdbc.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tools/gdbc/transaction.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/gdbc/transaction.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tools/timea.go" beforeDir="false" afterPath="$PROJECT_DIR$/tools/timea.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usecase/listuser/listUser.go" beforeDir="false" afterPath="$PROJECT_DIR$/usecase/listuser/listUser.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/usecase/registration/registrationHelper.go" beforeDir="false" afterPath="$PROJECT_DIR$/usecase/registration/registrationHelper.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usecase/registration/registraton.go" beforeDir="false" afterPath="$PROJECT_DIR$/usecase/registration/registraton.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/usecase/useCase.go" beforeDir="false" afterPath="$PROJECT_DIR$/usecase/useCase.go" afterDir="false" />
     </list>
@@ -72,112 +50,106 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/container/datastorefactory/datastoreFactory.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="258">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-              <folding>
-                <element signature="e#473#569#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cmd/main.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-153">
-              <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
+            <state relative-caret-position="84">
+              <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
               <folding>
-                <element signature="e#14#335#0" expanded="true" />
+                <element signature="e#14#377#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/container/datastorefactory/sqlFactory.go">
+        <entry file="file://$PROJECT_DIR$/cmd/grpcserver/grpcServerMain.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+            <state relative-caret-position="2737">
+              <caret line="161" selection-start-line="161" selection-end-line="161" />
               <folding>
-                <element signature="e#26#259#0" expanded="true" />
+                <element signature="e#14#418#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/container/datastorefactory/couchdbFactory.go">
+        <entry file="file://$PROJECT_DIR$/usecase/useCase.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="25" column="43" lean-forward="true" selection-start-line="25" selection-start-column="43" selection-end-line="25" selection-end-column="43" />
-              <folding>
-                <element signature="e#26#311#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="139">
+              <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/container/datastorefactory/cacheGrpcFactory.go">
+        <entry file="file://$PROJECT_DIR$/usecase/listuser/listUser.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="269">
-              <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/usecase/registration/registraton.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-529">
-              <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-              <folding>
-                <element signature="e#360#481#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="156">
+              <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/sqlUserDataServiceFactory.go">
+        <entry file="file://$PROJECT_DIR$/adapter/userclient/userGrpc.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+            <state relative-caret-position="132">
+              <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/gdbc/sqlGdbc.go">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="306">
-              <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-              <folding>
-                <element signature="e#109#175#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tools/gdbc/transaction.go">
+        <entry file="file://$PROJECT_DIR$/cmd/grpcclient/grpcClientMain.go">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="476">
-              <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
+              <caret line="28" column="47" lean-forward="true" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+              <folding>
+                <element signature="e#14#196#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/container/servicecontainer/serviceContainer.go">
+        <entry file="file://$PROJECT_DIR$/dataservice/userdata/sqldb/userDataSql.go">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
+            <state relative-caret-position="170">
+              <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/dataservice/userdata/couchdb/userDataCouchdb.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1564">
+              <caret line="92" column="28" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="28" />
               <folding>
-                <element signature="e#26#282#0" expanded="true" />
+                <element signature="e#109#321#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/configs/appConfigProd.yaml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2">
+              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/usecase/registration/registraton.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="113">
+              <caret line="66" column="45" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
+              <folding>
+                <element signature="e#360#481#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -245,30 +217,19 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/tools/gdbc/gdbc.go" />
         <option value="$PROJECT_DIR$/tools/gdbc/noSqlGdbc.go" />
-        <option value="$PROJECT_DIR$/tools/gdbc/sqlGdbc.go" />
-        <option value="$PROJECT_DIR$/tools/gdbc/transaction.go" />
         <option value="$PROJECT_DIR$/tools/timea.go" />
-        <option value="$PROJECT_DIR$/usecase/registration/registraton.go" />
         <option value="$PROJECT_DIR$/usecase/registration/registrationHelper.go" />
         <option value="$PROJECT_DIR$/usecase/listuser/listUser.go" />
         <option value="$PROJECT_DIR$/usecase/listcourse/listCourse.go" />
         <option value="$PROJECT_DIR$/scripts/user.sql" />
         <option value="$PROJECT_DIR$/model/user.go" />
-        <option value="$PROJECT_DIR$/usecase/useCase.go" />
         <option value="$PROJECT_DIR$/model/course.go" />
         <option value="$PROJECT_DIR$/container/usecasefactory/useCaseHelper.go" />
-        <option value="$PROJECT_DIR$/dataservice/dataservice.go" />
-        <option value="$PROJECT_DIR$/dataservice/userdata/couchdb/userDataCouchdb.go" />
-        <option value="$PROJECT_DIR$/dataservice/txdataservice/txDataServie.go" />
         <option value="$PROJECT_DIR$/dataservice/coursedata/couchdb/courseDataCouchdb.go" />
         <option value="$PROJECT_DIR$/dataservice/coursedata/sqldb/courseDataSql.go" />
         <option value="$PROJECT_DIR$/adapter/cacheclient/cacheClient.go" />
         <option value="$PROJECT_DIR$/adapter/doc.go" />
-        <option value="$PROJECT_DIR$/adapter/userclient/userGrpc.go" />
-        <option value="$PROJECT_DIR$/cmd/grpcserver/grpcServerMain.go" />
-        <option value="$PROJECT_DIR$/configs/appConfig.go" />
         <option value="$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/userDataServiceFactory.go" />
         <option value="$PROJECT_DIR$/container/dataservicefactory/dataServiceFactory.go" />
         <option value="$PROJECT_DIR$/container/datastorefactory/datastoreFactory.go" />
@@ -278,31 +239,42 @@
         <option value="$PROJECT_DIR$/container/loggerfactory/zapFactory.go" />
         <option value="$PROJECT_DIR$/container/loggerfactory/logrus/logrusFactory.go" />
         <option value="$PROJECT_DIR$/container/loggerfactory/logrusFactory.go" />
-        <option value="$PROJECT_DIR$/configs/appConfigProd.yaml" />
-        <option value="$PROJECT_DIR$/dataservice/userdata/sqldb/userDataSql.go" />
-        <option value="$PROJECT_DIR$/container/usecasefactory/registrationFactory.go" />
-        <option value="$PROJECT_DIR$/container/usecasefactory/listUserFactory.go" />
-        <option value="$PROJECT_DIR$/container/usecasefactory/listCourseFactory.go" />
-        <option value="$PROJECT_DIR$/container/dataservicefactory/txDataServiceFactory.go" />
         <option value="$PROJECT_DIR$/container/dataservicefactory/userDataServiceFactoryWrapper.go" />
+        <option value="$PROJECT_DIR$/container/datastorefactory/cacheGrpcFactory.go" />
+        <option value="$PROJECT_DIR$/container/usecasefactory/useCaseFactory.go" />
+        <option value="$PROJECT_DIR$/container/datastorefactory/couchdbFactory.go" />
+        <option value="$PROJECT_DIR$/container/servicecontainer/serviceContainer.go" />
+        <option value="$PROJECT_DIR$/container/datastorefactory/sqlFactory.go" />
+        <option value="$PROJECT_DIR$/container/dataservicefactory/txDataServiceFactory.go" />
         <option value="$PROJECT_DIR$/container/dataservicefactory/courseDataServiceFactory.go" />
         <option value="$PROJECT_DIR$/container/dataservicefactory/cacheDataServiceFacory.go" />
         <option value="$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/sqlUserDataServiceFactory.go" />
         <option value="$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/couchdbUserDataServiceFactory.go" />
-        <option value="$PROJECT_DIR$/container/datastorefactory/cacheGrpcFactory.go" />
+        <option value="$PROJECT_DIR$/container/usecasefactory/registrationFactory.go" />
+        <option value="$PROJECT_DIR$/container/usecasefactory/listUserFactory.go" />
+        <option value="$PROJECT_DIR$/container/usecasefactory/listCourseFactory.go" />
         <option value="$PROJECT_DIR$/container/container.go" />
-        <option value="$PROJECT_DIR$/container/usecasefactory/useCaseFactory.go" />
-        <option value="$PROJECT_DIR$/container/servicecontainer/serviceContainer.go" />
-        <option value="$PROJECT_DIR$/container/datastorefactory/couchdbFactory.go" />
+        <option value="$PROJECT_DIR$/tools/gdbc/sqlGdbc.go" />
+        <option value="$PROJECT_DIR$/tools/gdbc/transaction.go" />
+        <option value="$PROJECT_DIR$/dataservice/userdata/couchdb/userDataCouchdb.go" />
+        <option value="$PROJECT_DIR$/usecase/useCase.go" />
+        <option value="$PROJECT_DIR$/dataservice/dataservice.go" />
+        <option value="$PROJECT_DIR$/dataservice/txdataservice/txDataServie.go" />
+        <option value="$PROJECT_DIR$/usecase/registration/registraton.go" />
+        <option value="$PROJECT_DIR$/dataservice/userdata/sqldb/userDataSql.go" />
+        <option value="$PROJECT_DIR$/configs/appConfigDev.yaml" />
+        <option value="$PROJECT_DIR$/configs/appConfig.go" />
+        <option value="$PROJECT_DIR$/configs/appConfigProd.yaml" />
+        <option value="$PROJECT_DIR$/adapter/userclient/userGrpc.go" />
+        <option value="$PROJECT_DIR$/cmd/grpcserver/grpcServerMain.go" />
         <option value="$PROJECT_DIR$/cmd/main.go" />
-        <option value="$PROJECT_DIR$/container/datastorefactory/sqlFactory.go" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="20" />
+    <option name="x" value="6" />
     <option name="y" value="4" />
-    <option name="width" value="1331" />
+    <option name="width" value="1314" />
     <option name="height" value="725" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -583,14 +555,14 @@
     </option>
   </component>
   <component name="ToolWindowManager">
-    <frame x="20" y="4" width="1331" height="725" extended-state="0" />
+    <frame x="22" y="4" width="1314" height="725" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24704957" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26076555" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.31925675" />
+      <window_info anchor="bottom" id="Find" order="1" visible="true" weight="0.24493243" />
       <window_info anchor="bottom" id="Run" order="2" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
@@ -604,7 +576,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.32944834" />
+      <window_info anchor="right" id="Database" order="3" weight="0.32887492" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,60 +599,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/model/user.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="189">
-          <caret line="15" column="22" selection-start-line="15" selection-start-column="22" selection-end-line="15" selection-end-column="22" />
-          <folding>
-            <element signature="e#397#453#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/course.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="76" selection-start-line="2" selection-start-column="76" selection-end-line="2" selection-end-column="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/model/cache.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataservice/userdata/couchdb/userDataCouchdb.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1649">
-          <caret line="97" selection-start-line="97" selection-end-line="97" />
-          <folding>
-            <element signature="e#109#350#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataservice/coursedata/couchdb/courseDataCouchdb.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataservice/coursedata/sqldb/courseDataSql.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-          <folding>
-            <element signature="e#15#238#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adapter/cacheclient/generatedclient/doc.go">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/adapter/paymentclient/paymentClient.go">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -688,28 +606,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
           <caret line="2" column="3" lean-forward="true" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/adapter/userclient/userGrpc.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="41" column="60" selection-start-line="41" selection-start-column="60" selection-end-line="41" selection-end-column="60" />
-          <folding>
-            <element signature="e#20#206#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmd/grpcclient/grpcClientMain.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-383" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmd/grpcserver/grpcServerMain.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-73">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -724,13 +620,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state>
           <caret column="56" selection-start-column="56" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configs/appConfig.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="17">
-          <caret line="16" column="35" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="35" />
         </state>
       </provider>
     </entry>
@@ -783,132 +672,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/configs/appConfigProd.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="24" column="17" lean-forward="true" selection-start-line="24" selection-start-column="17" selection-end-line="24" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataservice/dataservice.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="118">
-          <caret line="45" column="13" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usecase/useCase.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="188">
-          <caret line="33" column="22" selection-start-line="33" selection-start-column="22" selection-end-line="33" selection-end-column="22" />
-          <folding>
-            <element signature="e#807#857#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataservice/txdataservice/txDataServie.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="20" column="30" lean-forward="true" selection-start-line="20" selection-start-column="30" selection-end-line="20" selection-end-column="30" />
-          <folding>
-            <element signature="e#101#202#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/usecase/registration/registrationHelper.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="46" column="46" lean-forward="true" selection-start-line="46" selection-start-column="46" selection-end-line="46" selection-end-column="46" />
-          <folding>
-            <element signature="e#22#154#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dataservice/userdata/sqldb/userDataSql.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="151">
-          <caret line="24" column="14" selection-start-line="24" selection-start-column="14" selection-end-line="24" selection-end-column="14" />
-          <folding>
-            <element signature="e#104#375#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/configs/appConfigDev.yaml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="646">
-          <caret line="38" selection-start-line="38" selection-end-line="42" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/container/usecasefactory/listUserFactory.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="25" column="6" selection-start-line="25" selection-start-column="6" selection-end-line="25" selection-end-column="6" />
-          <folding>
-            <element signature="e#24#196#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/container/usecasefactory/listCourseFactory.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="24" column="6" selection-start-line="24" selection-start-column="6" selection-end-line="24" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/container/usecasefactory/useCaseHelper.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="21" column="45" selection-start-line="21" selection-start-column="45" selection-end-line="21" selection-end-column="45" />
-          <folding>
-            <element signature="e#24#254#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/userDataServiceFactoryWrapper.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/txDataServiceFactory.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="14" column="41" selection-start-line="14" selection-start-column="40" selection-end-line="14" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/dataServiceFactory.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-50">
-          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/userDataServiceFactory.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/couchdbUserDataServiceFactory.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="16" column="53" selection-start-line="16" selection-start-column="53" selection-end-line="16" selection-end-column="53" />
-          <folding>
-            <element signature="e#32#403#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/adapter/cacheclient/cacheClient.go">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
@@ -919,95 +682,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/cacheDataServiceFacory.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="22" column="37" lean-forward="true" selection-start-line="22" selection-start-column="37" selection-end-line="22" selection-end-column="37" />
-          <folding>
-            <element signature="e#28#387#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/courseDataServiceFactory.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="40" column="24" lean-forward="true" selection-start-line="40" selection-start-column="24" selection-end-line="40" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/container/usecasefactory/registrationFactory.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="55">
-          <caret line="13" column="38" selection-start-line="13" selection-start-column="37" selection-end-line="13" selection-end-column="38" />
-          <folding>
-            <element signature="e#24#200#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/container/container.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="16" column="33" lean-forward="true" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/container/usecasefactory/useCaseFactory.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="28" column="17" selection-start-line="28" selection-start-column="5" selection-end-line="28" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/container/servicecontainer/serviceContainer.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="12" column="32" lean-forward="true" selection-start-line="12" selection-start-column="32" selection-end-line="12" selection-end-column="32" />
-          <folding>
-            <element signature="e#26#282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cmd/main.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-153">
-          <caret line="48" column="40" lean-forward="true" selection-start-line="48" selection-start-column="40" selection-end-line="48" selection-end-column="40" />
-          <folding>
-            <element signature="e#14#335#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/sqlUserDataServiceFactory.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/gdbc/sqlGdbc.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="18" column="4" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
-          <folding>
-            <element signature="e#109#175#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tools/gdbc/transaction.go">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="476">
-          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/container/datastorefactory/sqlFactory.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="25" column="10" selection-start-line="25" selection-start-column="10" selection-end-line="25" selection-end-column="10" />
+        <state relative-caret-position="425">
+          <caret line="41" column="30" selection-start-line="41" selection-start-column="30" selection-end-line="41" selection-end-column="30" />
           <folding>
             <element signature="e#26#259#0" expanded="true" />
           </folding>
@@ -1034,19 +712,314 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/container/datastorefactory/cacheGrpcFactory.go">
+    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/userDataServiceFactoryWrapper.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="269">
-          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        <state relative-caret-position="136">
+          <caret line="14" column="46" selection-start-line="14" selection-start-column="46" selection-end-line="14" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/txDataServiceFactory.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="29" column="36" selection-start-line="29" selection-start-column="36" selection-end-line="29" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/dataServiceFactory.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="31">
+          <caret line="2" column="19" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/cacheDataServiceFacory.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="391">
+          <caret line="31" column="20" selection-start-line="31" selection-start-column="20" selection-end-line="31" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/container/usecasefactory/listUserFactory.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="24" column="85" selection-start-line="24" selection-start-column="85" selection-end-line="24" selection-end-column="85" />
+          <folding>
+            <element signature="e#24#196#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/container/usecasefactory/listCourseFactory.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/container/container.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/container/servicecontainer/serviceContainer.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="74">
+          <caret line="9" column="30" lean-forward="true" selection-start-line="9" selection-start-column="30" selection-end-line="9" selection-end-column="30" />
+          <folding>
+            <element signature="e#26#231#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/couchdbUserDataServiceFactory.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="371">
+          <caret line="23" column="42" selection-start-line="23" selection-start-column="42" selection-end-line="23" selection-end-column="42" />
+          <folding>
+            <element signature="e#32#403#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/container/usecasefactory/useCaseFactory.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" column="44" lean-forward="true" selection-start-line="14" selection-start-column="44" selection-end-line="14" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/container/usecasefactory/registrationFactory.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="327">
+          <caret line="29" column="88" selection-start-line="29" selection-start-column="88" selection-end-line="29" selection-end-column="88" />
+          <folding>
+            <element signature="e#24#200#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/container/usecasefactory/useCaseHelper.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="83">
+          <caret line="25" column="28" selection-start-line="25" selection-start-column="28" selection-end-line="25" selection-end-column="28" />
+          <folding>
+            <element signature="e#24#254#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/gdbc/noSqlGdbc.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#14#80#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/gdbc/gdbc.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usecase/registration/registrationHelper.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="33" selection-start-line="15" selection-start-column="33" selection-end-line="15" selection-end-column="33" />
+          <folding>
+            <element signature="e#22#154#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/userDataServiceFactory.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="88">
+          <caret line="7" column="48" selection-start-line="7" selection-start-column="48" selection-end-line="7" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/sqlUserDataServiceFactory.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="25" column="36" selection-start-line="25" selection-start-column="36" selection-end-line="25" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataservice/coursedata/couchdb/courseDataCouchdb.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="34">
+          <caret line="2" column="8" selection-start-line="2" selection-start-column="8" selection-end-line="2" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/container/dataservicefactory/courseDataServiceFactory.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-351">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+          <folding>
+            <element signature="e#28#480#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/app1/go/src/database/sql/sql.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="37884">
+          <caret line="2265" column="5" selection-start-line="2265" selection-start-column="5" selection-end-line="2265" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/gdbc/transaction.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1258">
+          <caret line="74" selection-start-line="74" selection-end-line="74" />
+          <folding>
+            <element signature="e#14#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tools/gdbc/sqlGdbc.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+          <folding>
+            <element signature="e#109#175#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataservice/txdataservice/txDataServie.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="222">
+          <caret line="21" column="26" selection-start-line="21" selection-start-column="26" selection-end-line="21" selection-end-column="26" />
+          <folding>
+            <element signature="e#101#202#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/appConfigDev.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" selection-start-line="14" selection-end-line="17" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/appConfig.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="56" lean-forward="true" selection-start-line="56" selection-end-line="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataservice/dataservice.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="63" column="4" selection-start-line="63" selection-start-column="4" selection-end-line="63" selection-end-column="4" />
+          <folding>
+            <element signature="e#456#551#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/usecase/registration/registraton.go">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-529">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+        <state relative-caret-position="113">
+          <caret line="66" column="45" selection-start-line="66" selection-start-column="45" selection-end-line="66" selection-end-column="45" />
           <folding>
             <element signature="e#360#481#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataservice/userdata/sqldb/userDataSql.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="47" lean-forward="true" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/container/datastorefactory/cacheGrpcFactory.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="257">
+          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/configs/appConfigProd.yaml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adapter/userclient/generatedclient/usergrpc.pb.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11">
+          <caret line="253" column="4" selection-start-line="253" selection-start-column="4" selection-end-line="253" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/adapter/userclient/userGrpc.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="49" column="5" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usecase/useCase.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="42" column="11" selection-start-line="42" selection-start-column="11" selection-end-line="42" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/usecase/listuser/listUser.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="156">
+          <caret line="21" column="37" selection-start-line="21" selection-start-column="37" selection-end-line="21" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dataservice/userdata/couchdb/userDataCouchdb.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1564">
+          <caret line="92" column="28" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="28" />
+          <folding>
+            <element signature="e#109#321#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmd/grpcserver/grpcServerMain.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2737">
+          <caret line="161" selection-start-line="161" selection-end-line="161" />
+          <folding>
+            <element signature="e#14#418#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmd/grpcclient/grpcClientMain.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="28" column="47" lean-forward="true" selection-start-line="28" selection-start-column="47" selection-end-line="28" selection-end-column="47" />
+          <folding>
+            <element signature="e#14#196#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmd/main.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="84">
+          <caret line="19" column="4" selection-start-line="19" selection-start-column="4" selection-end-line="19" selection-end-column="4" />
+          <folding>
+            <element signature="e#14#377#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -5,6 +5,7 @@ import (
 	"context"
 	"github.com/go-kivik/kivik"
 	"github.com/jfeng45/servicetmpl/container/logger"
+	"github.com/jfeng45/servicetmpl/dataservice"
 	"github.com/jfeng45/servicetmpl/model"
 	"github.com/pkg/errors"
 )
@@ -94,5 +95,10 @@ func (udc *UserDataCouchdb) FindAll() ([]model.User, error) {
 }
 func (udc *UserDataCouchdb) FindByName(name string) (*model.User, error) {
 	return nil, nil
+}
+
+// Couchdb doesn't support transaction, don't need to do anything. Just need the interface
+func (udc *UserDataCouchdb) EnableTx (dataservice.TxDataInterface) {
+
 }
 

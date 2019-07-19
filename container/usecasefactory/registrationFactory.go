@@ -28,7 +28,6 @@ func (rf *RegistrationFactory) Build(c container.Container, appConfig *configs.A
 		return nil, errors.Wrap(err, "")
 	}
 	ruc := registration.RegistrationUseCase{UserDataInterface: udi, TxDataInterface:tdi}
-	//c.Put(key, &ruc)
 
 	return &ruc, nil
 }

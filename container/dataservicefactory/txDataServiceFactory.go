@@ -28,7 +28,6 @@ func (tdsf *txDataServiceFactory) Build(c container.Container, dataConfig *confi
 	ds := dsi.(gdbc.SqlGdbc)
 	tdm := txdataservice.TxDataSql{ds}
 	logger.Log.Debug("udm:", tdm.DB)
-	//c.Put(key, &tdm)
 	return &tdm, nil
 
 }

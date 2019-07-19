@@ -61,6 +61,7 @@ func (sdb *SqlConnTx) QueryRow(query string, args ...interface{}) *sql.Row {
 	return sdb.DB.QueryRow(query, args...)
 }
 
+
 // The followings are dummy implementation for noSqlGdbc.
 // After implementing the following, SqlDBTx will also implements NoSqlGdbc interface.
 // This making the courseDataServiceFactory possible.
@@ -85,6 +86,7 @@ func (sdt *SqlDBTx) Find(ctx context.Context, query interface{}) (*kivik.Rows, e
 func(sdt *SqlDBTx) AllDocs(ctx context.Context, options ...kivik.Options ) (*kivik.Rows, error) {
 	return nil, nil
 }
+
 
 
 

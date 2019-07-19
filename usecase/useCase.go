@@ -32,6 +32,9 @@ type RegistrationUseCaseInterface interface {
 	// It supports transaction
 	// It is created to illustrate transaction, no real use.
 	ModifyAndUnregisterWithTx(user *model.User) error
+	// EnableTx enable transaction support on use case. Need to be included for each use case needs transaction
+	// It replaces the underline database handler to sql.Tx for each data service that used by this use case
+	EnableTxer
 }
 
 // ListUserUseCaseInterface handles different ways to retrieve user information
@@ -50,3 +53,6 @@ type ListCourseUseCaseInterface interface {
 	ListCourse() ([]model.Course, error)
 }
 
+type EnableTxer interface {
+	EnableTx()
+}

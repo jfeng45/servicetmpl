@@ -28,9 +28,7 @@ func (cdsf *cacheDataServiceFactory) Build(c container.Container, dataConfig *co
 	}
 	cdg := cacheclient.CacheDataGrpc{grpcConn}
 	//logger.Log.Debug("udm:", udm.DB)
-	//c.Put(key, &cdg)
-	return &cdg, nil
 
-	return nil, nil
+	return &cdg, nil
 }
 

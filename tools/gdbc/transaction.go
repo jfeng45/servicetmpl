@@ -16,6 +16,7 @@ type Transactioner interface {
 	TxEnd( txFunc func() error) error
 	// TxBegin gets *sql.DB from receiver and return a SqlGdbc, which has a *sql.Tx
 	TxBegin() (SqlGdbc, error)
+
 }
 
 // DB doesn't rollback, do nothing here
@@ -71,6 +72,7 @@ func (sct *SqlConnTx) Rollback() error {
 func (sct *SqlConnTx) Commit() error {
 	return sct.DB.Commit()
 }
+
 
 
 

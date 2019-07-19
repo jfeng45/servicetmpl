@@ -8,6 +8,7 @@ import (
 	"github.com/jfeng45/servicetmpl/container"
 	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/jfeng45/servicetmpl/container/servicecontainer"
+	"github.com/jfeng45/servicetmpl/usecase"
 	"github.com/pkg/errors"
 	"google.golang.org/grpc"
 	"net"
@@ -15,8 +16,6 @@ import (
 const (
 	DEV_CONFIG string = "../../configs/appConfigDev.yaml"
 	PROD_CONFIG string = "../../configs/appConfigProd.yaml"
-	GRPC_NETWORK = "tcp"
-	GRPC_ADDRESS = "localhost:5052"
 )
 
 type UserService struct {
@@ -33,7 +32,7 @@ func (uss *UserService) RegisterUser(ctx context.Context, req *uspb.RegisterUser
 	defer catchPanic()
 	logger.Log.Debug("RegisterUser called")
 
-	ruci, err := uss.container.RetrieveRegistration()
+	ruci, err := getRegistrationUseCase(uss.container)
 	if err != nil {
 		logger.Log.Errorf("%+v\n", err)
 		return nil, errors.Wrap(err, "")
@@ -67,7 +66,7 @@ func (uss *UserService) ListUser(ctx context.Context, in *uspb.ListUserReq) (*us
 	defer catchPanic()
 	logger.Log.Debug("ListUser called")
 
-	luci, err := uss.container.RetrieveListUser()
+	luci, err := getListUserUseCase(uss.container)
 	if err != nil {
 		logger.Log.Errorf("%+v\n", err)
 		return nil, errors.Wrap(err, "")
@@ -89,15 +88,17 @@ func (uss *UserService) ListUser(ctx context.Context, in *uspb.ListUserReq) (*us
 	return &uspb.ListUserResp{User: gu}, nil
 
 }
-func runServer(c container.Container) error {
+func runServer(sc *servicecontainer.ServiceContainer) error {
 	logger.Log.Debug("start runserver")
 
 	srv:=grpc.NewServer()
 
-	cs:= &UserService{c}
+	cs:= &UserService{sc}
 	uspb.RegisterUserServiceServer(srv, cs)
-	l, err:=net.Listen(GRPC_NETWORK, GRPC_ADDRESS)
-
+	//l, err:=net.Listen(GRPC_NETWORK, GRPC_ADDRESS)
+	ugc := sc.AppConfig.UserGrpcConfig
+	logger.Log.Debugf("userGrpcConfig: %+v\n", ugc)
+	l, err:=net.Listen(ugc.DriverName, ugc.UrlAddress)
 	if err!=nil {
 		return errors.Wrap(err, "")
 	} else {
@@ -108,19 +109,20 @@ func runServer(c container.Container) error {
 
 func main () {
 	filename := DEV_CONFIG
+	//filename := PROD_CONFIG
 	container, err := buildContainer(filename)
 	if err != nil {
 		logger.Log.Errorf("%+v\n", err)
 		panic(err)
 	}
 	if err := runServer(container); err != nil {
-		logger.Log.Errorf("Failed to run cache server: %+v\n", err)
+		logger.Log.Errorf("Failed to run user server: %+v\n", err)
 		panic(err)
 	} else {
 		logger.Log.Info("server started")
 	}
 }
-func buildContainer (filename string) (container.Container, error){
+func buildContainer (filename string) (*servicecontainer.ServiceContainer, error){
 
 	factoryMap :=make(map[string]interface{})
 	config := configs.AppConfig{}
@@ -131,5 +133,35 @@ func buildContainer (filename string) (container.Container, error){
 		return nil, errors.Wrap(err, "")
 	}
 	return &container, nil
+}
+
+func getListUserUseCase(c container.Container) (usecase.ListUserUseCaseInterface, error){
+	key := container.LIST_USER
+	value, err := c.BuildUseCase(key)
+	if err!=nil  {
+		//logger.Log.Errorf("%+v\n", err)
+		return nil, errors.Wrap(err, "")
+	}
+	return value.(usecase.ListUserUseCaseInterface), nil
+}
+
+func getListCourseUseCase(c container.Container) (usecase.ListCourseUseCaseInterface, error){
+	key := container.LIST_COURSE
+	value, err := c.BuildUseCase(key)
+	if err!=nil  {
+		return nil, errors.Wrap(err, "")
+	}
+	return value.(usecase.ListCourseUseCaseInterface), nil
+
+}
+
+func getRegistrationUseCase(c container.Container) (usecase.RegistrationUseCaseInterface, error){
+	key := container.REGISTRATION
+	value, err := c.BuildUseCase(key)
+	if err!=nil  {
+		return nil, errors.Wrap(err, "")
+	}
+	return value.(usecase.RegistrationUseCaseInterface), nil
+
 }
 

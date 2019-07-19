@@ -20,5 +20,9 @@ func (tds *TxDataSql)TxBegin() (dataservice.TxDataInterface, error) {
 
 	sqlTx, error :=tds.DB.TxBegin()
 	tdi:= TxDataSql{sqlTx}
+	tds.DB =tdi.DB
 	return &tdi, error
+}
+func (tds *TxDataSql) GetTx() gdbc.SqlGdbc {
+	return tds.DB
 }

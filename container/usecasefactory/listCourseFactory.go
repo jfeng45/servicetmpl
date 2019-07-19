@@ -22,6 +22,5 @@ func (lcf *ListCourseFactory)Build(c container.Container, appConfig *configs.App
 		return nil, errors.Wrap(err, "")
 	}
 	lcuc := listcourse.ListCourseUseCase{CourseDataInterface: cdi}
-	//c.Put(key,&lcuc)
 	return &lcuc, nil
 }

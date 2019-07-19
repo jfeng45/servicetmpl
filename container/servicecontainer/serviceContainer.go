@@ -2,7 +2,6 @@ package servicecontainer
 
 import (
 	"github.com/jfeng45/servicetmpl/configs"
-	"github.com/jfeng45/servicetmpl/container/logger"
 	logFactory "github.com/jfeng45/servicetmpl/container/loggerfactory"
 	"github.com/jfeng45/servicetmpl/container/usecasefactory"
 	"github.com/pkg/errors"
@@ -24,24 +23,21 @@ func (sc *ServiceContainer)InitApp( filename string ) error {
 	if err != nil {
 		return errors.Wrap(err,"loadLogger")
 	}
-	//err = buildUseCase(sc, config)
-	//if err != nil {
-	//	return errors.Wrap(err,"build use case")
-	//}
+
 	return nil
 }
 
-func (sc *ServiceContainer) GetInstance(code string) ( interface{}, error) {
-
-	value, found := sc.FactoryMap[code]
-	if found {
-		logger.Log.Debug("found instance in container: code=", code)
-		return value, nil
-	} else {
-		errMsg := "can't find corresponding type for code " + code + " in container"
-		return nil, errors.New(errMsg)
-	}
-}
+//func (sc *ServiceContainer) GetInstance(code string) ( interface{}, error) {
+//
+//	value, found := sc.FactoryMap[code]
+//	if found {
+//		logger.Log.Debug("found instance in container: code=", code)
+//		return value, nil
+//	} else {
+//		errMsg := "can't find corresponding type for code " + code + " in container"
+//		return nil, errors.New(errMsg)
+//	}
+//}
 
 // loads the logger
 func loadLogger(lc configs.LogConfig) error {
@@ -62,17 +58,6 @@ func loadConfig (filename string) (*configs.AppConfig, error) {
 	}
 	return &ac, nil
 }
-
-// create concrete types for use case interfaces
-//func buildUseCase(sc *ServiceContainer, config *configs.AppConfig) error {
-//	for key,ucfb := range usecasefactory.UseCaseFactoryBuilderMap {
-//		_, err := ucfb.Build(sc, config, key)
-//		if err != nil {
-//			return errors.Wrap(err, "build use case")
-//		}
-//	}
-//	return nil
-//}
 
 func (sc *ServiceContainer) BuildUseCase (code string) (interface{}, error){
 	return usecasefactory.GetUseCaseFb(code).Build(sc, sc.AppConfig, code)

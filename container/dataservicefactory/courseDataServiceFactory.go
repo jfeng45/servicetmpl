@@ -41,7 +41,5 @@ func (tdsf *courseDataServiceFactory) Build(c container.Container, dataConfig *c
 	gdbc := dsi.(gdbc.Gdbc)
 	gdi := GetCourseDataServiceInterface(dsc.Code)
 	gdi.SetDB(gdbc)
-
-	//c.Put(key, gdi)
 	return gdi, nil
 }

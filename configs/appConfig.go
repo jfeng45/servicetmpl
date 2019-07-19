@@ -15,6 +15,7 @@ type AppConfig struct {
 	SQLConfig     DataStoreConfig `yaml:"sqlConfig"`
 	CouchdbConfig   DataStoreConfig `yaml:"couchdbConfig"`
 	CacheGrpcConfig DataStoreConfig      `yaml:"cacheGrpcConfig"`
+	UserGrpcConfig DataStoreConfig      `yaml:"userGrpcConfig"`
 	ZapConfig       LogConfig       `yaml:"zapConfig"`
 	LorusConfig     LogConfig       `yaml:"logrusConfig"`
 	Log             LogConfig       `yaml:"logConfig"`
@@ -57,7 +58,7 @@ type DataConfig struct {
 // DataConfig represents handlers for data store. It can be a database or a gRPC connection
 type DataStoreConfig struct{
 	Code        string         `yaml:"code"`
-	// Only database has a driver name, grpc don't use it
+	// Only database has a driver name, for grpc it is "tcp" ( network) for server
 	DriverName string `yaml:"driverName"`
 	// For database, this is datasource name; for grpc, it is target url
 	UrlAddress string `yaml:"urlAddress"`

@@ -23,7 +23,6 @@ func (luf *ListUserFactory)Build(c container.Container, appConfig *configs.AppCo
 	}
 	cdi, err := buildCacheData(c, &uc.CacheDataConfig)
 	luuc := listuser.ListUserUseCase{UserDataInterface: udi, CacheDataInterface: cdi}
-	//c.Put(key,&luuc)
 	return &luuc, nil
 }
 

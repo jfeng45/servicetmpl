@@ -5,6 +5,7 @@ import (
 	"database/sql"
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jfeng45/servicetmpl/container/logger"
+	"github.com/jfeng45/servicetmpl/dataservice"
 	"github.com/jfeng45/servicetmpl/model"
 	"github.com/jfeng45/servicetmpl/tools"
 	"github.com/jfeng45/servicetmpl/tools/gdbc"
@@ -13,7 +14,7 @@ import (
 )
 
 const (
-	DELETE_USER string ="delet from userinfo where username=?"
+	DELETE_USER string ="delete from userinfo where username=?"
 	QUERY_USER_BY_ID string ="SELECT * FROM userinfo where uid =?"
 	QUERY_USER_BY_NAME = "SELECT * FROM userinfo where username =?"
 	QUERY_USER = "SELECT * FROM userinfo "
@@ -154,3 +155,6 @@ func (uds *UserDataSql) Insert(user *model.User) (*model.User, error) {
 	return user, nil
 }
 
+func (uds *UserDataSql) EnableTx(tx dataservice.TxDataInterface) {
+	uds.DB = tx.GetTx()
+}
