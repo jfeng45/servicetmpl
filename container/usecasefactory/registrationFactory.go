@@ -1,21 +1,21 @@
 package usecasefactory
 
 import (
-	"github.com/jfeng45/servicetmpl/configs"
+	"github.com/jfeng45/servicetmpl/config"
 	"github.com/jfeng45/servicetmpl/container"
 	"github.com/jfeng45/servicetmpl/usecase/registration"
 	"github.com/pkg/errors"
 )
 
 type RegistrationFactory struct {
-
 }
+
 // Build creates concrete type for RegistrationUseCaseInterface
-func (rf *RegistrationFactory) Build(c container.Container, appConfig *configs.AppConfig, key string) (UseCaseInterface, error) {
+func (rf *RegistrationFactory) Build(c container.Container, appConfig *config.AppConfig, key string) (UseCaseInterface, error) {
 	uc := appConfig.UseCase.Registration
 
 	if container.REGISTRATION != uc.Code {
-		errMsg := container.REGISTRATION  + " in RegistrationFactory doesn't match key = " + key
+		errMsg := container.REGISTRATION + " in RegistrationFactory doesn't match key = " + key
 		return nil, errors.New(errMsg)
 	}
 
@@ -27,12 +27,7 @@ func (rf *RegistrationFactory) Build(c container.Container, appConfig *configs.A
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}
-	ruc := registration.RegistrationUseCase{UserDataInterface: udi, TxDataInterface:tdi}
+	ruc := registration.RegistrationUseCase{UserDataInterface: udi, TxDataInterface: tdi}
 
 	return &ruc, nil
 }
-
-
-
-
-

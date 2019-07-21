@@ -1,19 +1,19 @@
 # Service Template
 
-This is a project to show the project layout for a Microservice business application in gRPC and Go. It applied Clean Architecture design and using dependency injection to inject concrete types into each function. 
+This is a project to show the project layout for a Micro-service application in gRPC and Go. It applied Clean Architecture design and using dependency injection to inject concrete types into each function. 
 
 ## How to use this project
-This project is best to be used as a starting point when creating a business gRPC Micro-service project. It already has rich built-in functionalities and is working, so there is no need to start from scratch. The purpose of it is to build basic functions into it with a flexible framework, which can be extended easily. The application design followed SOLID design principle and Go's concise coding style, so it can be used as a living example of application design and coding style when you try to enforce it in your code. In case you have a little different design and coding style, it is easy to change it fitting into your needs. 
+This project is best to be used as a starting point when creating a gRPC Micro-service project. It already has rich built-in functionalities and is working, so there is no reason to start from scratch. The goal of the project is to build a flexible framework with basic function, which can be extended easily. The application design followed SOLID design principle and Go's concise coding style, so it can be used as a living example of application design and coding style when you try to enforce them in your code.  
 
 ## Use it as a template to start a service project
 ### Functional Features:
-1. Switch persistence layer implementation by changing configuration file ( It implemented MySQL and CouchDB) (The database can be SQL and NoSQL)
-2. Switch logging lib by changing configuration file (It implemented ZAP and Logrus)( The logger lib need to support common interface similar to ZAP and Logrus)
-3. Support business layer transaction ( It doesn't support nested transaction or transaction across multiple Micro-service)  
+1. Switch persistence layer implementation by changing configuration file. Currently, it implemented MySQL and CouchDB. (It can be extended to support other SQL or NoSQL database)
+2. Switch logging provider by changing configuration file. Currently, it implemented ZAP and Logrus. ( It can be extended to support other logging providers, as long as they support common interface similar to ZAP and Logrus)
+3. Support business layer transaction (It doesn't support nested transaction or transaction boundary across multiple Micro-services)  
 4. Using Dependency Injection to create concrete types and wire the whole application together.
-5. Application configurations are saved in yaml file and can be changed easily. 
+5. Application configurations are saved in a YAML file. 
 
-### Design Feature:
+### Design Features:
 ##### 1. Programming on interface 
 * Application has three layers: use case, model and persistence. Each layer access other layers through interface ( Except for model layer, which doesn't need interface). 
 * Outside functions are also accessed through interface.
@@ -31,18 +31,18 @@ This project is best to be used as a starting point when creating a business gRP
   
 
 ### Coding Style:
-1. No use of package level variables except in "container" package
+1. Eliminated package level variables except in "container" package
 2. Minimize use of constant. Constants are read-only global variables, should be restricted.
 3. Log full stack trace for errors
 4. Errors are only handled on top level ( All other levels should only add information and propagate errors to upper level)
-5. Separation of concerns. Functional requirement, non-functional requirements and technical implementation ( for example, database, logger ) are different concerns and shouldn't be mixed in one piece of code. 
+5. Separation of concerns. Functional requirement, non-functional requirements and technical implementation ( for example, database, logger ) are different concerns and the implementation of those shouldn't be mixed in one piece of code. 
 6. Naming Convention. Function or block level local variables should be named according to Go's concise naming convention, but types or interfaces shouldn't. For them, readability overweight concise.   
 
 ## Getting Started
 
 ### Installation and Setting Up
 
-Don't need to follow all steps in this section to get the code up running. The simplest way is to get the code from github and run it. However, it will throw exception when accesses database. So, I'd recommend you install at least one database ( MySQL is better), then most of the code will work. 
+Don't need to finish all steps in this section up-front to get the code up running. The simplest way is to get the code from github and run it and come back to install the part when there is a real need. However, it will encounter an error when accesses database. So, I'd recommend you install at least one database ( MySQL is better), then most of the code will work. 
 
 #### Download Code
 
@@ -72,9 +72,9 @@ CouchDB [Example](https://github.com/go-kivik/kivik/wiki/Usage-Examples)
 #### Set up CouchDB
 
 ```
-Access Fauxton through broswer: http://localhost:5984/_utils/# (login with: admin/admin)
-Create new database "service_config" in Fauxton
-Add the following document to database ( "_id" and "_rev" are generated by database, no need to change it)
+Access Fauxton through broswer: http://localhost:5984/_utils/# (login with: admin/admin).
+Create new database "service_config" in Fauxton.
+Add the following document to database ( "_id" and "_rev" are generated by database, no need to change it):
 {
   "_id": "80a9134c7dfa53f67f6be214e1000fa7",
   "_rev": "4-f45fb8bdd454a71e6ae88bdeea8a0b4c",
@@ -84,7 +84,7 @@ Add the following document to database ( "_id" and "_rev" are generated by datab
   "created": "2018-02-17T15:04:05-03:00"
 }
 ```
-#### Install Cache Service (Another Microservice)
+#### Install Cache Service (Another Micro-service)
 
 Without it, only calling another Micro-service piece won't work, the rest of code works just fine. Please follow instructions in [reservegrpc](https://github.com/jfeng45/reservegrpc) to set up the service.
 

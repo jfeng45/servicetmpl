@@ -1,15 +1,15 @@
 package usecasefactory
 
 import (
-	"github.com/jfeng45/servicetmpl/configs"
+	"github.com/jfeng45/servicetmpl/config"
 	"github.com/jfeng45/servicetmpl/container"
 	"github.com/jfeng45/servicetmpl/usecase/listuser"
 	"github.com/pkg/errors"
 )
 
-type ListUserFactory struct {}
+type ListUserFactory struct{}
 
-func (luf *ListUserFactory)Build(c container.Container, appConfig *configs.AppConfig, key string) (UseCaseInterface, error)  {
+func (luf *ListUserFactory) Build(c container.Container, appConfig *config.AppConfig, key string) (UseCaseInterface, error) {
 	uc := appConfig.UseCase.ListUser
 
 	if container.LIST_USER != uc.Code {
@@ -25,9 +25,3 @@ func (luf *ListUserFactory)Build(c container.Container, appConfig *configs.AppCo
 	luuc := listuser.ListUserUseCase{UserDataInterface: udi, CacheDataInterface: cdi}
 	return &luuc, nil
 }
-
-
-
-
-
-

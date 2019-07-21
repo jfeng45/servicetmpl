@@ -2,7 +2,7 @@
 package logrus
 
 import (
-	"github.com/jfeng45/servicetmpl/configs"
+	"github.com/jfeng45/servicetmpl/config"
 	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/pkg/errors"
 	"github.com/sirupsen/logrus"
@@ -37,7 +37,7 @@ import (
 //	logger.lw.Println(args)
 //}
 
-func RegisterLog(lc configs.LogConfig) error{
+func RegisterLog(lc config.LogConfig) error {
 	//standard configuration
 	log := logrus.New()
 	log.SetFormatter(&logrus.TextFormatter{})
@@ -56,7 +56,7 @@ func RegisterLog(lc configs.LogConfig) error{
 }
 
 // customizeLogFromConfig customize log based on parameters from configuration file
-func customizeLogFromConfig(log *logrus.Logger, lc configs.LogConfig) error{
+func customizeLogFromConfig(log *logrus.Logger, lc config.LogConfig) error {
 	log.SetReportCaller(lc.EnableCaller)
 	//log.SetOutput(os.Stdout)
 	l := &log.Level
@@ -67,4 +67,3 @@ func customizeLogFromConfig(log *logrus.Logger, lc configs.LogConfig) error{
 	log.SetLevel(*l)
 	return nil
 }
-

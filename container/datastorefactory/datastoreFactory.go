@@ -7,16 +7,17 @@
 package datastorefactory
 
 import (
-	"github.com/jfeng45/servicetmpl/configs"
+	"github.com/jfeng45/servicetmpl/config"
 	"github.com/jfeng45/servicetmpl/container"
 )
 
 // database code. Need to map to the database code (DataStoreConfig) in the configuration yaml file.
 const (
-	SQLDB      string ="sqldb"
-	COUCHDB    string ="couch"
+	SQLDB      string = "sqldb"
+	COUCHDB    string = "couch"
 	CACHE_GRPC string = "cacheGrpc"
 )
+
 // To map "database code" to "database interface builder"
 // Concreate builder is in corresponding factory file. For example, "sqlFactory" is in "sqlFactory".go
 var dsFbMap = map[string]dsFbInterface{
@@ -31,15 +32,10 @@ type DataStoreInterface interface{}
 // The builder interface for factory method pattern
 // Every factory needs to implement Build method
 type dsFbInterface interface {
-	Build(container.Container, *configs.DataStoreConfig) (DataStoreInterface, error)
+	Build(container.Container, *config.DataStoreConfig) (DataStoreInterface, error)
 }
 
 //GetDataStoreFb is accessors for factoryBuilderMap
 func GetDataStoreFb(key string) dsFbInterface {
 	return dsFbMap[key]
 }
-
-
-
-
-

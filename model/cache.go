@@ -5,4 +5,3 @@ type Cache struct {
 	key   string
 	value []byte
 }
-

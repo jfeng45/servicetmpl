@@ -3,7 +3,7 @@ package zap
 
 import (
 	"encoding/json"
-	"github.com/jfeng45/servicetmpl/configs"
+	"github.com/jfeng45/servicetmpl/config"
 	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/pkg/errors"
 	"go.uber.org/zap"
@@ -39,9 +39,9 @@ import (
 //	logger.lw.Info(args, "\n")
 //}
 
-func RegisterLog(lc configs.LogConfig) error{
-	zLogger, err:=initLog(lc)
-	if err!= nil {
+func RegisterLog(lc config.LogConfig) error {
+	zLogger, err := initLog(lc)
+	if err != nil {
 		return errors.Wrap(err, "RegisterLog")
 	}
 	defer zLogger.Sync()
@@ -56,7 +56,7 @@ func RegisterLog(lc configs.LogConfig) error{
 }
 
 // initLog create logger
-func initLog (lc configs.LogConfig) (zap.Logger, error){
+func initLog(lc config.LogConfig) (zap.Logger, error) {
 	rawJSON := []byte(`{
 	 "level": "info",
      "Development": true,
@@ -100,12 +100,12 @@ func initLog (lc configs.LogConfig) (zap.Logger, error){
 }
 
 // customizeLogFromConfig customize log based on parameters from configuration file
-func customizeLogFromConfig(cfg *zap.Config, lc configs.LogConfig) error{
-	cfg.DisableCaller =!lc.EnableCaller
+func customizeLogFromConfig(cfg *zap.Config, lc config.LogConfig) error {
+	cfg.DisableCaller = !lc.EnableCaller
 
 	// set log level
 	l := zap.NewAtomicLevel().Level()
-	err :=l.Set(lc.Level)
+	err := l.Set(lc.Level)
 	if err != nil {
 		return errors.Wrap(err, "")
 	}
@@ -113,5 +113,3 @@ func customizeLogFromConfig(cfg *zap.Config, lc configs.LogConfig) error{
 
 	return nil
 }
-
-

@@ -12,13 +12,13 @@ const (
 	TARGET string = "localhost:5052"
 )
 
-func callRegisterUser (usc uspb.UserServiceClient) {
+func callRegisterUser(usc uspb.UserServiceClient) {
 	ctx := context.Background()
 
 	created := ptypes.TimestampNow()
-	u :=uspb.User{Name:"Tony", Department:"IT", Created:created}
+	u := uspb.User{Name: "Tony", Department: "IT", Created: created}
 
-	resp, err:= usc.RegisterUser(ctx, &uspb.RegisterUserReq{User:&u})
+	resp, err := usc.RegisterUser(ctx, &uspb.RegisterUserReq{User: &u})
 
 	if err != nil {
 		fmt.Println(err)
@@ -28,7 +28,7 @@ func callRegisterUser (usc uspb.UserServiceClient) {
 }
 func callListUser(usc uspb.UserServiceClient) {
 
-	resp, err:=usc.ListUser(context.Background(), &uspb.ListUserReq{})
+	resp, err := usc.ListUser(context.Background(), &uspb.ListUserReq{})
 	if err != nil {
 		fmt.Println(err)
 	} else {
@@ -38,11 +38,11 @@ func callListUser(usc uspb.UserServiceClient) {
 
 func main() {
 
-	conn, err:=grpc.Dial(TARGET, grpc.WithInsecure())
+	conn, err := grpc.Dial(TARGET, grpc.WithInsecure())
 	if err != nil {
 		fmt.Errorf("failed to dial server: %v", err)
 	}
-	userServiceClient :=uspb.NewUserServiceClient(conn)
+	userServiceClient := uspb.NewUserServiceClient(conn)
 	fmt.Println("client strated")
 
 	callRegisterUser(userServiceClient)

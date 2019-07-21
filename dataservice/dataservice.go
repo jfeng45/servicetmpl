@@ -7,7 +7,7 @@ package dataservice
 
 import (
 	"github.com/jfeng45/servicetmpl/model"
-	"github.com/jfeng45/servicetmpl/tools/gdbc"
+	"github.com/jfeng45/servicetmpl/tool/gdbc"
 )
 
 // UserDataInterface represents interface for user data access through database
@@ -40,13 +40,13 @@ type CacheDataInterface interface {
 // It is created for POC of courseDataServiceFactory, no real use.
 type CourseDataInterface interface {
 	FindAll() ([]model.Course, error)
-	SetDB (gdbc gdbc.Gdbc)
+	SetDB(gdbc gdbc.Gdbc)
 }
 
 // This interface needs to be included in every data service interface that needs transaction support
-type EnableTxer interface{
+type EnableTxer interface {
 	// EnableTx enables transaction, basically it replaces the underling database handle sql.DB with sql.Tx
-	EnableTx (TxDataInterface)
+	EnableTx(dataInterface TxDataInterface)
 }
 
 // TxDataInterface represents operations needed for transaction support.
@@ -59,8 +59,7 @@ type TxDataInterface interface {
 	// TxEnd is called at the end of a transaction and based on whether there is an error, it commits or rollback the
 	// transaction.
 	// txFunc is the business function wrapped in a transaction
-	TxEnd( txFunc func() error ) error
+	TxEnd(txFunc func() error) error
 	// Return the underline transaction handler, sql.Tx
 	GetTx() gdbc.SqlGdbc
 }
-

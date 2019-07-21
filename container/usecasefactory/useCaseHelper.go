@@ -1,16 +1,15 @@
 package usecasefactory
 
 import (
-	"github.com/jfeng45/servicetmpl/configs"
+	"github.com/jfeng45/servicetmpl/config"
 	"github.com/jfeng45/servicetmpl/container"
 	"github.com/jfeng45/servicetmpl/container/dataservicefactory"
 	"github.com/jfeng45/servicetmpl/dataservice"
 	"github.com/pkg/errors"
 )
 
-
-func buildUserData (c container.Container, dc *configs.DataConfig) (dataservice.UserDataInterface, error){
-	dsi, err := dataservicefactory.GetDataServiceFb(dc.Code).Build(c, dc )
+func buildUserData(c container.Container, dc *config.DataConfig) (dataservice.UserDataInterface, error) {
+	dsi, err := dataservicefactory.GetDataServiceFb(dc.Code).Build(c, dc)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}
@@ -18,8 +17,8 @@ func buildUserData (c container.Container, dc *configs.DataConfig) (dataservice.
 	return udi, nil
 }
 
-func buildTxData (c container.Container, dc *configs.DataConfig) (dataservice.TxDataInterface, error){
-	dsi, err := dataservicefactory.GetDataServiceFb(dc.Code).Build(c, dc )
+func buildTxData(c container.Container, dc *config.DataConfig) (dataservice.TxDataInterface, error) {
+	dsi, err := dataservicefactory.GetDataServiceFb(dc.Code).Build(c, dc)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}
@@ -27,9 +26,9 @@ func buildTxData (c container.Container, dc *configs.DataConfig) (dataservice.Tx
 	return tdi, nil
 }
 
-func buildCacheData (c container.Container,  dc *configs.DataConfig) (dataservice.CacheDataInterface, error){
+func buildCacheData(c container.Container, dc *config.DataConfig) (dataservice.CacheDataInterface, error) {
 	//logger.Log.Debug("uc:", cdc)
-	dsi, err := dataservicefactory.GetDataServiceFb(dc.Code).Build(c, dc )
+	dsi, err := dataservicefactory.GetDataServiceFb(dc.Code).Build(c, dc)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}
@@ -37,12 +36,11 @@ func buildCacheData (c container.Container,  dc *configs.DataConfig) (dataservic
 	return cdi, nil
 }
 
-func buildCourseData (c container.Container, dc *configs.DataConfig) (dataservice.CourseDataInterface, error){
-	dsi, err := dataservicefactory.GetDataServiceFb(dc.Code).Build(c, dc )
+func buildCourseData(c container.Container, dc *config.DataConfig) (dataservice.CourseDataInterface, error) {
+	dsi, err := dataservicefactory.GetDataServiceFb(dc.Code).Build(c, dc)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
 	}
 	cdi := dsi.(dataservice.CourseDataInterface)
 	return cdi, nil
 }
-

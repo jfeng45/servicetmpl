@@ -9,12 +9,12 @@ import (
 
 func modifyUser(udi dataservice.UserDataInterface, user *model.User) error {
 	//loggera.Log.Debug("modifyUser")
-	err :=user.ValidatePersisted()
+	err := user.ValidatePersisted()
 	if err != nil {
 		return errors.Wrap(err, "user validation failed")
 	}
 	rowsAffected, err := udi.Update(user)
-	if err!= nil {
+	if err != nil {
 		return errors.Wrap(err, "")
 	}
 	if rowsAffected != 1 {
@@ -34,7 +34,7 @@ func unregisterUser(udi dataservice.UserDataInterface, username string) error {
 	}
 
 	if affected != 1 {
-		errStr :="UnregisterUser failed. Number of users unregistered are  " + strconv.Itoa(int(affected))
+		errStr := "UnregisterUser failed. Number of users unregistered are  " + strconv.Itoa(int(affected))
 		return errors.New(errStr)
 	}
 	return nil

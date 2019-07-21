@@ -7,25 +7,26 @@
 package dataservicefactory
 
 import (
-	"github.com/jfeng45/servicetmpl/configs"
+	"github.com/jfeng45/servicetmpl/config"
 	"github.com/jfeng45/servicetmpl/container"
 )
 
 // data service code. Need to map to the data service code (DataConfig) in the configuration yaml file.
 const (
-	USER_DATA   string ="userData"
-	CACHE_DATA   string ="cacheData"
-	TX_DATA   string ="txData"
-	COURSE_DATA string ="courseData"
+	USER_DATA   string = "userData"
+	CACHE_DATA  string = "cacheData"
+	TX_DATA     string = "txData"
+	COURSE_DATA string = "courseData"
 )
+
 // To map "data service code" to "data service interface builder"
 // Each data service need a separate builder
 // Concrete builder is in corresponding factory file. For example, "courseDataServiceFactory" is in
 // "courseDataServiceFactory.go"
-var dsFbMap = map[string]dataServiceFbInterface {
-	USER_DATA: &userDataServiceFactoryWrapper{},
-	CACHE_DATA: &cacheDataServiceFactory{},
-	TX_DATA: &txDataServiceFactory{},
+var dsFbMap = map[string]dataServiceFbInterface{
+	USER_DATA:   &userDataServiceFactoryWrapper{},
+	CACHE_DATA:  &cacheDataServiceFactory{},
+	TX_DATA:     &txDataServiceFactory{},
 	COURSE_DATA: &courseDataServiceFactory{},
 }
 
@@ -35,11 +36,10 @@ type DataServiceInterface interface{}
 // The builder interface for factory method pattern
 // Every factory needs to implement Build method
 type dataServiceFbInterface interface {
-	Build(container.Container, *configs.DataConfig) (DataServiceInterface, error)
+	Build(container.Container, *config.DataConfig) (DataServiceInterface, error)
 }
 
 // GetDataServiceFb is accessors for factoryBuilderMap
 func GetDataServiceFb(key string) dataServiceFbInterface {
 	return dsFbMap[key]
 }
-

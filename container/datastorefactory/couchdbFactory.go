@@ -5,17 +5,17 @@ import (
 	couchdbKivid "github.com/go-kivik/couchdb"
 	"github.com/go-kivik/kivik"
 	//"github.com/flimzy/kivik"
-	"github.com/jfeng45/servicetmpl/configs"
+	"github.com/jfeng45/servicetmpl/config"
 	"github.com/jfeng45/servicetmpl/container"
 	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/pkg/errors"
 )
 
 // couchdbFactory is receiver for Build method
-type couchdbFactory struct {}
+type couchdbFactory struct{}
 
 // implement Build method for CouchDB database
-func (cf *couchdbFactory) Build(c container.Container, dsc *configs.DataStoreConfig) (DataStoreInterface, error) {
+func (cf *couchdbFactory) Build(c container.Container, dsc *config.DataStoreConfig) (DataStoreInterface, error) {
 	logger.Log.Debug("couchdbFactory")
 	key := dsc.Code
 
@@ -38,7 +38,7 @@ func (cf *couchdbFactory) Build(c container.Container, dsc *configs.DataStoreCon
 	}
 	db, err := client.DB(context.TODO(), dsc.DbName)
 	if err != nil {
-		return  nil, errors.Wrap(err, "")
+		return nil, errors.Wrap(err, "")
 	}
 	c.Put(key, db)
 	return db, nil

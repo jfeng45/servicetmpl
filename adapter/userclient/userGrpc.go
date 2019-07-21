@@ -10,7 +10,7 @@ import (
 )
 
 // GrpcToUser converts from grpc User type to domain Model user type
-func GrpcToUser(user *uspb.User) (*model.User, error){
+func GrpcToUser(user *uspb.User) (*model.User, error) {
 	if user == nil {
 		//logger.Log.Debug("user is nil")
 		return nil, nil
@@ -22,7 +22,7 @@ func GrpcToUser(user *uspb.User) (*model.User, error){
 	resultUser.Department = user.Department
 	created, err := ptypes.Timestamp(user.Created)
 	if err != nil {
-		return nil, errors.Wrap(err,"")
+		return nil, errors.Wrap(err, "")
 	}
 	resultUser.Created = created
 	return &resultUser, nil
@@ -38,9 +38,9 @@ func UserToGrpc(user *model.User) (*uspb.User, error) {
 	resultUser.Id = int32(user.Id)
 	resultUser.Name = user.Name
 	resultUser.Department = user.Department
-	created, err := ptypes.TimestampProto (user.Created)
+	created, err := ptypes.TimestampProto(user.Created)
 	if err != nil {
-		return nil, errors.Wrap(err,"")
+		return nil, errors.Wrap(err, "")
 	}
 	resultUser.Created = created
 	return &resultUser, nil
@@ -49,12 +49,12 @@ func UserToGrpc(user *model.User) (*uspb.User, error) {
 // UserListToGrpc converts from array of domain Model User type to array of grpc user type
 func UserListToGrpc(ul []model.User) ([]*uspb.User, error) {
 	var gul []*uspb.User
-	for _, user :=range ul {
-		gu, err :=UserToGrpc(&user)
+	for _, user := range ul {
+		gu, err := UserToGrpc(&user)
 		if err != nil {
-			return nil, errors.Wrap(err,"")
+			return nil, errors.Wrap(err, "")
 		}
-		gul =append(gul, gu)
+		gul = append(gul, gu)
 	}
 	return gul, nil
 }

@@ -5,13 +5,14 @@ import (
 	_ "github.com/go-sql-driver/mysql"
 	"github.com/jfeng45/servicetmpl/container/logger"
 	"github.com/jfeng45/servicetmpl/model"
-	"github.com/jfeng45/servicetmpl/tools/gdbc"
+	"github.com/jfeng45/servicetmpl/tool/gdbc"
 	"github.com/pkg/errors"
 )
 
 const (
 	QUERY_COURSE = "SELECT * FROM course"
 )
+
 // CourseDataSql is the SQL implementation of CourseDatainterface
 type CourseDataSql struct {
 	DB gdbc.SqlGdbc
@@ -32,15 +33,15 @@ func (cds *CourseDataSql) FindAll() ([]model.Course, error) {
 
 	//var ds string
 	for rows.Next() {
-		course, err :=rowsToCourse(rows)
+		course, err := rowsToCourse(rows)
 		if err != nil {
-			return courses, errors.Wrap(err,"")
+			return courses, errors.Wrap(err, "")
 		}
 		courses = append(courses, *course)
 
 	}
 	//need to check error for rows.Next()
-	if err =rows.Err(); err!= nil {
+	if err = rows.Err(); err != nil {
 		return nil, errors.Wrap(err, "")
 	}
 	logger.Log.Debug("find course list:", courses)
@@ -57,8 +58,3 @@ func rowsToCourse(rows *sql.Rows) (*model.Course, error) {
 	logger.Log.Debug("rows to Course:", course)
 	return course, nil
 }
-
-
-
-
-

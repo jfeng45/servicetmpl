@@ -13,7 +13,7 @@ import (
 type ListUserUseCase struct {
 	// UserDataInterface, which is a interface to underline database connection and can be used to access
 	// persistence layer
-	UserDataInterface  dataservice.UserDataInterface
+	UserDataInterface dataservice.UserDataInterface
 	// CacheDataInterface, which is a interface to outside gRPC cache service and can be used to access gRPC service
 	CacheDataInterface dataservice.CacheDataInterface
 }
@@ -21,7 +21,7 @@ type ListUserUseCase struct {
 func (luc *ListUserUseCase) ListUser() ([]model.User, error) {
 	return luc.UserDataInterface.FindAll()
 }
-func (luc *ListUserUseCase)Find(id int) (*model.User,error) {
+func (luc *ListUserUseCase) Find(id int) (*model.User, error) {
 	users, err := luc.getFromCache(strconv.Itoa(id))
 	if err != nil {
 		//not found in cache and continue
@@ -46,4 +46,3 @@ func (luc *ListUserUseCase) getFromCache(key string) ([]model.User, error) {
 	logger.Log.Info("value from get cache: ", value)
 	return nil, nil
 }
-

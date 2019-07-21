@@ -11,9 +11,10 @@ import (
 )
 
 const (
-	DDOC string = "_design/serviceConfigDesignDoc"
+	DDOC    string = "_design/serviceConfigDesignDoc"
 	VIEW_ID string = "_view/serviceConfigByID"
 )
+
 type UserDataCouchdb struct {
 	DB *kivik.DB
 }
@@ -30,11 +31,11 @@ func createView(udc *UserDataCouchdb) {
 				"map": "function(doc) {\n  if (doc.uid) {\n emit(doc.uid, doc);\n}\n}",
 			},
 		},
-		"language":"javascript",
+		"language": "javascript",
 	})
 	// For each rnu after first, it will throw an error because it already exist. Just ignore it.
 	if err != nil {
-		logger.Log.Errorf("err:%v\n" , err)
+		logger.Log.Errorf("err:%v\n", err)
 	}
 	logger.Log.Debug("rev:", rev)
 }
@@ -44,7 +45,7 @@ func (udc *UserDataCouchdb) Find(id int) (*model.User, error) {
 	// only need to it once
 	createView(udc)
 	rows, err := udc.DB.Query(context.TODO(), DDOC, VIEW_ID, map[string]interface{}{"reduce": false},
-		kivik.Options{"key":id})
+		kivik.Options{"key": id})
 
 	if err != nil {
 		return nil, errors.Wrap(err, "")
@@ -98,7 +99,6 @@ func (udc *UserDataCouchdb) FindByName(name string) (*model.User, error) {
 }
 
 // Couchdb doesn't support transaction, don't need to do anything. Just need the interface
-func (udc *UserDataCouchdb) EnableTx (dataservice.TxDataInterface) {
+func (udc *UserDataCouchdb) EnableTx(dataservice.TxDataInterface) {
 
 }
-

@@ -35,7 +35,7 @@ func (cdg CacheDataGrpc) Get(key string) ([]byte, error) {
 func (cdg CacheDataGrpc) Store(key string, value []byte) error {
 	cacheClient := getCacheClient(cdg.Conn)
 	ctx := context.Background()
-	_, err:= cacheClient.Store(ctx, &cspb.StoreReq{Key: key,Value:value})
+	_, err := cacheClient.Store(ctx, &cspb.StoreReq{Key: key, Value: value})
 
 	if err != nil {
 		return err

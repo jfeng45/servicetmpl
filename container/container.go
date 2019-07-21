@@ -4,21 +4,21 @@ package container
 // use case code. Need to map to the use case code (UseCaseConfig) in the configuration yaml file.
 // Client app use those to retrieve use case from the container
 const (
-	REGISTRATION   string ="registration"
-	LIST_USER string ="listUser"
-	LIST_COURSE string ="listCourse"
-
+	REGISTRATION string = "registration"
+	LIST_USER    string = "listUser"
+	LIST_COURSE  string = "listCourse"
 )
+
 type Container interface {
 	// InitApp loads the application configurations from a file and saved it in appConfig and initialize the logger
 	// The appConfig is cached in container, so it only loads the configuration file once.
 	// InitApp only needs to be called once. If the configuration changes, you can call it again to reinitialize the app.
-	InitApp( filename string ) error
+	InitApp(filename string) error
 
 	// BuildUseCase creates concrete types for use case and it is included types.
 	// For each call, it will create a new instance, which means it is not a singleton
 	// Only exceptions are data store handlers, which are singletons. They are cached in container.
-	BuildUseCase(code string) ( interface{}, error)
+	BuildUseCase(code string) (interface{}, error)
 
 	// This should only be used by container and it's sub-package
 	// Get instance by code from container. Only data store handler can be retrieved from container
@@ -27,5 +27,4 @@ type Container interface {
 	// This should only be used by container and it's sub-package
 	// Put value into container with code as the key. Only data store handler is saved in container
 	Put(code string, value interface{})
-
 }
