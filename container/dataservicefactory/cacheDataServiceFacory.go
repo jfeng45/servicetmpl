@@ -15,12 +15,6 @@ type cacheDataServiceFactory struct{}
 
 func (cdsf *cacheDataServiceFactory) Build(c container.Container, dataConfig *config.DataConfig) (DataServiceInterface, error) {
 	logger.Log.Debug("cacheDataServiceFactory")
-	key := dataConfig.Code
-	if CACHE_DATA != key {
-		errMsg := USER_DATA + " in cacheDataServiceFactory doesn't match key = " + key
-		return nil, errors.New(errMsg)
-	}
-
 	dsc := dataConfig.DataStoreConfig
 	dsi, err := datastorefactory.GetDataStoreFb(dsc.Code).Build(c, &dsc)
 	grpcConn := dsi.(*grpc.ClientConn)

@@ -1,6 +1,6 @@
 // Package handles low level database access including transaction through *sql.Tx or *sql.DB
 
-package databaseHandler
+package databasehandler
 
 import (
 	"context"

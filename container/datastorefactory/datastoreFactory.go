@@ -11,19 +11,13 @@ import (
 	"github.com/jfeng45/servicetmpl/container"
 )
 
-// database code. Need to map to the database code (DataStoreConfig) in the configuration yaml file.
-const (
-	SQLDB      string = "sqldb"
-	COUCHDB    string = "couch"
-	CACHE_GRPC string = "cacheGrpc"
-)
 
 // To map "database code" to "database interface builder"
 // Concreate builder is in corresponding factory file. For example, "sqlFactory" is in "sqlFactory".go
 var dsFbMap = map[string]dsFbInterface{
-	SQLDB:      &sqlFactory{},
-	COUCHDB:    &couchdbFactory{},
-	CACHE_GRPC: &cacheGrpcFactory{},
+	config.SQLDB:      &sqlFactory{},
+	config.COUCHDB:    &couchdbFactory{},
+	config.CACHE_GRPC: &cacheGrpcFactory{},
 }
 
 // DataStoreInterface serve as a marker to indicate the return type for Build method

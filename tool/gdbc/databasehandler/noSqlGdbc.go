@@ -1,4 +1,4 @@
-package databaseHandler
+package databasehandler
 
 import (
 	"context"

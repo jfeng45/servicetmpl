@@ -19,10 +19,6 @@ func (cf *couchdbFactory) Build(c container.Container, dsc *config.DataStoreConf
 	logger.Log.Debug("couchdbFactory")
 	key := dsc.Code
 
-	if COUCHDB != key {
-		errMsg := COUCHDB + " in couchdbFactory doesn't match key = " + key
-		return nil, errors.New(errMsg)
-	}
 	//if it is already in container, return
 	if value, found := c.Get(key); found {
 		logger.Log.Debug("found couchdb in container for key:", key)
@@ -30,7 +26,7 @@ func (cf *couchdbFactory) Build(c container.Container, dsc *config.DataStoreConf
 	}
 	// Don't know why needs adding the following line, because the driver is already registered in init() in couchdbKiv
 	// however, not adding this, I got the error "unknown driver "couch" (forgotten import?)"
-	kivik.Register(COUCHDB, &couchdbKivid.Couch{})
+	kivik.Register(config.COUCHDB, &couchdbKivid.Couch{})
 
 	client, err := kivik.New(context.TODO(), dsc.Code, dsc.UrlAddress)
 	if err != nil {

@@ -11,23 +11,15 @@ import (
 	"github.com/jfeng45/servicetmpl/container"
 )
 
-// data service code. Need to map to the data service code (DataConfig) in the configuration yaml file.
-const (
-	USER_DATA   string = "userData"
-	CACHE_DATA  string = "cacheData"
-	TX_DATA     string = "txData"
-	COURSE_DATA string = "courseData"
-)
-
 // To map "data service code" to "data service interface builder"
 // Each data service need a separate builder
 // Concrete builder is in corresponding factory file. For example, "courseDataServiceFactory" is in
 // "courseDataServiceFactory.go"
 var dsFbMap = map[string]dataServiceFbInterface{
-	USER_DATA:   &userDataServiceFactoryWrapper{},
-	CACHE_DATA:  &cacheDataServiceFactory{},
-	TX_DATA:     &txDataServiceFactory{},
-	COURSE_DATA: &courseDataServiceFactory{},
+	config.USER_DATA:   &userDataServiceFactoryWrapper{},
+	config.CACHE_DATA:  &cacheDataServiceFactory{},
+	config.TX_DATA:     &txDataServiceFactory{},
+	config.COURSE_DATA: &courseDataServiceFactory{},
 }
 
 // DataServiceInterface serves as a marker to indicate the return type for Build method

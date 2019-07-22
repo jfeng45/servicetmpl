@@ -15,10 +15,10 @@ type ServiceContainer struct {
 func (sc *ServiceContainer) InitApp(filename string) error {
 	var err error
 	config, err := loadConfig(filename)
-	sc.AppConfig = config
 	if err != nil {
 		return errors.Wrap(err, "loadConfig")
 	}
+	sc.AppConfig = config
 	err = loadLogger(config.Log)
 	if err != nil {
 		return errors.Wrap(err, "loadLogger")
@@ -26,18 +26,6 @@ func (sc *ServiceContainer) InitApp(filename string) error {
 
 	return nil
 }
-
-//func (sc *ServiceContainer) GetInstance(code string) ( interface{}, error) {
-//
-//	value, found := sc.FactoryMap[code]
-//	if found {
-//		logger.Log.Debug("found instance in container: code=", code)
-//		return value, nil
-//	} else {
-//		errMsg := "can't find corresponding type for code " + code + " in container"
-//		return nil, errors.New(errMsg)
-//	}
-//}
 
 // loads the logger
 func loadLogger(lc config.LogConfig) error {
@@ -56,7 +44,7 @@ func loadConfig(filename string) (*config.AppConfig, error) {
 	if err != nil {
 		return nil, errors.Wrap(err, "read container")
 	}
-	return &ac, nil
+	return ac, nil
 }
 
 func (sc *ServiceContainer) BuildUseCase(code string) (interface{}, error) {

@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"github.com/jfeng45/servicetmpl/config"
 	"github.com/jfeng45/servicetmpl/container"
 	"github.com/jfeng45/servicetmpl/container/logger"
@@ -27,7 +28,7 @@ func testMySql() {
 	filename := DEV_CONFIG
 	container, err := buildContainer(filename)
 	if err != nil {
-		logger.Log.Errorf("%+v\n", err)
+		fmt.Printf("%+v\n", err)
 		return
 	}
 	testListUser(container)
@@ -45,7 +46,8 @@ func testCouchDB() {
 	filename := PROD_CONFIG
 	container, err := buildContainer(filename)
 	if err != nil {
-		logger.Log.Errorf("%+v\n", err)
+		fmt.Printf("%+v\n", err)
+		//logger.Log.Errorf("%+v\n", err)
 		return
 	}
 	testFindById(container)
@@ -94,7 +96,7 @@ func testModifyUser(container container.Container) {
 	if err != nil {
 		logger.Log.Errorf("date format err:%+v\n", err)
 	}
-	user := model.User{Id: 18, Name: "Aditi", Department: "HR", Created: created}
+	user := model.User{Id: 19, Name: "Aditi", Department: "HR", Created: created}
 	err = ruci.ModifyUser(&user)
 	if err != nil {
 		logger.Log.Infof("Modify user failed:%+v\n", err)
@@ -125,7 +127,7 @@ func testModifyAndUnregister(container container.Container) {
 	if err != nil {
 		logger.Log.Errorf("date format err:%+v\n", err)
 	}
-	user := model.User{Id: 12, Name: "Richard", Department: "Sales", Created: created}
+	user := model.User{Id: 19, Name: "Richard", Department: "Sales", Created: created}
 	err = ruci.ModifyAndUnregister(&user)
 	if err != nil {
 		logger.Log.Errorf("ModifyAndUnregister failed:%+v\n", err)
@@ -143,7 +145,7 @@ func testModifyAndUnregisterWithTx(container container.Container) {
 	if err != nil {
 		logger.Log.Errorf("date format err:%+v\n", err)
 	}
-	user := model.User{Id: 17, Name: "Anshu", Department: "Sales", Created: created}
+	user := model.User{Id: 21, Name: "Anshu", Department: "Sales", Created: created}
 	err = ruci.ModifyAndUnregisterWithTx(&user)
 	if err != nil {
 		logger.Log.Errorf("ModifyAndUnregisterWithTx failed:%+v\n", err)
@@ -181,7 +183,7 @@ func testListCourse(container container.Container) {
 }
 
 func getListUserUseCase(c container.Container) (usecase.ListUserUseCaseInterface, error) {
-	key := container.LIST_USER
+	key := config.LIST_USER
 	value, err := c.BuildUseCase(key)
 	if err != nil {
 		//logger.Log.Errorf("%+v\n", err)
@@ -191,7 +193,7 @@ func getListUserUseCase(c container.Container) (usecase.ListUserUseCaseInterface
 }
 
 func getListCourseUseCase(c container.Container) (usecase.ListCourseUseCaseInterface, error) {
-	key := container.LIST_COURSE
+	key := config.LIST_COURSE
 	value, err := c.BuildUseCase(key)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
@@ -201,7 +203,7 @@ func getListCourseUseCase(c container.Container) (usecase.ListCourseUseCaseInter
 }
 
 func getRegistrationUseCase(c container.Container) (usecase.RegistrationUseCaseInterface, error) {
-	key := container.REGISTRATION
+	key := config.REGISTRATION
 	value, err := c.BuildUseCase(key)
 	if err != nil {
 		//logger.Log.Errorf("%+v\n", err)

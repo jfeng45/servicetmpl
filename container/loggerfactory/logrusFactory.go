@@ -11,11 +11,6 @@ type LogrusFactory struct{}
 
 // build logrus logger
 func (mf *LogrusFactory) Build(lc *config.LogConfig) error {
-	key := lc.Code
-	if LOGRUS != lc.Code {
-		errMsg := LOGRUS + " in LogrusFactory doesn't match key = " + key
-		return errors.New(errMsg)
-	}
 	err := logrus.RegisterLog(*lc)
 	if err != nil {
 		return errors.Wrap(err, "")

@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"github.com/jfeng45/servicetmpl/adapter/userclient"
 	uspb "github.com/jfeng45/servicetmpl/adapter/userclient/generatedclient"
 	"github.com/jfeng45/servicetmpl/config"
@@ -113,7 +114,8 @@ func main() {
 	//filename := PROD_CONFIG
 	container, err := buildContainer(filename)
 	if err != nil {
-		logger.Log.Errorf("%+v\n", err)
+		fmt.Printf("%+v\n", err)
+		//logger.Log.Errorf("%+v\n", err)
 		panic(err)
 	}
 	if err := runServer(container); err != nil {
@@ -137,7 +139,7 @@ func buildContainer(filename string) (*servicecontainer.ServiceContainer, error)
 }
 
 func getListUserUseCase(c container.Container) (usecase.ListUserUseCaseInterface, error) {
-	key := container.LIST_USER
+	key := config.LIST_USER
 	value, err := c.BuildUseCase(key)
 	if err != nil {
 		//logger.Log.Errorf("%+v\n", err)
@@ -147,7 +149,7 @@ func getListUserUseCase(c container.Container) (usecase.ListUserUseCaseInterface
 }
 
 func getListCourseUseCase(c container.Container) (usecase.ListCourseUseCaseInterface, error) {
-	key := container.LIST_COURSE
+	key := config.LIST_COURSE
 	value, err := c.BuildUseCase(key)
 	if err != nil {
 		return nil, errors.Wrap(err, "")
@@ -157,7 +159,7 @@ func getListCourseUseCase(c container.Container) (usecase.ListCourseUseCaseInter
 }
 
 func getRegistrationUseCase(c container.Container) (usecase.RegistrationUseCaseInterface, error) {
-	key := container.REGISTRATION
+	key := config.REGISTRATION
 	value, err := c.BuildUseCase(key)
 	if err != nil {
 		return nil, errors.Wrap(err, "")

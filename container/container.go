@@ -1,14 +1,6 @@
 // package container use dependency injection to create concrete type and wire the whole application together
 package container
 
-// use case code. Need to map to the use case code (UseCaseConfig) in the configuration yaml file.
-// Client app use those to retrieve use case from the container
-const (
-	REGISTRATION string = "registration"
-	LIST_USER    string = "listUser"
-	LIST_COURSE  string = "listCourse"
-)
-
 type Container interface {
 	// InitApp loads the application configurations from a file and saved it in appConfig and initialize the logger
 	// The appConfig is cached in container, so it only loads the configuration file once.

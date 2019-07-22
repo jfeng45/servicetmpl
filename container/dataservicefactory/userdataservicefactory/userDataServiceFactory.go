@@ -3,13 +3,12 @@ package userdataservicefactory
 import (
 	"github.com/jfeng45/servicetmpl/config"
 	"github.com/jfeng45/servicetmpl/container"
-	"github.com/jfeng45/servicetmpl/container/datastorefactory"
 	"github.com/jfeng45/servicetmpl/dataservice"
 )
 
 var udsFbMap = map[string]userDataServiceFbInterface{
-	datastorefactory.SQLDB:   &sqlUserDataServiceFactory{},
-	datastorefactory.COUCHDB: &couchdbUserDataServiceFactory{},
+	config.SQLDB:   &sqlUserDataServiceFactory{},
+	config.COUCHDB: &couchdbUserDataServiceFactory{},
 }
 
 // The builder interface for factory method pattern

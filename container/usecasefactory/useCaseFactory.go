@@ -11,9 +11,9 @@ import (
 // Each use case has exactly one factory. For example, "registration" use case has "RegistrationFactory"
 // Each factory has it's own file. For example, "RegistrationFactory" is in "registrationFactory.go"
 var UseCaseFactoryBuilderMap = map[string]UseCaseFbInterface{
-	container.REGISTRATION: &RegistrationFactory{},
-	container.LIST_USER:    &ListUserFactory{},
-	container.LIST_COURSE:  &ListCourseFactory{},
+	config.REGISTRATION: &RegistrationFactory{},
+	config.LIST_USER:    &ListUserFactory{},
+	config.LIST_COURSE:  &ListCourseFactory{},
 }
 
 // UseCaseInterface serve as a marker to indicate the return type for Build method

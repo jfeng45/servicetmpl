@@ -15,12 +15,6 @@ type txDataServiceFactory struct{}
 
 func (tdsf *txDataServiceFactory) Build(c container.Container, dataConfig *config.DataConfig) (DataServiceInterface, error) {
 	logger.Log.Debug("txDataServiceFactory")
-	key := dataConfig.Code
-	if TX_DATA != key {
-		errMsg := TX_DATA + " in txDataServiceFactory doesn't match key = " + key
-		return nil, errors.New(errMsg)
-	}
-
 	dsc := dataConfig.DataStoreConfig
 	dsi, err := datastorefactory.GetDataStoreFb(dsc.Code).Build(c, &dsc)
 	if err != nil {

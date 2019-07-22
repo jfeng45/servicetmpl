@@ -5,16 +5,10 @@ import (
 	"github.com/jfeng45/servicetmpl/config"
 )
 
-// constant for logger code, it needs to match log code (logConfig)in configuration
-const (
-	LOGRUS string = "logrus"
-	ZAP    string = "zap"
-)
-
 // logger mapp to map logger code to logger builder
 var logfactoryBuilderMap = map[string]logFbInterface{
-	ZAP:    &ZapFactory{},
-	LOGRUS: &LogrusFactory{},
+	config.ZAP:    &ZapFactory{},
+	config.LOGRUS: &LogrusFactory{},
 }
 
 // interface for logger factory

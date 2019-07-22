@@ -11,11 +11,6 @@ type ZapFactory struct{}
 
 // build zap logger
 func (mf *ZapFactory) Build(lc *config.LogConfig) error {
-	key := lc.Code
-	if ZAP != lc.Code {
-		errMsg := ZAP + " in zapFactory doesn't match key = " + key
-		return errors.New(errMsg)
-	}
 	err := zap.RegisterLog(*lc)
 	if err != nil {
 		return errors.Wrap(err, "")

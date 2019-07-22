@@ -79,18 +79,22 @@ type LogConfig struct {
 }
 
 // ReadConfig reads the file of the filename (in the same folder) and put it into the AppConfig
-func ReadConfig(filename string) (AppConfig, error) {
-	fmt.Println("read from log file: ", filename)
+func ReadConfig(filename string) (*AppConfig, error) {
+
 	var ac AppConfig
 	file, err := ioutil.ReadFile(filename)
 	if err != nil {
-		return ac, errors.Wrap(err, "read error")
+		return nil, errors.Wrap(err, "read error")
 	}
 	err = yaml.Unmarshal(file, &ac)
 
 	if err != nil {
-		return ac, errors.Wrap(err, "unmarshal")
+		return nil, errors.Wrap(err, "unmarshal")
+	}
+	err = validateConfig(ac)
+	if err != nil {
+		return nil, errors.Wrap(err, "validate config")
 	}
 	fmt.Println("appConfig:", ac)
-	return ac, nil
+	return &ac, nil
 }

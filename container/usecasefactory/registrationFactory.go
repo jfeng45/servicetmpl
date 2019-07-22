@@ -13,12 +13,6 @@ type RegistrationFactory struct {
 // Build creates concrete type for RegistrationUseCaseInterface
 func (rf *RegistrationFactory) Build(c container.Container, appConfig *config.AppConfig, key string) (UseCaseInterface, error) {
 	uc := appConfig.UseCase.Registration
-
-	if container.REGISTRATION != uc.Code {
-		errMsg := container.REGISTRATION + " in RegistrationFactory doesn't match key = " + key
-		return nil, errors.New(errMsg)
-	}
-
 	udi, err := buildUserData(c, &uc.UserDataConfig)
 	if err != nil {
 		return nil, errors.Wrap(err, "")

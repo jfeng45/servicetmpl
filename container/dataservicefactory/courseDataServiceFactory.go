@@ -13,8 +13,8 @@ import (
 )
 
 var courseDataServiceMap = map[string]dataservice.CourseDataInterface{
-	datastorefactory.COUCHDB: &couchdb.CourseDataCouchdb{},
-	datastorefactory.SQLDB:   &sqldb.CourseDataSql{},
+	config.COUCHDB: &couchdb.CourseDataCouchdb{},
+	config.SQLDB:   &sqldb.CourseDataSql{},
 }
 
 // courseDataServiceFactory is an empty receiver for Build method
@@ -27,12 +27,6 @@ func GetCourseDataServiceInterface(key string) dataservice.CourseDataInterface {
 
 func (tdsf *courseDataServiceFactory) Build(c container.Container, dataConfig *config.DataConfig) (DataServiceInterface, error) {
 	logger.Log.Debug("courseDataServiceFactory")
-	key := dataConfig.Code
-	if COURSE_DATA != key {
-		errMsg := COURSE_DATA + " in courseDataServiceFactory doesn't match key = " + key
-		return nil, errors.New(errMsg)
-	}
-
 	dsc := dataConfig.DataStoreConfig
 	dsi, err := datastorefactory.GetDataStoreFb(dsc.Code).Build(c, &dsc)
 	if err != nil {

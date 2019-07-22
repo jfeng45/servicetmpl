@@ -13,12 +13,6 @@ type cacheGrpcFactory struct{}
 
 func (cgf *cacheGrpcFactory) Build(c container.Container, dsc *config.DataStoreConfig) (DataStoreInterface, error) {
 	key := dsc.Code
-
-	if CACHE_GRPC != key {
-		errMsg := CACHE_GRPC + " in cacheGrpcFactory doesn't match key = " + key
-		return nil, errors.New(errMsg)
-	}
-
 	//if it is already in container, return
 	if value, found := c.Get(key); found {
 		logger.Log.Debug("find CacheGrpc key=%v \n", key)

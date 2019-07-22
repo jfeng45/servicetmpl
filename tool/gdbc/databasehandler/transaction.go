@@ -1,4 +1,4 @@
-package databaseHandler
+package databasehandler
 
 import (
 	"github.com/jfeng45/servicetmpl/container/logger"
