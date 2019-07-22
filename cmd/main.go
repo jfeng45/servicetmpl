@@ -32,7 +32,6 @@ func testMySql() {
 		return
 	}
 	testListUser(container)
-	testListUser(container)
 	testFindById(container)
 	testRegisterUser(container)
 	testModifyUser(container)
