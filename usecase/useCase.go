@@ -53,6 +53,7 @@ type ListCourseUseCaseInterface interface {
 	ListCourse() ([]model.Course, error)
 }
 
+// EnableTxer is the transaction interface for use case layer
 type EnableTxer interface {
 	EnableTx()
 }

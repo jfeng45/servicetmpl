@@ -71,14 +71,13 @@ func (ruc *RegistrationUseCase) ModifyAndUnregisterWithTx(user *model.User) erro
 	}
 	ruc.EnableTx()
 	return tdi.TxEnd(func() error {
-		//wrap the business function inside the TxEnd function
+		// wrap the business function inside the TxEnd function
 		return modifyAndUnregister(ruc, user)
 	})
 }
 
 func (ruc *RegistrationUseCase) EnableTx() {
-
 	// Only UserDataInterface need transaction support here. If there are other data services need it, then need to all.
-	//ruc.UserDataInterface.
+	// ruc.UserDataInterface.
 	ruc.UserDataInterface.EnableTx(ruc.TxDataInterface)
 }

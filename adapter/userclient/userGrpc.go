@@ -12,7 +12,6 @@ import (
 // GrpcToUser converts from grpc User type to domain Model user type
 func GrpcToUser(user *uspb.User) (*model.User, error) {
 	if user == nil {
-		//logger.Log.Debug("user is nil")
 		return nil, nil
 	}
 	resultUser := model.User{}
@@ -31,7 +30,6 @@ func GrpcToUser(user *uspb.User) (*model.User, error) {
 // UserToGrpc converts from domain Model User type to grpc user type
 func UserToGrpc(user *model.User) (*uspb.User, error) {
 	if user == nil {
-		//logger.Log.Debug("user is nil")
 		return nil, nil
 	}
 	resultUser := uspb.User{}

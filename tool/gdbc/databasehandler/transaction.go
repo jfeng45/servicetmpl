@@ -16,11 +16,11 @@ func (cdt *SqlDBTx) Commit() error {
 }
 
 // TransactionBegin starts a transaction
-func (cdt *SqlDBTx) TxBegin() (gdbc.SqlGdbc, error) {
+func (sdt *SqlDBTx) TxBegin() (gdbc.SqlGdbc, error) {
 	logger.Log.Debug("transaction begin")
-	tx, err := cdt.DB.Begin()
-	ct := SqlConnTx{tx}
-	return &ct, err
+	tx, err := sdt.DB.Begin()
+	sct := SqlConnTx{tx}
+	return &sct, err
 }
 
 // DB doesnt rollback, do nothing here
