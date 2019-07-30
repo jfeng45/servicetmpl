@@ -16,9 +16,10 @@ The followings are a series of artcles to explain different areas of the applica
 
 [Go Microservice with Clean Architecture: Application Logging](https://medium.com/@jfeng45/go-microservice-with-clean-architecture-application-logging-b43dc5839bce)
 
-[Go Micro-service with Clean Architecture: Application Container]
+[Go Micro-service with Clean Architecture: Application Container](https://medium.com/@jfeng45/go-microservice-with-clean-architecture-application-container-477cc3a11e77)
 
-[Go Micro-service with Clean architecture: Dependency Injection]
+[Go Micro-service with Clean architecture: Dependency Injection](https://medium.com/@jfeng45/go-microservice-with-clean-architecture-dependency-injection-82cbd3ecb9f3)
+
 ## How to use this project
 This project is best to be used as a starting point when creating a gRPC Microservice project. It already has rich built-in functionalities and is working, so there is no reason to start from scratch. The goal of the project is to build a flexible framework with basic function, which can be extended easily. The application design followed SOLID design principle and Go's concise coding style, so it can be used as a living example of application design and coding style when you try to enforce them in your code.  
 
@@ -145,6 +146,5 @@ go run grpcClientMain.go
 ## License
 
 [MIT](LICENSE.txt) License
-
 
 
