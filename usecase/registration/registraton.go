@@ -77,7 +77,7 @@ func (ruc *RegistrationUseCase) ModifyAndUnregisterWithTx(user *model.User) erro
 }
 
 func (ruc *RegistrationUseCase) EnableTx() {
-	// Only UserDataInterface need transaction support here. If there are other data services need it, then need to all.
-	// ruc.UserDataInterface.
+	// Only UserDataInterface need transaction support here. If there are other data services need it,
+	// then they also need to enable transaction here
 	ruc.UserDataInterface.EnableTx(ruc.TxDataInterface)
 }
