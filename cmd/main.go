@@ -32,13 +32,13 @@ func testMySql() {
 		return
 	}
 	testListUser(container)
-	//testFindById(container)
-	//testRegisterUser(container)
-	//testModifyUser(container)
-	//testUnregister(container)
-	//testModifyAndUnregister(container)
-	//testModifyAndUnregisterWithTx(container)
-	//testListCourse(container)
+	testFindById(container)
+	testRegisterUser(container)
+	testModifyUser(container)
+	testUnregister(container)
+	testModifyAndUnregister(container)
+	testModifyAndUnregisterWithTx(container)
+	testListCourse(container)
 
 }
 func testCouchDB() {
