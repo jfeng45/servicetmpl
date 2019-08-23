@@ -6,25 +6,6 @@
 
 这是一个基于gRPC的Go微服务项目。它为Go微服务程序找到了合适的程序结构，并且应用了清晰架构（Clean Atchitecture）设计并使用依赖注入（Dependency Injection）将具体类型注入到每个函数中。
 
-以下是一系列文章，解释了程序设计中的不同领域：
-1. [清晰架构（Clean Atchitecture）的Go微服务: 程序结构](https://jfeng45.github.io/posts/go_microservice_application_layout/)
-
-1. [清晰架构（Clean Atchitecture）的Go微服务: 程序设计](https://jfeng45.github.io/posts/clean_architecture_application_design/)
-
-1. [清晰架构（Clean Atchitecture）的Go微服务: 设计原则](https://jfeng45.github.io/posts/clean_architecture_design_principle/)
-
-1. [清晰架构（Clean Atchitecture）的Go微服务: 编码风格](https://jfeng45.github.io/posts/coding_style/)
-
-1. [清晰架构（Clean Atchitecture）的Go微服务: 事物管理](https://jfeng45.github.io/posts/transaction_support/)
-
-1. [清晰架构（Clean Atchitecture）的Go微服务: 日志管理](https://jfeng45.github.io/posts/go_logging_and_error_handling/)
-
-1. [清晰架构（Clean Atchitecture）的Go微服务: 程序容器（Application Container）](https://jfeng45.github.io/posts/application_container/)
-
-1. [清晰架构（Clean Atchitecture）的Go微服务: 依赖注入（Dependency Injection）](https://jfeng45.github.io/posts/dependency_injection/)
-
-1. 清晰架构（Clean Atchitecture）的Go微服务: 服务的健壮性
-
 ## 如何使用这个项目
 在创建gRPC微服务项目时，此项目最适合用作基本框架。它已经具有丰富的内置功能并且已经调试通过，因此没有理由从头开始。该项目的目标是构建一个具有基本功能的灵活框架，以便以后轻松扩展。
 程序设计遵循“SOLID (面向对象设计)”设计原则和Go的简洁编码风格，因此当你需要执行某些编码规范时，它可以用作程序设计和编码样式的具体示例。
