@@ -4,7 +4,29 @@
 
 ### **[English](README.md)**
 
+### 更新
+我最近对这个框架进行了重大升级，虽然所做的改动不大，但成效显著。升级后的项目在["servicetmpl1"](https://github.com/jfeng45/servicetmpl1)。这次更新修复了旧框架中的所有主要问题，尽管它的的主要项目结构和接口都没有改变，具体改动内容请参见[清晰架构（Clean Architecture）的Go微服务—重大升级](https://blog.csdn.net/weixin_38748858/article/details/107565358/)。 现在它几乎拥有了我理想框架中的所有内容。它是一个轻量级的框架，但功能强大，并且还是可插拔的。
+
+### 说明原文
 这是一个基于gRPC的Go微服务项目。它为Go微服务程序找到了合适的程序结构，并且应用了清晰架构（Clean Atchitecture）设计并使用依赖注入（Dependency Injection）将具体类型注入到每个函数中。
+
+下面是讲述这个项目的系列文章：
+
+1. [清晰架构（Clean Architecture）的Go微服务: 程序结构](https://blog.csdn.net/weixin_38748858/article/details/103629874)
+
+1. [清晰架构（Clean Architecture）的Go微服务: 程序设计](https://blog.csdn.net/weixin_38748858/article/details/103708927)
+
+1. [清晰架构（Clean Architecture）的Go微服务: 设计原则](https://blog.csdn.net/weixin_38748858/article/details/103761028)
+
+1. [清晰架构（Clean Architecture）的Go微服务: 编码风格](https://blog.csdn.net/weixin_38748858/article/details/104152116)
+
+1. [清晰架构（Clean Architecture）的Go微服务: 事物管理](https://blog.csdn.net/weixin_38748858/article/details/104067578)
+
+1. [清晰架构（Clean Architecture）的Go微服务: 日志管理](https://blog.csdn.net/weixin_38748858/article/details/103822111)
+
+1. [清晰架构（Clean Architecture）的Go微服务: 程序容器（Application Container）](https://blog.csdn.net/weixin_38748858/article/details/103914642)
+
+1. [清晰架构（Clean Architecture）的Go微服务: 依赖注入（Dependency Injection）](https://blog.csdn.net/weixin_38748858/article/details/103999523)
 
 ## 如何使用这个项目
 在创建gRPC微服务项目时，此项目最适合用作基本框架。它已经具有丰富的内置功能并且已经调试通过，因此没有理由从头开始。该项目的目标是构建一个具有基本功能的灵活框架，以便以后轻松扩展。
