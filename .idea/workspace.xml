@@ -3,6 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="ddc7f6fd-5115-4c7c-9eef-18bf4419bc53" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/README.zh.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.zh.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -86,24 +87,24 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="691">
-                <caret line="141" column="3" selection-start-line="141" selection-start-column="3" selection-end-line="141" selection-end-column="3" />
+              <first_editor relative-caret-position="286">
+                <caret line="6" column="668" selection-start-line="6" selection-start-column="668" selection-end-line="6" selection-end-column="668" />
               </first_editor>
               <second_editor />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/README.zh.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
-              <first_editor relative-caret-position="242">
-                <caret line="7" column="296" selection-start-line="7" selection-start-column="296" selection-end-line="7" selection-end-column="296" />
+              <first_editor relative-caret-position="263">
+                <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="18" />
               </first_editor>
               <second_editor />
             </state>
@@ -257,19 +258,19 @@
         <option value="$PROJECT_DIR$/usecase/useCase.go" />
         <option value="$PROJECT_DIR$/container/dataservicefactory/userDataServiceFactoryWrapper.go" />
         <option value="$PROJECT_DIR$/usecase/registration/registraton.go" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/go.sum" />
         <option value="$PROJECT_DIR$/go.mod" />
         <option value="$PROJECT_DIR$/cmd/main.go" />
         <option value="$PROJECT_DIR$/container/dataservicefactory/userdataservicefactory/userDataServiceFactory.go" />
         <option value="$PROJECT_DIR$/container/loggerfactory/zap/zap.go" />
         <option value="$PROJECT_DIR$/README.zh.md" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="1">
-    <option name="x" value="48" />
-    <option name="y" value="19" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="55" />
+    <option name="y" value="22" />
     <option name="width" value="2007" />
     <option name="height" value="1347" />
   </component>
@@ -532,7 +533,7 @@
     </recent_temporary>
   </component>
   <component name="ToolWindowManager">
-    <frame x="38" y="11" width="1338" height="898" extended-state="0" />
+    <frame x="23" y="8" width="1338" height="898" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2171875" />
@@ -986,21 +987,21 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
+    <entry file="file://$PROJECT_DIR$/README.zh.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="691">
-            <caret line="141" column="3" selection-start-line="141" selection-start-column="3" selection-end-line="141" selection-end-column="3" />
+          <first_editor relative-caret-position="263">
+            <caret line="9" column="6" lean-forward="true" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="18" />
           </first_editor>
           <second_editor />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/README.zh.md">
+    <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
-          <first_editor relative-caret-position="242">
-            <caret line="7" column="296" selection-start-line="7" selection-start-column="296" selection-end-line="7" selection-end-column="296" />
+          <first_editor relative-caret-position="286">
+            <caret line="6" column="668" selection-start-line="6" selection-start-column="668" selection-end-line="6" selection-end-column="668" />
           </first_editor>
           <second_editor />
         </state>

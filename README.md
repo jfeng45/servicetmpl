@@ -2,7 +2,11 @@
 
 Other language: 
 ### **[中文](README.zh.md)**
- 
+
+### Update（2020/08/04)
+I recently made a major upgrade to this framework. Although the changes made are small, the results are remarkable. The upgraded project is in ["servicetmpl1"](https://github.com/jfeng45/servicetmpl1). This update fixes all the major issues in the old framework, although its main project structure and interfaces have not changed. For specific changes, please refer to ["Go Microservice with Clean Architecture-A Major Upgrade"](https://medium.com/@jfeng45/go-microservice-with-clean-architecture-a-major-upgrade-34a4cedb0b06). Now it has almost everything in my ideal framework. It is a lightweight framework, but powerful and and can plug any new components into it.
+
+### Original (2019/07/03)
 This is a Go Microservice project with gRPC. It tries to find an appropriate application layout for a Go Microservice application. It applied Clean Architecture design and using dependency injection to inject concrete types into each function. 
 
 The following are a series of articles to explain the different areas of the application design:

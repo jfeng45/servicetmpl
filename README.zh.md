@@ -4,10 +4,10 @@
 
 ### **[English](README.md)**
 
-### 更新
+### 更新（2020/08/04)
 我最近对这个框架进行了重大升级，虽然所做的改动不大，但成效显著。升级后的项目在["servicetmpl1"](https://github.com/jfeng45/servicetmpl1)。这次更新修复了旧框架中的所有主要问题，尽管它的的主要项目结构和接口都没有改变，具体改动内容请参见[清晰架构（Clean Architecture）的Go微服务—重大升级](https://blog.csdn.net/weixin_38748858/article/details/107565358/)。 现在它几乎拥有了我理想框架中的所有内容。它是一个轻量级的框架，但功能强大，并且还是可插拔的。
 
-### 说明原文
+### 原文(2019/07/03)
 这是一个基于gRPC的Go微服务项目。它为Go微服务程序找到了合适的程序结构，并且应用了清晰架构（Clean Atchitecture）设计并使用依赖注入（Dependency Injection）将具体类型注入到每个函数中。
 
 下面是讲述这个项目的系列文章：
